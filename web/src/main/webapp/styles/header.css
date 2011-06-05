@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+div#header .carpool_pic {
+	background-image: url(../images/carpool.png);
+	display: block;
+	height: 195px;
+	background-repeat: no-repeat;
+	background-position: 40px;
+}
