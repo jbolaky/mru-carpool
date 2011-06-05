@@ -19,7 +19,7 @@
 			<param name="log4j.logger.org.hibernate.SQL" value="ALL"/> <param
 			name="log4j.logger.org.hibernate.type" value="ALL"/>
 		-->
-		<param name="File" value="hessian.client.log" />
+		<param name="File" value="carpool.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p %c{1} - %m%n" />
 		</layout>
@@ -36,7 +36,7 @@
 	<root>
 		<priority value="debug" />
 		<appender-ref ref="console" />
-		<!-- appender-ref ref="file" /-->
+		<appender-ref ref="file">
 	</root>
 
 </log4j:configuration>
