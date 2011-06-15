@@ -1,0 +1,13 @@
+@charset "utf-8";
+.clear {
+}
+.topspace {
+	margin-top: 7px;
+	margin-bottom: 0px;
+}
+.notopmargin {
+	margin: 0;
+}
+.text_align_center {
+	text-align: center;
+}
