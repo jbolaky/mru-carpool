@@ -16,7 +16,11 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.javaid.bolaky.carpool.domains.user-registration</groupId>
+			<artifactId>domains.user-registration.service</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
 	</dependencies>
 
 </project>

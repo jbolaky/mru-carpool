@@ -7,5 +7,5 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolErrorCode;
 
 public interface CarPoolService {
 
-	Set<CarPoolErrorCode> registerUserAndSendEmail(UserVO userVO);
+	Set<CarPoolErrorCode> registerUser(UserVO userVO);
 }
