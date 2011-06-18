@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="email_components_MailConfig" class="com.javaid.bolaky.component.email.MailConfig" >
+		<property name="hostName" value="smtp.gmail.com" />
+		<property name="smtpPort" value="587"/> 
+		<property name="username" value="javaid.bolaky@gmail.com"/>
+		<property name="password" value="ykalob.diavaj"/>
+		<property name="tls" value="true" />
+		<property name="fromEmailAddress" value="javaid.bolaky@gmail.com" />
+	</bean>
+
+	<bean id="email_components_DefaultCommonsEmailAcl"
+		class="com.javaid.bolaky.component.email.acl.commons.email.impl.DefaultCommonsEmailAcl" />
+
+	<bean id="email_components_DefaultEmailSenderService"
+		class="com.javaid.bolaky.component.email.service.impl.DefaultEmailSenderService" />
+
+</beans>
