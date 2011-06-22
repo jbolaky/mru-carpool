@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <script src="SpryAssets/SpryValidationRadio.js" type="text/javascript"></script>
-	<link href="styles/register.css" rel="stylesheet" type="text/css" />
-	<link href="SpryAssets/SpryValidationRadio.css" rel="stylesheet" type="text/css" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    
+    <script src="<c:url value="/resources/SpryAssets/SpryValidationRadio.js"/>" type="text/javascript"></script>
+	<link href="<c:url value="/resources/styles/register.css"/>" rel="stylesheet" type="text/css" />
+	<link href="<c:url value="/resources/SpryAssets/SpryValidationRadio.css"/>" rel="stylesheet" type="text/css" />
 	<div id="content">
 	  <h1 class="contentmargin notopmargin"> Your Information </h1>
-     	<form action="homepage" method="post" id="member_registration" class="contentmargin">
+     	<form:form  action="saveuser" method="post" id="member_registration" class="contentmargin">
         	<fieldset>
             	<h2 class="item" style="margin-top:0%;">Account Details</h2>
                 <table id="account_details" width="100%">
@@ -110,7 +114,9 @@
   					<tr>
                     	<td>
                         	<select name="country">
-                            	<option>Mauritius</option>
+                        		<c:forEach items="${countries}" var="countryVO" >
+  									<option><c:out value="${countryVO.countryName}" /></option>
+  								</c:forEach>
                             </select>
                         </td>
     					<td>
@@ -193,7 +199,7 @@
                     <input class="button" name="register" type="submit" value="Register Now" />
                 </div>
             </fieldset>
-        </form>	
+        </form:form>
     </div>
     
     <script type="text/javascript">

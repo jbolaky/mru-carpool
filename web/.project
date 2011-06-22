@@ -1,7 +1,14 @@
 <projectDescription>
   <name>carpool.web</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects/>
+  <projects>
+    <project>carpool.domains.commons</project>
+    <project>carpool.domains.location.entity</project>
+    <project>carpool.domains.location.service</project>
+    <project>carpool.domains.user-registration.entity</project>
+    <project>carpool.domains.user-registration.service</project>
+    <project>carpool.service</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.wst.jsdt.core.javascriptValidator</name>
