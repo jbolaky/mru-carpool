@@ -9,10 +9,10 @@
 	</parent>
 
 	<groupId>com.javaid.bolaky.carpool.domains.commons</groupId>
-	<artifactId>domains.commons</artifactId>
+	<artifactId>carpool.domains.commons</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>domains.commons</name>
+	<name>carpool.domains.commons</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
