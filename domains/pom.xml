@@ -18,6 +18,7 @@
 	<modules>
 		<module>domain-commons</module>
 		<module>user-registration</module>
+		<module>location</module>
 	</modules>
 
 	<dependencies>
