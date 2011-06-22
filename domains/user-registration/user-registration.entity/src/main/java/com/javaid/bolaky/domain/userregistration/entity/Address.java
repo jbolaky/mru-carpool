@@ -44,15 +44,15 @@ public class Address extends AbstractTimestampUsernameEntity {
 	private String postCode;
 
 	@NotNull(groups=MandatoryDataRules.class,message="P24")
-	@Column(name = "COUNTRY_NAME")
-	private String countryName;
+	@Column(name = "COUNTRY_CODE")
+	private String countryCode;
 
 	@NotNull(groups=MandatoryDataRules.class,message="P25")
-	@Column(name = "TOWN_NAME")
-	private String townName;
+	@Column(name = "TOWN_CODE")
+	private String townCode;
 
-	@Column(name = "PROVINCE_NAME")
-	private String provinceName;
+	@Column(name = "PROVINCE_CODE")
+	private String provinceCode;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID")
@@ -69,9 +69,9 @@ public class Address extends AbstractTimestampUsernameEntity {
 		super();
 		this.addressLine1 = addressLine1;
 		this.postCode = postCode;
-		this.countryName = countryCode;
-		this.townName = townCode;
-		this.provinceName = provinceCode;
+		this.countryCode = countryCode;
+		this.townCode = townCode;
+		this.provinceCode = provinceCode;
 	}
 
 	public Address(String addressLine1, String addressLine2,
@@ -82,9 +82,9 @@ public class Address extends AbstractTimestampUsernameEntity {
 		this.addressLine2 = addressLine2;
 		this.addressLine3 = addressLine3;
 		this.postCode = postCode;
-		this.countryName = countryCode;
-		this.townName = townCode;
-		this.provinceName = provinceCode;
+		this.countryCode = countryCode;
+		this.townCode = townCode;
+		this.provinceCode = provinceCode;
 	}
 
 	public Long getAddressId() {
@@ -107,16 +107,16 @@ public class Address extends AbstractTimestampUsernameEntity {
 		return postCode;
 	}
 
-	public String getCountryName() {
-		return countryName;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
-	public String getTownName() {
-		return townName;
+	public String getTownCode() {
+		return townCode;
 	}
 
-	public String getProvinceName() {
-		return provinceName;
+	public String getProvinceCode() {
+		return provinceCode;
 	}
 
 	public Person getPerson() {
@@ -139,16 +139,16 @@ public class Address extends AbstractTimestampUsernameEntity {
 		this.postCode = postCode;
 	}
 
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
-	public void setTownName(String townName) {
-		this.townName = townName;
+	public void setTownCode(String townCode) {
+		this.townCode = townCode;
 	}
 
-	public void setProvinceName(String provinceName) {
-		this.provinceName = provinceName;
+	public void setProvinceCode(String provinceCode) {
+		this.provinceCode = provinceCode;
 	}
 
 	public void setPerson(Person person) {

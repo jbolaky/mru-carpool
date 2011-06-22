@@ -4,21 +4,21 @@
 
 	<parent>
 		<groupId>com.javaid.bolaky.carpool.domains.user-registration</groupId>
-		<artifactId>domains.user-registration.parent</artifactId>
+		<artifactId>carpool.domains.user-registration.parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>com.javaid.bolaky.carpool.domains.user-registration</groupId>
-	<artifactId>domains.user-registration.entity</artifactId>
+	<artifactId>carpool.domains.user-registration.entity</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>domains.user-registration.entity</name>
+	<name>carpool.domains.user-registration.entity</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.javaid.bolaky.carpool.domains.commons</groupId>
-			<artifactId>domains.commons</artifactId>
+			<artifactId>carpool.domains.commons</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>
