@@ -18,6 +18,12 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>com.javaid.bolaky.carpool</groupId>
+			<artifactId>carpool.service</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-faces</artifactId>
 		</dependency>
@@ -30,9 +36,8 @@
 		<!-- Apache Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-jsp</artifactId>	
-		</dependency>	
-
+			<artifactId>tiles-jsp</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
