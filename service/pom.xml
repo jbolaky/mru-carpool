@@ -18,7 +18,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.javaid.bolaky.carpool.domains.user-registration</groupId>
-			<artifactId>domains.user-registration.service</artifactId>
+			<artifactId>carpool.domains.user-registration.service</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.javaid.bolaky.carpool.domains.location</groupId>
+			<artifactId>carpool.domains.location.service</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
 	</dependencies>
