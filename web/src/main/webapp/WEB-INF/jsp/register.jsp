@@ -9,41 +9,41 @@
 	<link href="<c:url value="/resources/SpryAssets/SpryValidationRadio.css"/>" rel="stylesheet" type="text/css" />
 	<div id="content">
 	  <h1 class="contentmargin notopmargin"> Your Information </h1>
-     	<form:form  action="saveuser" method="post" id="member_registration" class="contentmargin">
+     	<form:form  action="saveuser" method="post" modelAttribute="userVO" id="member_registration" class="contentmargin">
         	<fieldset>
             	<h2 class="item" style="margin-top:0%;">Account Details</h2>
                 <table id="account_details" width="100%">
   					<tr>
    					  	<td><label>Username:</label></td>
-		 			  	<td><input name="username" type="text" /></td>
+		 			  	<td><form:input path="username" /></td>
     					<td><label>Age Group:</label></td>
     					<td>
-                        	<select name="age_group">
-                       			<option value="">--SELECT--</option>
-                                <option value="18-25">18-25</option>
-								<option value="26-32">26-32</option>
-								<option value="33-40">33-40</option>
-								<option value="40+">40+</option>
-                            </select>
+                        	<form:select path="ageGroup">
+                       			<form:option value="">--SELECT--</form:option>
+                                <form:option value="18-25">18-25</form:option>
+								<form:option value="26-32">26-32</form:option>
+								<form:option value="33-40">33-40</form:option>
+								<form:option value="40+">40+</form:option>
+                            </form:select>
                         </td>
   					</tr>
   					<tr>
     					<td><label>First Name:</label></td>
-    					<td><input name="firstname" type="text" /></td>
+    					<td><form:input path="firstname" /></td>
     					<td><label>Last Name:</label></td>
-    					<td><input name="lastname" type="text" /></td>
+    					<td><form:input path="lastname" /></td>
   					</tr>
   					<tr>
   						<td><label>Password:</label></td>
-    					<td><input name="password" type="text" /></td>
+    					<td><form:input path="password" /></td>
     					<td><label>Confirm Password:</label></td>
-    					<td><input name="confirmpassword" type="text" /></td>
+    					<td><form:input path="confirmPassword" /></td>
   					</tr>
   					<tr>
   						<td><label>Email:</label></td>
-    					<td><input name="email" type="text" /></td>
+    					<td><form:input path="emailAddress" /></td>
     					<td><label>Confirm Email:</label></td>
-    					<td><input name="confirmemail" type="text" /></td>
+    					<td><form:input path="confirmEmailAddress" /></td>
   					</tr>
 				</table>
                 
@@ -54,13 +54,13 @@
                       <span id="spryradio1">	
                         <td>
                         	<div align="center" class="radio_button">
-                        		<input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_0" />
+                        		<form:radiobutton path="carOwner" type="radio" name="RadioGroup1" value="true" id="RadioGroup1_0" />
                             	<label>Yes</label>
                             </div>
                       	</td>
    					  	<td>
                        	  <div align="center" class="radio_button">
-   					      		<input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_1" />
+   					      		<form:radiobutton path="carOwner" type="radio" name="RadioGroup1" value="false" id="RadioGroup1_1" />
                             	<label>No</label>
 				      	  </div>
                        	</td>
@@ -71,13 +71,13 @@
                       <span id="spryradio2">
                         <td>
                         	<div align="center" class="radio_button">
-                            	<input type="radio" name="RadioGroup2" value="radio" id="RadioGroup2_0" />
+                            	<form:radiobutton path="validLicense" type="radio" name="RadioGroup2" value="true" id="RadioGroup2_0" />
                             	<label>Yes</label>
                             </div>
 						</td>
     					<td>
                         	<div align="center" class="radio_button">
-                            	<input type="radio" name="RadioGroup2" value="radio" id="RadioGroup2_1" />
+                            	<form:radiobutton path="validLicense" type="radio" name="RadioGroup2" value="false" id="RadioGroup2_1" />
                             	<label>No</label>
                             </div>
                         </td>
@@ -88,14 +88,14 @@
                       <span id="spryradio3">
                         <td>
                         	<div align="center" class="radio_button">
-                            	<input type="radio" name="RadioGroup3" value="radio" id="RadioGroup3_0" />
-                                <label>Yes</label>
+                            	<form:radiobutton path="gender" type="radio" name="RadioGroup3" value="M" id="RadioGroup3_0" />
+                                <label>Male</label>
                             </div>
                         </td>
     					<td>
                         	<div align="center" class="radio_button">
-                            	<input type="radio" name="RadioGroup3" value="radio" id="RadioGroup3_1" />
-                            	<label>No</label>
+                            	<form:radiobutton path="gender" type="radio" name="RadioGroup3" value="F" id="RadioGroup3_1" />
+                            	<label>Female</label>
                             </div>
                         </td>	
                       </span>
@@ -144,13 +144,13 @@
   					</tr>
   					<tr>
     					<td>
-				    	  <input size="40%" type="text" name="address" id="address" />
+				    	  <form:input size="40%" type="text" path="addressLine1" id="address" />
                         </td>
     					<td>
                        	  <input size="10%" type="text" name="postcode" id="postcode" />
                         </td>
     					<td>
-                       	  <input size="17%" type="text" name="phone" id="phone" />
+                       	  <form:input size="17%" type="text" path="phoneNumber" id="phone" />
                         </td>
   					</tr>
 				</table>
