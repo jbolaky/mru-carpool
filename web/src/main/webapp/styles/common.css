@@ -1,0 +1,33 @@
+@charset "utf-8";
+.clear {
+}
+.topspace {
+	margin-top: 7px;
+	margin-bottom: 0px;
+}
+.notopmargin {
+	margin: 0;
+}
+.text_align_center {
+	text-align: center;
+}
+label {
+	font-size: x-small;
+	font-weight: bold;
+}
+.common_link_style {
+	color: #80A981;
+	font-size: 90%;
+}
+
+.item {
+	color: #FEA82F;
+	font-size: small;
+}
+
+/* to be used in content section */
+/* can be used inside and outside forms */
+.paragraph_style_1{
+	font-size:85%;
+	font-weight:bold;
+}

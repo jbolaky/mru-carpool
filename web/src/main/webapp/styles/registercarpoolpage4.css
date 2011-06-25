@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+div#content {
+	height:300px;
+	font-size:x-small;
+}
+
+div#content p {
+	text-align:center;
+}
+
+.buttons {
+	width: 90%;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #FFF;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-right: 25px;
+	margin-left: 22px;
+}
+input.button {
+	background-color: #8FB690;
+	border: 1px solid #6C8A6D;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 1px 2px;
+	font-family: Arial, Helvetica, sans-serif;
+	float:none;
+	text-align:center;
+	font-size:x-small;
+}
+
+table tr td  {
+	text-align:left;
+}

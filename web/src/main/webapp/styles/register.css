@@ -1,0 +1,87 @@
+@charset "utf-8";
+.radio_button {
+	width: 100%;
+}
+.buttons {
+	width: 90%;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #FFF;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-right: 25px;
+	margin-left: 22px;
+}
+
+div#content {
+	height:720px;
+}
+
+div#content h1 {
+	background-image: url(../images/register-form-header-blank.gif);
+	background-repeat: no-repeat;
+	height: 6%;
+	display: block;
+	background-position: 0px 0px;
+	font-size: medium;
+	padding-left: 20px;
+	padding-top: 14px;
+}
+div#content p {
+	font-size: 75%;
+}
+label {
+	font-size: x-small;
+	font-weight: bold;
+}
+
+form {
+	background-color: #F9F7F4;
+	border: 1px solid #A5ACB2;
+	margin-top: 8px;
+	margin-bottom: 0px;
+	margin-left: 2px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	margin-right: 1px;
+}
+fieldset {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+fieldset div {
+	clear: none;
+	float: left;
+	margin-top: 0px;
+	margin-right: 5%;
+	margin-bottom: 3px;
+	width: 45%;
+	padding-right: 0%;
+}
+fieldset h2.item {
+	margin-top: 30px;
+}
+
+fieldset input.button {
+	background-color: #8FB690;
+	border: 1px solid #6C8A6D;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 1px 2px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+table tr td  {
+	text-align:right;
+}
+table.ur_contact_details tr td  {
+	text-align:left;
+}
+table#account_details tr td input{
+	float:left;
+}
+table#account_details tr td select{
+	float:left;
+}

@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+div#content h1 {
+	background-image: url(../images/register-form-header-blank.gif);
+	background-repeat: no-repeat;
+	height: 14%;
+	display: block;
+	background-position: 0px 0px;
+	font-size: medium;
+	padding-left: 20px;
+	padding-top: 14px;
+}

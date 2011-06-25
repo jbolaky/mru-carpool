@@ -18,8 +18,6 @@
 		the view-name attribute if necessary: by convention the view name equals 
 		the path without the leading slash -->
 	<mvc:view-controller path="/" view-name="homepage" />
-	<mvc:view-controller path="/homepage" view-name="homepage" />
-	<mvc:view-controller path="/register" view-name="register" />
 
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view 
 		name to resolve is treated as the name of a tiles definition -->

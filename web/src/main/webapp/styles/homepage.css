@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+.attention_keywords {
+	color: #F00;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+.content_text_first_frame {
+	padding-right: 7%;
+	line-height: 110%;
+	letter-spacing: 1px;
+	padding-left: 3%;
+	padding-top: 15%;
+}
+
+.content_text_second_frame {
+	padding-bottom: 11px;
+}
+
+.paragraph {
+	text-indent: 4%;
+}
+.padding_right {
+	padding-right: 16%;
+}
+
+div#content {
+	width:586px;
+	height:800px;
+}
+
+#homepage_first_frame_content_header {
+	background-image: url(../images/homepage_content_header.gif);
+	background-repeat: no-repeat;
+	display: block;
+	height: 116px;
+}
+#homepage_first_frame_content_body {
+	background-image: url(../images/homepage_content_body.gif);
+	height: 45px;
+	background-repeat: repeat-y;
+	padding-top: 4%;
+}
+#homepage_first_frame_content_footer {
+	background-image: url(../images/homepage-content_footer.gif);
+	display: block;
+	height: 33px;
+	background-repeat: no-repeat;
+}
+#homepage_second_frame_content_header {
+	background-image: url(../images/homepage_content_header2.gif);
+	background-repeat: no-repeat;
+	display: block;
+	height: 33px;
+}
+#homepage_second_frame_content_body {
+	height: 500px;
+	background-repeat: repeat-y;
+	padding-top: 4%;
+	background-color: #b8d4ba;
+	padding-right: 13px;
+	padding-left: 11px;
+	width: 538px;
+}
+#homepage_second_frame_content_footer {
+	background-image: url(../images/homepage-content-footer2.gif);
+	display: block;
+	height: 33px;
+	background-repeat: no-repeat;
+}
+
+div#homepage_content_header p {
+	padding-top: 12%;
+	padding-right: 14%;
+}
+ul.carpool_guidelines {
+	list-style-image: url(../images/arrow.png);
+	text-indent: 0%;
+	padding-left: 4%;
+}
+ul.carpool_guidelines li {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
