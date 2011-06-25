@@ -26,9 +26,9 @@ public class UserVO {
 
 	private String country;
 
-	private String district;
+	private String area;
 
-	private String region;
+	private String district;
 
 	private String addressLine1;
 
@@ -88,12 +88,12 @@ public class UserVO {
 		return country;
 	}
 
-	public String getDistrict() {
-		return district;
+	public String getArea() {
+		return area;
 	}
 
-	public String getRegion() {
-		return region;
+	public String getDistrict() {
+		return district;
 	}
 
 	public String getAddressLine1() {
@@ -164,12 +164,12 @@ public class UserVO {
 		this.country = country;
 	}
 
-	public void setDistrict(String district) {
-		this.district = district;
+	public void setArea(String area) {
+		this.area = area;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
 	public void setAddressLine1(String addressLine1) {
@@ -191,5 +191,5 @@ public class UserVO {
 	public void setShareDriving(Boolean shareDriving) {
 		this.shareDriving = shareDriving;
 	}
-
+	
 }
