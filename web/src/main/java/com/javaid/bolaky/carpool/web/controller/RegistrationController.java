@@ -1,8 +1,8 @@
 package com.javaid.bolaky.carpool.web.controller;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.commons.collections15.set.ListOrderedSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.javaid.bolaky.carpool.service.api.CarPoolService;
 import com.javaid.bolaky.carpool.service.vo.CountryVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.thoughtworks.xstream.XStream;
@@ -21,8 +20,6 @@ public class RegistrationController {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(RegistrationController.class);
 
-	private CarPoolService carPoolService;
-
 	@RequestMapping(value = "registeruser", method = RequestMethod.GET)
 	public String populateUserRegistrationForm(Model model) {
 
@@ -30,7 +27,7 @@ public class RegistrationController {
 			LOGGER.debug("In populateForm method with Model " + model);
 		}
 
-		Set<CountryVO> countryVOs = new ListOrderedSet<CountryVO>();
+		Set<CountryVO> countryVOs = new HashSet<CountryVO>();
 		countryVOs.add(new CountryVO(1L, "Mauritius"));
 		countryVOs.add(new CountryVO(2L, "Reunion"));
 
