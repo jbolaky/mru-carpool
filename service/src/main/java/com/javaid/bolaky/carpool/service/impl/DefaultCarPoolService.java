@@ -2,6 +2,8 @@ package com.javaid.bolaky.carpool.service.impl;
 
 import java.util.Set;
 
+import javax.annotation.Resource;
+
 import org.springframework.util.Assert;
 
 import com.javaid.bolaky.carpool.service.acl.location.api.LocationAcl;
@@ -13,6 +15,7 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 
 public class DefaultCarPoolService implements CarPoolService {
 
+	@Resource(name="carpool_service_DefaultUserRegistrationAcl")
 	private UserRegistrationAcl userRegistrationAcl;
 	private LocationAcl locationAcl;
 

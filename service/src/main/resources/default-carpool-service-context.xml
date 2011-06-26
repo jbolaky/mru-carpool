@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<import resource="classpath:/default-user-registration-service-context.xml" />
+
+	<bean id="carpool_service_DefaultUserRegistrationAcl"
+		class="com.javaid.bolaky.carpool.service.acl.userregistration.impl.DefaultUserRegistrationAcl" />
+
+	<bean id="carpool_service_DefaultCarPoolService"
+		class="com.javaid.bolaky.carpool.service.impl.DefaultCarPoolService" />
+
+</beans>

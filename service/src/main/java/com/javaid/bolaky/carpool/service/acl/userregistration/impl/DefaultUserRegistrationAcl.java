@@ -2,6 +2,8 @@ package com.javaid.bolaky.carpool.service.acl.userregistration.impl;
 
 import java.util.Set;
 
+import javax.annotation.Resource;
+
 import com.javaid.bolaky.carpool.service.acl.userregistration.api.UserRegistrationAcl;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
@@ -12,6 +14,7 @@ import com.javaid.bolaky.domain.userregistration.service.api.UserRegistrationSer
 
 public class DefaultUserRegistrationAcl implements UserRegistrationAcl {
 
+	@Resource(name="user_registration_DefaultService")
 	private UserRegistrationService userRegistrationService;
 
 	public Set<CarPoolError> validate(UserVO userVO) {

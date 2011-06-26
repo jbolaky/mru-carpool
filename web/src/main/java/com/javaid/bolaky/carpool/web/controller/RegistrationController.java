@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.javaid.bolaky.carpool.service.api.CarPoolService;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
@@ -23,6 +25,9 @@ import com.thoughtworks.xstream.XStream;
 
 @Controller
 public class RegistrationController {
+
+	@Resource(name = "carpool_service_DefaultCarPoolService")
+	private CarPoolService carPoolService;
 
 	@RequestMapping(value = "registeruser", method = RequestMethod.GET)
 	public String populateUserRegistrationForm(Model model) {
@@ -37,18 +42,35 @@ public class RegistrationController {
 
 	@RequestMapping(value = "saveuser", method = RequestMethod.POST)
 	public String procesSaveUserRegistrationForm(@Valid UserVO userVO,
-			BindingResult bindingResult,Model model) {
+			BindingResult bindingResult, Model model) {
 
-		if (bindingResult.hasErrors()) {
+		List<String> errorMessages = new ArrayList<String>();
+
+		Set<CarPoolError> carPoolErrors = carPoolService.registerUser(userVO);
+
+		if (bindingResult.hasErrors() || carPoolErrors != null) {
 			List<ObjectError> objectErrors = bindingResult.getAllErrors();
-			List<String> errorMessages = new ArrayList<String>();
-			
-			for (ObjectError objectError : objectErrors) {
-				errorMessages.add(CarPoolError.getCarPoolError(objectError.getDefaultMessage()).getDescripion());
+
+			if (objectErrors != null && !objectErrors.isEmpty()) {
+
+				for (ObjectError objectError : objectErrors) {
+					errorMessages.add(CarPoolError.getCarPoolError(
+							objectError.getDefaultMessage()).getDescripion());
+				}
 			}
-			
+
+			if (carPoolErrors != null && !carPoolErrors.isEmpty()) {
+
+				for (CarPoolError carPoolError : carPoolErrors) {
+					
+					if(carPoolError!=null){
+						errorMessages.add(carPoolError.getDescripion());
+					}
+				}
+			}
+
 			model.addAttribute("errorMessages", errorMessages);
-			System.out.println(errorMessages);
+
 			return "register";
 		}
 
