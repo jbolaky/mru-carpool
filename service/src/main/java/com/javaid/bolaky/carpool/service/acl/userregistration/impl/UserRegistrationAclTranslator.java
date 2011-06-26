@@ -5,7 +5,7 @@ import java.util.Set;
 import org.apache.commons.collections15.set.ListOrderedSet;
 
 import com.javaid.bolaky.carpool.service.vo.UserVO;
-import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolErrorCode;
+import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.userregistration.entity.Person;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
@@ -39,18 +39,18 @@ public class UserRegistrationAclTranslator {
 		return person;
 	}
 
-	public static Set<CarPoolErrorCode> convertToCarPoolErrorCodes(
+	public static Set<CarPoolError> convertToCarPoolErrorCodes(
 			Set<PersonErrorCode> personErrorCodes) {
 
-		Set<CarPoolErrorCode> carPoolErrorCodes = null;
+		Set<CarPoolError> carPoolErrorCodes = null;
 
 		if (personErrorCodes != null && !personErrorCodes.isEmpty()) {
 
-			carPoolErrorCodes = new ListOrderedSet<CarPoolErrorCode>();
+			carPoolErrorCodes = new ListOrderedSet<CarPoolError>();
 
 			for (PersonErrorCode personErrorCode : personErrorCodes) {
 
-				carPoolErrorCodes.add(CarPoolErrorCode
+				carPoolErrorCodes.add(CarPoolError
 						.convertFrom(personErrorCode));
 			}
 		}

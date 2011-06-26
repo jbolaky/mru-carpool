@@ -1,5 +1,7 @@
 package com.javaid.bolaky.carpool.service.vo.enumerated;
 
+import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
+
 public enum CarPoolError {
 
 	USER_USERNAME_NULL("S11", "Please enter username"), 
@@ -36,34 +38,36 @@ public enum CarPoolError {
 		return descripion;
 	}
 
-	public static CarPoolError getCarPoolError(String errorCode){
-		
-		if(errorCode!=null){
-			
+	public static CarPoolError getCarPoolError(String errorCode) {
+
+		if (errorCode != null) {
+
 			for (CarPoolError carPoolErrorCode : values()) {
-				
-				if(carPoolErrorCode.getCode().equalsIgnoreCase(errorCode)){
+
+				if (carPoolErrorCode.getCode().equalsIgnoreCase(errorCode)) {
 					return carPoolErrorCode;
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
-	/*
-	 * public static CarPoolErrorCode convertFrom(PersonErrorCode
-	 * personErrorCode) {
-	 * 
-	 * if (personErrorCode != null) {
-	 * 
-	 * for (CarPoolErrorCode carPoolErrorCode : values()) {
-	 * 
-	 * if (carPoolErrorCode.getCode().equalsIgnoreCase(
-	 * personErrorCode.getCode())) {
-	 * 
-	 * return carPoolErrorCode; } } }
-	 * 
-	 * return null; }
-	 */
+
+	public static CarPoolError convertFrom(PersonErrorCode personErrorCode) {
+
+		if (personErrorCode != null) {
+
+			for (CarPoolError carPoolErrorCode : values()) {
+
+				if (carPoolErrorCode.getCode().equalsIgnoreCase(
+						personErrorCode.getCode())) {
+
+					return carPoolErrorCode;
+				}
+			}
+		}
+
+		return null;
+	}
+
 }
