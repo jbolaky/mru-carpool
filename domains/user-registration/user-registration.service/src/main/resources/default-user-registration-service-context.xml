@@ -5,7 +5,7 @@
 
 	<import resource="classpath:/default-user-registration-entity-context.xml" />
 
-	<bean id="user_registration_Service"
+	<bean id="user_registration_DefaultService"
 		class="com.javaid.bolaky.domain.userregistration.service.impl.DefaultUserRegistrationService" />
 
 </beans>
