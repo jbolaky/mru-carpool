@@ -1,5 +1,10 @@
 package com.javaid.bolaky.carpool.service.vo;
 
+import com.javaid.bolaky.carpool.service.hibernate.constraint.EmailsEnteredCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.PasswordsEnteredCheck;
+
+@PasswordsEnteredCheck
+@EmailsEnteredCheck
 public class UserVO {
 
 	private String username;
@@ -191,5 +196,5 @@ public class UserVO {
 	public void setShareDriving(Boolean shareDriving) {
 		this.shareDriving = shareDriving;
 	}
-	
+
 }

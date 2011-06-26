@@ -4,6 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<script src="<c:url value="/resources/js/jquery-1.6.1.min.js"/>"
+	type="text/javascript"></script>
 <script
 	src="<c:url value="/resources/SpryAssets/SpryValidationRadio.js"/>"
 	type="text/javascript"></script>
@@ -94,7 +96,7 @@
 			</td>
 			<td>
 			<div align="center" class="radio_button"><form:radiobutton
-				path="gender" type="radio" name="RadioGroup3" value="S"
+				path="gender" type="radio" name="RadioGroup3" value="F"
 				id="RadioGroup3_1" /> <label>Female</label></div>
 			</td>
 			</span>
@@ -112,15 +114,18 @@
 		</tr>
 		<tr>
 			<td><form:select path="country">
+				<form:option selected="selected" value="">--SELECT COUNTRY--</form:option>
 				<c:forEach items="${countries}" var="countryVO">
-					<form:option value="${countryVO.countryName}">
+					<form:option value="${countryVO.countryId}">
 						<c:out value="${countryVO.countryName}" />
 					</form:option>
 				</c:forEach>
 			</form:select></td>
 			<td><form:select path="area">
+				<form:option selected="selected" value="">--SELECT A COUNTRY--</form:option>
 			</form:select></td>
 			<td><form:select path="district">
+				<form:option selected="selected" value="">--SELECT STATE--</form:option>
 			</form:select></td>
 		</tr>
 	</table>
@@ -183,4 +188,47 @@
 	var spryradio2 = new Spry.Widget.ValidationRadio("spryradio2");
 	var spryradio3 = new Spry.Widget.ValidationRadio("spryradio3");
 	var spryradio4 = new Spry.Widget.ValidationRadio("spryradio4");
+	/* Above are for radio spry buttons */
+
+	$(document).ready(function() {
+		// check name availability on focus lost
+		$('#country').change(function() {
+			if ($('#country').val()) {
+				populateAreaDropDown($('#country').val());
+			}
+		});
+
+		$('#area').change(function() {
+			if ($('#area').val()) {
+				populateDistrictDropDown($('#area').val());
+			}
+		});
+
+	});
+
+	function populateAreaDropDown(countryId) {
+
+		$.getJSON("getareas", {
+			countryId : countryId
+		}, function(areas) {
+			$("#area").get(0).options.length = 0;
+			$.each(areas, function(index, a) {
+				$("#area").get(0).options[index] = new Option(a.areaName,
+						a.areaId);
+			});
+		});
+	}
+
+	function populateDistrictDropDown(areaId) {
+
+		$.getJSON("getdistricts", {
+			areaId : areaId
+		}, function(districts) {
+			$("#district").get(0).options.length = 0;
+			$.each(districts, function(index, d) {
+				$("#district").get(0).options[index] = new Option(d.districtName,
+						d.districtId);
+			});
+		});
+	}
 </script>
