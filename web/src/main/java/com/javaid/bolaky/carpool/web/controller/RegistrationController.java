@@ -47,7 +47,9 @@ public class RegistrationController {
 				errorMessages.add(CarPoolError.getCarPoolError(objectError.getDefaultMessage()).getDescripion());
 			}
 			
+			model.addAttribute("errorMessages", errorMessages);
 			System.out.println(errorMessages);
+			return "register";
 		}
 
 		System.out.println(new XStream().toXML(userVO));

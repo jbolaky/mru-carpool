@@ -4,8 +4,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<script src="<c:url value="/resources/js/jquery-1.6.1.min.js"/>"
-	type="text/javascript"></script>
 <script
 	src="<c:url value="/resources/SpryAssets/SpryValidationRadio.js"/>"
 	type="text/javascript"></script>
@@ -14,9 +12,27 @@
 <link
 	href="<c:url value="/resources/SpryAssets/SpryValidationRadio.css"/>"
 	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/styles/error.css"/>"
+	rel="stylesheet" type="text/css" />
 
 <div id="content">
 <h1 class="contentmargin notopmargin">Your Information</h1>
+
+<c:if test="${not empty errorMessages}">
+	<div id="errormessage">
+	<table width="95%">
+		<c:forEach items="${errorMessages}" var="errorMessage">
+			<tr>
+				<td><img
+					src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+					height="15" /></td>
+				<td><c:out value="${errorMessage}"></c:out></td>
+			</tr>
+		</c:forEach>
+	</table>
+	</div>
+</c:if> 
+
 <form:form modelAttribute="userVO" action="saveuser" method="post"
 	class="contentmargin">
 	<fieldset>
@@ -226,8 +242,8 @@
 		}, function(districts) {
 			$("#district").get(0).options.length = 0;
 			$.each(districts, function(index, d) {
-				$("#district").get(0).options[index] = new Option(d.districtName,
-						d.districtId);
+				$("#district").get(0).options[index] = new Option(
+						d.districtName, d.districtId);
 			});
 		});
 	}

@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+div#errormessage {
+	background-color: #F9F7F4;
+	border: 1px solid #A5ACB2;
+	padding-left: 10%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	font-size: small;
+	margin-top: 8px;
+}
+
+div.error_icon {
+	background-image: url(../images/error_icon.png);
+}
