@@ -50,7 +50,7 @@ public class Person extends AbstractTimestampUsernameEntity {
 	@Column(name = "PERSON_ID", nullable = false)
 	private Long personId;
 
-	@Size(min = 8, groups = MandatoryDataRules.class, message = "P12")
+	@Size(min = 6, groups = MandatoryDataRules.class, message = "P12")
 	@NotNull(groups = MandatoryDataRules.class, message = "P11")
 	@Column(name = "USERNAME")
 	private String username;

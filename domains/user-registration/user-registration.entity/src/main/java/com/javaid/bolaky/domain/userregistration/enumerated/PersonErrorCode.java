@@ -4,7 +4,7 @@ public enum PersonErrorCode {
 
 	PERSON_AGE_CONSTRAINT("P10","person having a valid license should be at least 18 years old"),
 	PERSON_USERNAME_NULL("P11","username cannot be null"),
-	PERSON_USERNAME_SIZE("P12","username size should be of minimum 8 lenght"),
+	PERSON_USERNAME_SIZE("P12","username size should be of minimum 6 lenght"),
 	PERSON_PASSWORD_NULL("P13","password cannot be null"),
 	PERSON_PASSWORD_SIZE("P14","password size should be of minimum 8 lenght"),
 	PERSON_FIRSTNAME_NULL("P15","firstname cannot be null"),
