@@ -8,8 +8,12 @@ import java.util.Set;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +25,7 @@ import com.javaid.bolaky.carpool.service.api.CarPoolService;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
-import com.thoughtworks.xstream.XStream;
+import com.javaid.bolaky.carpool.web.controller.util.ControllerUtility;
 
 @Controller
 public class RegistrationController {
@@ -29,26 +33,28 @@ public class RegistrationController {
 	@Resource(name = "carpool_service_DefaultCarPoolService")
 	private CarPoolService carPoolService;
 
+	private final String registerPageName = "register";
+	private final String homePageName = "homepage";
+
 	@RequestMapping(value = "registeruser", method = RequestMethod.GET)
 	public String populateUserRegistrationForm(Model model) {
 
-		Set<LocationVO> locationVOs = this.getListOfCountries();
-
-		model.addAttribute("countries", locationVOs);
-		model.addAttribute(new UserVO());
-
-		return "register";
+		this.populateListOfCountriesInModel(model);
+		return registerPageName;
 	}
 
 	@RequestMapping(value = "saveuser", method = RequestMethod.POST)
 	public String procesSaveUserRegistrationForm(@Valid UserVO userVO,
 			BindingResult bindingResult, Model model) {
 
+		ControllerUtility.assignAllEmptyStringTypeAttributeToNull(userVO);
+
 		List<String> errorMessages = new ArrayList<String>();
+		Set<CarPoolError> carPoolErrors = carPoolService.validate(userVO);
 
-		Set<CarPoolError> carPoolErrors = carPoolService.registerUser(userVO);
+		if (bindingResult.hasErrors()
+				|| (carPoolErrors != null && !carPoolErrors.isEmpty())) {
 
-		if (bindingResult.hasErrors() || carPoolErrors != null) {
 			List<ObjectError> objectErrors = bindingResult.getAllErrors();
 
 			if (objectErrors != null && !objectErrors.isEmpty()) {
@@ -62,21 +68,21 @@ public class RegistrationController {
 			if (carPoolErrors != null && !carPoolErrors.isEmpty()) {
 
 				for (CarPoolError carPoolError : carPoolErrors) {
-					
-					if(carPoolError!=null){
+
+					if (carPoolError != null) {
 						errorMessages.add(carPoolError.getDescripion());
 					}
 				}
 			}
 
 			model.addAttribute("errorMessages", errorMessages);
-
-			return "register";
+			this.populateListOfCountriesInModel(model);
+			return registerPageName;
 		}
 
-		System.out.println(new XStream().toXML(userVO));
-
-		return "homepage";
+		this.setSecurityContext(userVO.getUsername(),userVO.getPassword());
+		Assert.isTrue(carPoolService.store(userVO), "Is expected to be true");
+		return homePageName;
 	}
 
 	@RequestMapping(value = "getareas", method = RequestMethod.GET)
@@ -91,6 +97,21 @@ public class RegistrationController {
 	Set<LocationVO> getListOfDistrictsOfAnArea(@RequestParam Long areaId) {
 
 		return getListOfDistrcts(areaId);
+	}
+
+	private void populateListOfCountriesInModel(Model model) {
+
+		Set<LocationVO> locationVOs = this.getListOfCountries();
+
+		model.addAttribute("countries", locationVOs);
+		model.addAttribute(new UserVO());
+	}
+
+	private void setSecurityContext(String username, String password) {
+
+		Authentication authentication = new UsernamePasswordAuthenticationToken(
+				username, password);
+		SecurityContextHolder.getContext().setAuthentication(authentication);
 	}
 
 	private Set<LocationVO> getListOfCountries() {

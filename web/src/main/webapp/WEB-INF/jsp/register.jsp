@@ -44,10 +44,10 @@
 			<td><label>Age Group:</label></td>
 			<td><form:select path="ageGroup">
 				<form:option value="">--SELECT-</form:option>
-				<form:option value="18-25">18-25</form:option>
-				<form:option value="26-32">26-32</form:option>
-				<form:option value="33-40">33-40</form:option>
-				<form:option value="40+">40+</form:option>
+				<form:option value="25">18-25</form:option>
+				<form:option value="32">26-32</form:option>
+				<form:option value="40">33-40</form:option>
+				<form:option value="1000">40+</form:option>
 			</form:select></td>
 		</tr>
 		<tr>
@@ -129,7 +129,7 @@
 			<td><label>Region:</label></td>
 		</tr>
 		<tr>
-			<td><form:select path="country">
+			<td><form:select path="countryCode">
 				<form:option selected="selected" value="">--SELECT COUNTRY--</form:option>
 				<c:forEach items="${countries}" var="countryVO">
 					<form:option value="${countryVO.countryId}">
@@ -137,10 +137,10 @@
 					</form:option>
 				</c:forEach>
 			</form:select></td>
-			<td><form:select path="area">
+			<td><form:select path="areaCode">
 				<form:option selected="selected" value="">--SELECT A COUNTRY--</form:option>
 			</form:select></td>
-			<td><form:select path="district">
+			<td><form:select path="districtCode">
 				<form:option selected="selected" value="">--SELECT STATE--</form:option>
 			</form:select></td>
 		</tr>
@@ -208,15 +208,15 @@
 
 	$(document).ready(function() {
 		// check name availability on focus lost
-		$('#country').change(function() {
-			if ($('#country').val()) {
-				populateAreaDropDown($('#country').val());
+		$('#countryCode').change(function() {
+			if ($('#countryCode').val()) {
+				populateAreaDropDown($('#countryCode').val());
 			}
 		});
 
-		$('#area').change(function() {
-			if ($('#area').val()) {
-				populateDistrictDropDown($('#area').val());
+		$('#areaCode').change(function() {
+			if ($('#areaCode').val()) {
+				populateDistrictDropDown($('#areaCode').val());
 			}
 		});
 
@@ -227,9 +227,9 @@
 		$.getJSON("getareas", {
 			countryId : countryId
 		}, function(areas) {
-			$("#area").get(0).options.length = 0;
+			$("#areaCode").get(0).options.length = 0;
 			$.each(areas, function(index, a) {
-				$("#area").get(0).options[index] = new Option(a.areaName,
+				$("#areaCode").get(0).options[index] = new Option(a.areaName,
 						a.areaId);
 			});
 		});
@@ -240,9 +240,9 @@
 		$.getJSON("getdistricts", {
 			areaId : areaId
 		}, function(districts) {
-			$("#district").get(0).options.length = 0;
+			$("#districtCode").get(0).options.length = 0;
 			$.each(districts, function(index, d) {
-				$("#district").get(0).options[index] = new Option(
+				$("#districtCode").get(0).options[index] = new Option(
 						d.districtName, d.districtId);
 			});
 		});
