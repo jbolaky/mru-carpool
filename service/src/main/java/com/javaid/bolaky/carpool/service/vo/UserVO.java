@@ -1,15 +1,15 @@
 package com.javaid.bolaky.carpool.service.vo;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.EmailsEnteredCheck;
-import com.javaid.bolaky.carpool.service.hibernate.constraint.PasswordsEnteredCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmEmailCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmPasswordCheck;
 
-@PasswordsEnteredCheck
-@EmailsEnteredCheck
+@ConfirmPasswordCheck
+@ConfirmEmailCheck
 public class UserVO {
 
 	private String username;
 
-	private String ageGroup;
+	private Integer ageGroup;
 
 	private String firstname;
 
@@ -29,11 +29,11 @@ public class UserVO {
 
 	private String gender;
 
-	private String country;
+	private String countryCode;
 
-	private String area;
+	private String areaCode;
 
-	private String district;
+	private String districtCode;
 
 	private String addressLine1;
 
@@ -49,7 +49,7 @@ public class UserVO {
 		return username;
 	}
 
-	public String getAgeGroup() {
+	public Integer getAgeGroup() {
 		return ageGroup;
 	}
 
@@ -89,16 +89,16 @@ public class UserVO {
 		return gender;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
-	public String getArea() {
-		return area;
+	public String getAreaCode() {
+		return areaCode;
 	}
 
-	public String getDistrict() {
-		return district;
+	public String getDistrictCode() {
+		return districtCode;
 	}
 
 	public String getAddressLine1() {
@@ -125,7 +125,7 @@ public class UserVO {
 		this.username = username;
 	}
 
-	public void setAgeGroup(String ageGroup) {
+	public void setAgeGroup(Integer ageGroup) {
 		this.ageGroup = ageGroup;
 	}
 
@@ -165,16 +165,16 @@ public class UserVO {
 		this.gender = gender;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
-	public void setArea(String area) {
-		this.area = area;
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
 	}
 
-	public void setDistrict(String district) {
-		this.district = district;
+	public void setDistrictCode(String districtCode) {
+		this.districtCode = districtCode;
 	}
 
 	public void setAddressLine1(String addressLine1) {

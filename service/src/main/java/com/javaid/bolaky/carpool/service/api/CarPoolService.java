@@ -8,7 +8,9 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 
 public interface CarPoolService {
 
-	Set<CarPoolError> registerUser(UserVO userVO);
+	Set<CarPoolError> validate(UserVO userVO);
 
+	Boolean store(UserVO userVO);
+	
 	Set<LocationVO> getAllCountries();
 }

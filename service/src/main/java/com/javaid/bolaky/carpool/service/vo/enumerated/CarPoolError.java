@@ -4,23 +4,24 @@ import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
 public enum CarPoolError {
 
-	USER_USERNAME_NULL("S11", "P11", "Please enter username"), 
-	USER_USERNAME_SIZE("S12", "P12", "Please enter a minimun of 6 characters for username"), 
-	USER_PASSWORD_NULL("S13", "P13", "Please enter password"), 
-	USER_PASSWORD_SIZE("S14", "P14", "Please enter a minimun of 8 characters for password"), 
-	USER_FIRSTNAME_NULL("S15", "P15", "Please enter firstname"), 
-	USER_LASTNAME_NULL("S16", "P16","Please enter lastname"), 
-	USER_AGEGROUP_NULL("S17","P17","Please choose your appropriate age group"), 
-	USER_GENDER_NULL("S18","P18","Please choose gender"), 
-	USER_VALID_LICENSE_NULL("S19","P19","Please choose if you have a valid license"), 
-	USER_EMAIL_INVALID("S21","P21","Please a valid email address"), 
-	USER_EMAIL_NULL("S20","P20","Please enter email address"), 
-	USER_ADDRESS_NULL("S22","P22","Please enter address"), 
-	USER_COUNTRY_CODE_NULL("S24","P24", "Please select your country"), 
-	USER_AREA_CODE_NULL("S25","P25","Please select your area"),
-	USER_REGION_CODE_NULL("S26",null,"Please select your region"),
-	USER_CONFIRM_EMAIL_ADDRESS_NOT_MATCH("S27",null,"Email address and confirm email address fields does not match"),
-	USER_CONFIRM_PASSWORD_NOT_MATCH("S28",null,"Password and confirm password fields does not match");
+	USER_USERNAME_SIZE("S5", "UM1", "Please enter a minimun of 6 characters for username"), 
+	USER_USERNAME_NULL("S10", "UM2", "Please enter username"), 
+	USER_PASSWORD_SIZE("S15", "UM3", "Please enter a minimun of 8 characters for password"),
+	USER_PASSWORD_NULL("S20", "UM4", "Please enter password"),  
+	USER_FIRSTNAME_NULL("S25", "UM5", "Please enter firstname"), 
+	USER_LASTNAME_NULL("S30", "UM6","Please enter lastname"), 	
+	USER_EMAIL_INVALID("S35","UM7","Please enter a valid email"), 
+	USER_EMAIL_NULL("S40","UM8","Please enter email"), 
+	USER_AGEGROUP_NULL("S45","U25","Please choose age group"), 
+	USER_GENDER_NULL("S50","U30","Please choose gender"), 
+	USER_VALID_LICENSE_NULL("S55","U35","Please choose valid license"), 
+	USER_COUNTRY_CODE_NULL("S60","U50", "Please select country"), 
+	USER_AREA_CODE_NULL("S65","U55","Please select area"),
+	USER_REGION_CODE_NULL("S70","U60","Please select region"),
+	USER_CONFIRM_EMAIL_NULL("S75",null,"Please enter confirm email"),
+	USER_CONFIRM_EMAIL_ADDRESS_NOT_MATCH("S76",null,"Email address and confirm email address does not match"),
+	USER_CONFIRM_PASSWORD_NULL("S80",null,"Please enter confirm password"),
+	USER_CONFIRM_PASSWORD_NOT_MATCH("S81",null,"Password and confirm password does not match");
 
 	private String applicationCode;
 	private String domainErrorCode;

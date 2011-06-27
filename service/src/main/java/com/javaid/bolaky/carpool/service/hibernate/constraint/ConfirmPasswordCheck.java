@@ -10,15 +10,15 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.javaid.bolaky.carpool.service.hibernate.validator.PasswordsEnteredValidator;
+import com.javaid.bolaky.carpool.service.hibernate.validator.ConfirmPasswordValidator;
 
 @Target(TYPE)
 @Retention(RUNTIME)
-@Constraint(validatedBy = PasswordsEnteredValidator.class)
+@Constraint(validatedBy = ConfirmPasswordValidator.class)
 @Documented
-public @interface PasswordsEnteredCheck {
+public @interface ConfirmPasswordCheck {
 
-	String message() default "S28";
+	String message() default "S81";
 
 	Class<?>[] groups() default {};
 

@@ -37,7 +37,7 @@ public class DefaultCarPoolServiceIntegrationTest {
 
 		UserVO userVO = new UserVO();
 
-		Set<CarPoolError> carPoolErrors = carPoolService.registerUser(userVO);
+		Set<CarPoolError> carPoolErrors = carPoolService.validate(userVO);
 
 		assertThat(carPoolErrors, is(notNullValue()));
 		assertTrue(carPoolErrors.size()>0);

@@ -10,15 +10,15 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.javaid.bolaky.carpool.service.hibernate.validator.EmailsEnteredValidator;
+import com.javaid.bolaky.carpool.service.hibernate.validator.ConfirmEmailValidator;
 
 @Target(TYPE)
 @Retention(RUNTIME)
-@Constraint(validatedBy = EmailsEnteredValidator.class)
+@Constraint(validatedBy = ConfirmEmailValidator.class)
 @Documented
-public @interface EmailsEnteredCheck {
+public @interface ConfirmEmailCheck {
 
-	String message() default "S27";
+	String message() default "S76";
 
 	Class<?>[] groups() default {};
 

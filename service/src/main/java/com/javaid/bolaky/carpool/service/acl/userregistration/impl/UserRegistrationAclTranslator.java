@@ -6,7 +6,9 @@ import org.apache.commons.collections15.set.ListOrderedSet;
 
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
+import com.javaid.bolaky.domain.userregistration.entity.Address;
 import com.javaid.bolaky.domain.userregistration.entity.Person;
+import com.javaid.bolaky.domain.userregistration.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
@@ -20,20 +22,26 @@ public class UserRegistrationAclTranslator {
 
 			person = new Person();
 			person.setUsername(userVO.getUsername());
-			// person.setAgeGroup(AgeGroup.)
+			person.setAgeGroup(AgeGroup.convertCode(userVO.getAgeGroup()));
 			person.setFirstname(userVO.getFirstname());
 			person.setLastname(userVO.getLastname());
 			person.setPassword(userVO.getPassword());
-			person.getContactDetails()
-					.setEmailAddress(userVO.getEmailAddress());
 			person.setVehicleOwner(userVO.getCarOwner());
 			person.setValidLicense(userVO.getValidLicense());
 			person.setGender(Gender.convertCode(userVO.getGender()));
-			// need to map address
-			person.getUserPreferences().setAllowToReceiveUpdates(
-					userVO.getAllowToReceiveUpdates());
 			person.setShareCost(userVO.getShareCost());
 			person.setShareDriving(userVO.getShareDriving());
+
+			person.getUserPreferences().setAllowToReceiveUpdates(
+					userVO.getAllowToReceiveUpdates());
+
+			person.getContactDetails().setPhoneNumber(userVO.getPhoneNumber());
+			person.getContactDetails()
+					.setEmailAddress(userVO.getEmailAddress());
+			person.getContactDetails().addAddress(
+					new Address(userVO.getAddressLine1(), userVO
+							.getCountryCode(), null, userVO.getAreaCode(),
+							userVO.getDistrictCode()));
 		}
 
 		return person;
@@ -50,8 +58,12 @@ public class UserRegistrationAclTranslator {
 
 			for (PersonErrorCode personErrorCode : personErrorCodes) {
 
-				carPoolErrorCodes.add(CarPoolError
-						.convertFrom(personErrorCode));
+				CarPoolError carPoolError = CarPoolError
+						.convertFrom(personErrorCode);
+
+				if (carPoolError != null) {
+					carPoolErrorCodes.add(carPoolError);
+				}
 			}
 		}
 
