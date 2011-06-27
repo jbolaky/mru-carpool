@@ -143,7 +143,7 @@ public class UserRegistrationRepositotyIntegrationTest {
 		assertThat(address.getAddressLine1(), is(addressLine1));
 		assertThat(address.getCountryCode(), is(countryCode));
 		assertThat(address.getPostCode(), is(postCode));
-		assertThat(address.getTownCode(), is(townCode));
-		assertThat(address.getProvinceCode(), is(provinceCode));
+		assertThat(address.getDistrictCode(), is(townCode));
+		assertThat(address.getAreaCode(), is(provinceCode));
 	}
 }

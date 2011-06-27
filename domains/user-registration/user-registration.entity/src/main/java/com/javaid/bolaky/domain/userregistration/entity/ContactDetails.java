@@ -14,13 +14,14 @@ import javax.validation.constraints.Size;
 import org.apache.commons.collections15.set.ListOrderedSet;
 import org.hibernate.validator.constraints.Email;
 
+import com.javaid.bolaky.domain.userregistration.hibernate.group.AddressDataRule;
 import com.javaid.bolaky.domain.userregistration.hibernate.group.MandatoryDataRules;
 
 @Embeddable
 public class ContactDetails {
 
-	@Email(groups=MandatoryDataRules.class,message="P21")
-	@NotNull(groups=MandatoryDataRules.class,message="P20")
+	@Email(groups=MandatoryDataRules.class,message="UM7")
+	@NotNull(groups=MandatoryDataRules.class,message="UM8")
 	@Column(name = "EMAIL_ADDRESS")
 	private String emailAddress;
 
@@ -28,8 +29,8 @@ public class ContactDetails {
 	private String phoneNumber;
 
 	@Valid
-	@NotNull(groups=MandatoryDataRules.class,message="P22")
-	@Size(min=1,groups=MandatoryDataRules.class,message="P23")
+	@NotNull(groups=AddressDataRule.class,message="U40")
+	@Size(min=1,groups=AddressDataRule.class,message="U45")
 	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
 	private Set<Address> addresses = new ListOrderedSet<Address>();
 

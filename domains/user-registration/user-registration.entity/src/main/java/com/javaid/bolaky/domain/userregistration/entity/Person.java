@@ -32,11 +32,14 @@ import com.javaid.bolaky.domain.userregistration.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 import com.javaid.bolaky.domain.userregistration.hibernate.constraint.AgeAndLicenseCheck;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.AgeGroupDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.GenderDataRule;
 import com.javaid.bolaky.domain.userregistration.hibernate.group.MandatoryDataRules;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.ValidLicenseDataRule;
 
 @Entity
 @Table(name = "PERSON")
-@AgeAndLicenseCheck(groups = MandatoryDataRules.class)
+@AgeAndLicenseCheck(groups = ValidLicenseDataRule.class)
 @TypeDefs({
 		@TypeDef(name = "hibernate_persistentDateTime", typeClass = org.joda.time.contrib.hibernate.PersistentDateTime.class),
 		@TypeDef(name = "gender_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender")),
@@ -50,38 +53,38 @@ public class Person extends AbstractTimestampUsernameEntity {
 	@Column(name = "PERSON_ID", nullable = false)
 	private Long personId;
 
-	@Size(min = 6, groups = MandatoryDataRules.class, message = "P12")
-	@NotNull(groups = MandatoryDataRules.class, message = "P11")
+	@Size(min = 6, groups = MandatoryDataRules.class, message = "UM1")
+	@NotNull(groups = MandatoryDataRules.class, message = "UM2")
 	@Column(name = "USERNAME")
 	private String username;
 
-	@Size(min = 8, groups = MandatoryDataRules.class, message = "P14")
-	@NotNull(groups = MandatoryDataRules.class, message = "P13")
+	@Size(min = 8, groups = MandatoryDataRules.class, message = "UM3")
+	@NotNull(groups = MandatoryDataRules.class, message = "UM4")
 	@Column(name = "PASSWORD")
 	private String password;
 
-	@NotNull(groups = MandatoryDataRules.class, message = "P15")
+	@NotNull(groups = MandatoryDataRules.class, message = "UM5")
 	@Column(name = "FIRSTNAME")
 	private String firstname;
 
-	@NotNull(groups = MandatoryDataRules.class, message = "P16")
+	@NotNull(groups = MandatoryDataRules.class, message = "UM6")
 	@Column(name = "LASTNAME")
 	private String lastname;
 
 	@Column(name = "AGE")
 	private Integer age;
 
-	@NotNull(groups = MandatoryDataRules.class, message = "P17")
+	@NotNull(groups = AgeGroupDataRule.class, message = "U25")
 	@Column(name = "AGE_GROUP")
 	@Type(type = "age_user_types")
 	private AgeGroup ageGroup;
 
-	@NotNull(groups = MandatoryDataRules.class, message = "P18")
+	@NotNull(groups = GenderDataRule.class, message = "U30")
 	@Column(name = "GENDER")
 	@Type(type = "gender_user_types")
 	private Gender gender;
 
-	@NotNull(groups = MandatoryDataRules.class, message = "P19")
+	@NotNull(groups = ValidLicenseDataRule.class, message = "U35")
 	@Column(name = "VALID_LICENSE_IND")
 	@Type(type = "yes_no")
 	private Boolean validLicense;

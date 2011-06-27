@@ -2,22 +2,24 @@ package com.javaid.bolaky.domain.userregistration.enumerated;
 
 public enum PersonErrorCode {
 
-	PERSON_AGE_CONSTRAINT("P10","person having a valid license should be at least 18 years old"),
-	PERSON_USERNAME_NULL("P11","username cannot be null"),
-	PERSON_USERNAME_SIZE("P12","username size should be of minimum 6 lenght"),
-	PERSON_PASSWORD_NULL("P13","password cannot be null"),
-	PERSON_PASSWORD_SIZE("P14","password size should be of minimum 8 lenght"),
-	PERSON_FIRSTNAME_NULL("P15","firstname cannot be null"),
-	PERSON_LASTNAME_NULL("P16","lastname cannot be null"),
-	PERSON_AGEGROUP_NULL("P17","age group cannot be null"),
-	PERSON_GENDER_NULL("P18","gender cannot be null"),
-	PERSON_VALID_LICENSE_NULL("P19","valid license cannot be null"),
-	PERSON_EMAIL_INVALID("P21","email not in correct format"),
-	PERSON_EMAIL_NULL("P20","email address cannot be null"),
-	PERSON_LIST_OF_ADDRESS_NULL("P22","list of addresses cannot be null"),
-	PERSON_LIST_OF_ADDRESS_ZERO("P23","should contain at least one address"),
-	PERSON_COUNTRY_CODE_NULL("P24","country code cannot be null"),
-	PERSON_TOWN_CODE_NULL("P25","town code cannot be null");
+	
+	PERSON_USERNAME_SIZE("UM1","username size should be of minimum 6 lenght"),
+	PERSON_USERNAME_NULL("UM2","username cannot be null"),
+	PERSON_PASSWORD_SIZE("UM3","password size should be of minimum 8 lenght"),
+	PERSON_PASSWORD_NULL("UM4","password cannot be null"),
+	PERSON_FIRSTNAME_NULL("UM5","firstname cannot be null"),
+	PERSON_LASTNAME_NULL("UM6","lastname cannot be null"),
+	PERSON_EMAIL_INVALID("UM7","email not in correct format"),
+	PERSON_EMAIL_NULL("UM8","email address cannot be null"),
+	PERSON_AGEGROUP_NULL("U25","age group cannot be null"),
+	PERSON_GENDER_NULL("U30","gender cannot be null"),
+	PERSON_VALID_LICENSE_NULL("U35","valid license cannot be null"),
+	PERSON_AGE_CONSTRAINT("U36","person having a valid license should be at least 18 years old"),
+	PERSON_LIST_OF_ADDRESS_NULL("U40","list of addresses cannot be null"),
+	PERSON_LIST_OF_ADDRESS_ZERO("U45","should contain at least one address"),
+	PERSON_ADDRESS_COUNTRY_CODE_NULL("U50","country code cannot be null"),
+	PERSON_ADDRESS_AREA_CODE_NULL("U55","area code cannot be null"),
+	PERSON_ADDRESS_DISTRICT_CODE_NULL("U60","district code cannot be null");
 
 	private String code;
 	private String descripion;

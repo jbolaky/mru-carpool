@@ -18,7 +18,7 @@ import com.javaid.bolaky.domain.userregistration.hibernate.validator.AgeAndLicen
 @Documented
 public @interface AgeAndLicenseCheck {
 
-	String message() default "P10";
+	String message() default "U36";
 
 	Class<?>[] groups() default {};
 

@@ -10,7 +10,14 @@ import org.junit.Test;
 import com.javaid.bolaky.domain.userregistration.entity.Address;
 import com.javaid.bolaky.domain.userregistration.entity.Person;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.AddressDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.AgeGroupDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.AreaCodeDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.CountryCodeDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.DistrictCodeDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.GenderDataRule;
 import com.javaid.bolaky.domain.userregistration.hibernate.group.MandatoryDataRules;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.ValidLicenseDataRule;
 
 public class TestValidations {
 
@@ -21,17 +28,11 @@ public class TestValidations {
 		person.setValidLicense(true);
 
 		Set<PersonErrorCode> personErrorCodes = person
-				.validate(MandatoryDataRules.class);
+				.validate(ValidLicenseDataRule.class);
 
-		boolean hasFound = false;
-		for (PersonErrorCode personErrorCode : personErrorCodes) {
-
-			if (personErrorCode.equals(PersonErrorCode.PERSON_AGE_CONSTRAINT)) {
-				hasFound = true;
-			}
-		}
-
-		assertThat(hasFound, is(true));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_AGE_CONSTRAINT,
+						personErrorCodes), is(true));
 	}
 
 	@Test
@@ -39,8 +40,10 @@ public class TestValidations {
 
 		Person person = new Person();
 
-		Set<PersonErrorCode> personErrorCodes = person
-				.validate(MandatoryDataRules.class);
+		Set<PersonErrorCode> personErrorCodes = person.validate(
+				MandatoryDataRules.class, AddressDataRule.class,
+				AgeGroupDataRule.class, GenderDataRule.class,
+				ValidLicenseDataRule.class);
 
 		assertThat(personErrorCodes.size(), is(10));
 	}
@@ -54,15 +57,9 @@ public class TestValidations {
 		Set<PersonErrorCode> personErrorCodes = person
 				.validate(MandatoryDataRules.class);
 
-		boolean hasFound = false;
-		for (PersonErrorCode personErrorCode : personErrorCodes) {
-
-			if (personErrorCode.equals(PersonErrorCode.PERSON_EMAIL_INVALID)) {
-				hasFound = true;
-			}
-		}
-
-		assertThat(hasFound, is(true));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_EMAIL_INVALID,
+						personErrorCodes), is(true));
 	}
 
 	@Test
@@ -74,15 +71,9 @@ public class TestValidations {
 		Set<PersonErrorCode> personErrorCodes = person
 				.validate(MandatoryDataRules.class);
 
-		boolean hasFound = false;
-		for (PersonErrorCode personErrorCode : personErrorCodes) {
-
-			if (personErrorCode.equals(PersonErrorCode.PERSON_EMAIL_INVALID)) {
-				hasFound = true;
-			}
-		}
-
-		assertThat(hasFound, is(false));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_EMAIL_INVALID,
+						personErrorCodes), is(false));
 	}
 
 	@Test
@@ -93,39 +84,39 @@ public class TestValidations {
 		person.getContactDetails().setEmailAddress("javaid@gmail.com");
 		person.getContactDetails().addAddress(address);
 
-		Set<PersonErrorCode> personErrorCodes = person
-				.validate(MandatoryDataRules.class);
+		Set<PersonErrorCode> personErrorCodes = person.validate(
+				MandatoryDataRules.class, AddressDataRule.class,
+				CountryCodeDataRule.class, AreaCodeDataRule.class,
+				DistrictCodeDataRule.class);
+
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_EMAIL_INVALID,
+						personErrorCodes), is(false));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_LIST_OF_ADDRESS_ZERO,
+						personErrorCodes), is(false));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_ADDRESS_COUNTRY_CODE_NULL,
+						personErrorCodes), is(true));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_ADDRESS_AREA_CODE_NULL,
+						personErrorCodes), is(true));
+		assertThat(
+				isPresent(PersonErrorCode.PERSON_ADDRESS_DISTRICT_CODE_NULL,
+						personErrorCodes), is(true));
+	}
+
+	private boolean isPresent(PersonErrorCode personErrorCode,
+			Set<PersonErrorCode> personErrorCodes) {
 
 		boolean hasFound = false;
-		for (PersonErrorCode personErrorCode : personErrorCodes) {
+		for (PersonErrorCode personError : personErrorCodes) {
 
-			if (personErrorCode.equals(PersonErrorCode.PERSON_EMAIL_INVALID)) {
+			if (personError.equals(personErrorCode)) {
 				hasFound = true;
+				break;
 			}
 		}
-
-		assertThat(hasFound, is(false));
-
-		hasFound = false;
-		for (PersonErrorCode personErrorCode : personErrorCodes) {
-
-			if (personErrorCode
-					.equals(PersonErrorCode.PERSON_LIST_OF_ADDRESS_ZERO)) {
-				hasFound = true;
-			}
-		}
-
-		assertThat(hasFound, is(false));
-
-		hasFound = false;
-		for (PersonErrorCode personErrorCode : personErrorCodes) {
-
-			if (personErrorCode
-					.equals(PersonErrorCode.PERSON_COUNTRY_CODE_NULL)) {
-				hasFound = true;
-			}
-		}
-
-		assertThat(hasFound, is(true));
+		return hasFound;
 	}
 }

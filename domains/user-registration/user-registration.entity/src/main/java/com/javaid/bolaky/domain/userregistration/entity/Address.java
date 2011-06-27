@@ -17,7 +17,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.hibernate.annotations.TypeDef;
 
 import com.javaid.bolaky.domain.jpa.entity.AbstractTimestampUsernameEntity;
-import com.javaid.bolaky.domain.userregistration.hibernate.group.MandatoryDataRules;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.AreaCodeDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.CountryCodeDataRule;
+import com.javaid.bolaky.domain.userregistration.hibernate.group.DistrictCodeDataRule;
 
 @Entity
 @Table(name = "ADDRESS")
@@ -43,16 +45,17 @@ public class Address extends AbstractTimestampUsernameEntity {
 	@Column(name = "POST_CODE")
 	private String postCode;
 
-	@NotNull(groups=MandatoryDataRules.class,message="P24")
+	@NotNull(groups = CountryCodeDataRule.class, message = "U50")
 	@Column(name = "COUNTRY_CODE")
 	private String countryCode;
 
-	@NotNull(groups=MandatoryDataRules.class,message="P25")
-	@Column(name = "TOWN_CODE")
-	private String townCode;
+	@NotNull(groups = AreaCodeDataRule.class, message = "U55")
+	@Column(name = "AREA_CODE")
+	private String areaCode;
 
-	@Column(name = "PROVINCE_CODE")
-	private String provinceCode;
+	@NotNull(groups = DistrictCodeDataRule.class, message = "U60")
+	@Column(name = "DISTRICT_CODE")
+	private String districtCode;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID")
@@ -65,26 +68,26 @@ public class Address extends AbstractTimestampUsernameEntity {
 	}
 
 	public Address(String addressLine1, String countryCode, String postCode,
-			String townCode, String provinceCode) {
+			String areaCode, String districtCode) {
 		super();
 		this.addressLine1 = addressLine1;
 		this.postCode = postCode;
 		this.countryCode = countryCode;
-		this.townCode = townCode;
-		this.provinceCode = provinceCode;
+		this.areaCode = areaCode;
+		this.districtCode = districtCode;
 	}
 
 	public Address(String addressLine1, String addressLine2,
 			String addressLine3, String postCode, String countryCode,
-			String townCode, String provinceCode) {
+			String areaCode, String districtCode) {
 		super();
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
 		this.addressLine3 = addressLine3;
 		this.postCode = postCode;
 		this.countryCode = countryCode;
-		this.townCode = townCode;
-		this.provinceCode = provinceCode;
+		this.areaCode = areaCode;
+		this.districtCode = districtCode;
 	}
 
 	public Long getAddressId() {
@@ -111,12 +114,12 @@ public class Address extends AbstractTimestampUsernameEntity {
 		return countryCode;
 	}
 
-	public String getTownCode() {
-		return townCode;
+	public String getDistrictCode() {
+		return districtCode;
 	}
 
-	public String getProvinceCode() {
-		return provinceCode;
+	public String getAreaCode() {
+		return areaCode;
 	}
 
 	public Person getPerson() {
@@ -143,12 +146,12 @@ public class Address extends AbstractTimestampUsernameEntity {
 		this.countryCode = countryCode;
 	}
 
-	public void setTownCode(String townCode) {
-		this.townCode = townCode;
+	public void setDistrictCode(String districtCode) {
+		this.districtCode = districtCode;
 	}
 
-	public void setProvinceCode(String provinceCode) {
-		this.provinceCode = provinceCode;
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
 	}
 
 	public void setPerson(Person person) {
