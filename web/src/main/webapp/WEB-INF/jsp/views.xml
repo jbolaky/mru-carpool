@@ -14,5 +14,9 @@
 	<definition name="register" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/register.jsp" />
 	</definition>
+	
+	<definition name="login" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
 
 </tiles-definitions>

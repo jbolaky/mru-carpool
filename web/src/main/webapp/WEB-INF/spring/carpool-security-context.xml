@@ -8,11 +8,11 @@
 
 	<global-method-security pre-post-annotations="enabled" />
 
-	<http use-expressions="true">
+	<http use-expressions="true" auto-config="true">
 		<intercept-url pattern="/resources/**" filters="none" />
 		<intercept-url pattern="/login.jsp*" filters="none" />
 		<intercept-url pattern="/loggedout.jsp" filters="none" />
-		<form-login login-page='/login.jsp' />
+		<form-login login-page="/login.jsp" login-processing-url="/loginProcess" authentication-failure-url="/login" />
 
 		<intercept-url pattern="/**" access="permitAll" />
 	</http>

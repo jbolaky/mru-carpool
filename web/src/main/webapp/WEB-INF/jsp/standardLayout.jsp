@@ -41,7 +41,7 @@
 	</ul>
 	</li>
 	<li><a href="<c:url value="registeruser"/>">Register Free</a></li>
-	<li><a href="login.html">Login</a></li>
+	<li><a href="<c:url value="login"/>">Login</a></li>
 </ul>
 </div>
 <div class="clear"></div>
