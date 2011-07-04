@@ -18,5 +18,9 @@
 	<definition name="login" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/login.jsp" />
 	</definition>
+	
+	<definition name="forgotpassword" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/forgotpassword.jsp" />
+	</definition>
 
 </tiles-definitions>

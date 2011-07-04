@@ -39,6 +39,7 @@ public class RegistrationController {
 	@RequestMapping(value = "registeruser", method = RequestMethod.GET)
 	public String populateUserRegistrationForm(Model model) {
 
+		model.addAttribute(new UserVO());
 		this.populateListOfCountriesInModel(model);
 		return registerPageName;
 	}
@@ -104,7 +105,6 @@ public class RegistrationController {
 		Set<LocationVO> locationVOs = this.getListOfCountries();
 
 		model.addAttribute("countries", locationVOs);
-		model.addAttribute(new UserVO());
 	}
 
 	private void setSecurityContext(String username, String password) {

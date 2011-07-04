@@ -1,10 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<link href="<c:url value="/resources/styles/forgotpassword.css"/>"
+	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/styles/error.css"/>"
+	rel="stylesheet" type="text/css" />	
+	
 <div id="content">
 <h1 class="notopmargin">Password Retrieval</h1>
 <p class="paragraph_style_1">Forgot your password. Please enter your
 email addres below and your password will be emailed to you.</p>
-<form action="homepage.html" method="post" class="contentmargin">
+
+
+<c:if test="${not empty errorMessages}">
+	<div id="errormessage">
+	<table width="95%">
+		<c:forEach items="${errorMessages}" var="errorMessage">
+			<tr>
+				<td><img
+					src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+					height="15" /></td>
+				<td><c:out value="${errorMessage}"></c:out></td>
+			</tr>
+		</c:forEach>
+	</table>
+	</div>
+</c:if> 
+
+
+<form:form  modelAttribute="forgotPasswordVO" action="forgotPasswordProcess" method="post" class="contentmargin">
 <fieldset>
 <table width="90%">
 	<tr>
@@ -14,15 +40,15 @@ email addres below and your password will be emailed to you.</p>
 		<td width="45%"></td>
 	</tr>
 	<tr>
-		<td><input name="username" type="text" /></td>
+		<td><form:input path="username" type="text" /></td>
 		<td>
 		<div style="text-align: center">OR</div>
 		</td>
-		<td><input name="emailaddress" type="text" /></td>
+		<td><form:input path="emailAddress" type="text" /></td>
 		<td><input name="submit" type="submit" class="button"
 			value="Submit" /></td>
 	</tr>
 </table>
 </fieldset>
-</form>
+</form:form>
 </div>

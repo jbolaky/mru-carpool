@@ -28,7 +28,7 @@ Password.</p>
 </fieldset>
 <fieldset>
 <div style="float: left; margin-bottom: 3px; width: 40%;"></div>
-<div><a class="common_link_style" href="forgotpassword.html">Forgotton
+<div><a class="common_link_style" href="<c:url value="forgotpassword"/>"/>Forgotton
 your password?</a></div>
 </fieldset>
 </form>

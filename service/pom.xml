@@ -27,6 +27,12 @@
 			<artifactId>carpool.domains.location.service</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.javaid.bolaky.carpool.components</groupId>
+			<artifactId>carpool.components.email</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
 	</dependencies>
 
 </project>

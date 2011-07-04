@@ -21,8 +21,11 @@ public enum CarPoolError {
 	USER_CONFIRM_EMAIL_NULL("S75",null,"Please enter confirm email"),
 	USER_CONFIRM_EMAIL_ADDRESS_NOT_MATCH("S76",null,"Email address and confirm email address does not match"),
 	USER_CONFIRM_PASSWORD_NULL("S80",null,"Please enter confirm password"),
-	USER_CONFIRM_PASSWORD_NOT_MATCH("S81",null,"Password and confirm password does not match");
-
+	USER_CONFIRM_PASSWORD_NOT_MATCH("S81",null,"Password and confirm password does not match"),
+	
+	FORGOT_PASSWORD_INFO_REQUIRED("S90",null,"Please enter either username or email address"),
+	FORGOT_PASSWORD_EMAIL_INVALID("S91",null,"Please enter a valid email");
+	
 	private String applicationCode;
 	private String domainErrorCode;
 	private String descripion;
