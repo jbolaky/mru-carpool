@@ -5,6 +5,8 @@ import com.javaid.bolaky.domain.userregistration.entity.Person;
 public interface UserRegistrationService {
 
 	Person savePerson(Person person);
-	
-	Person retrievePerson(Long personId);
+
+	Person retrievePerson(String username);
+
+	Person findByUsernameAndEmailAddress(String username, String emailAddress);
 }

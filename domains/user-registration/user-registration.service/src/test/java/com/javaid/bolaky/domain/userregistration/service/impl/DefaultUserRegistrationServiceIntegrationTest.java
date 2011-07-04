@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.Iterator;
 
+import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,7 +46,10 @@ public class DefaultUserRegistrationServiceIntegrationTest {
 
 	@Test
 	public void saveAndRetrievePerson() {
-		Person person = createPerson("Javaid", "password", "javaid", "javaid",
+
+		String username = Long.toHexString(RandomUtils.nextLong());
+
+		Person person = createPerson(username, "password", "javaid", "javaid",
 				2, AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
 				Gender.MALE, true, "javaid.bolaky@tnt.com", "2307768487");
 
@@ -58,11 +62,10 @@ public class DefaultUserRegistrationServiceIntegrationTest {
 
 		person = userRegistrationService.savePerson(person);
 		assertThat(person.getCreationUsername(), is("Javaid"));
-		assertThat(person.getPersonId(), is(notNullValue()));
+		assertThat(username, is(notNullValue()));
 
-		Person person2 = userRegistrationService.retrievePerson(person
-				.getPersonId());
-		assertPerson(person2, "Javaid", "password", "javaid", "javaid", 2,
+		Person person2 = userRegistrationService.retrievePerson(username);
+		assertPerson(person2, username, "password", "javaid", "javaid", 2,
 				AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
 				Gender.MALE, true, "javaid.bolaky@tnt.com", "2307768487");
 

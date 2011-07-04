@@ -18,12 +18,8 @@ public class ForgotPasswordAttributeCheckValidator implements
 
 		boolean isValid = true;
 
-		if ((forgotPasswordVO.getEmailAddress() == null || (forgotPasswordVO
-				.getEmailAddress() != null && forgotPasswordVO
-				.getEmailAddress().equals("")))
-				&& (forgotPasswordVO.getUsername() == null || (forgotPasswordVO
-						.getUsername() != null && forgotPasswordVO
-						.getUsername().equals("")))) {
+		if (forgotPasswordVO.getEmailAddress() == null
+				&& forgotPasswordVO.getUsername() == null) {
 
 			isValid = false;
 		}

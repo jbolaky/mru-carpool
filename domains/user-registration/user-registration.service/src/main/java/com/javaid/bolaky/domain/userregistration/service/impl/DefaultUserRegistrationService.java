@@ -19,8 +19,16 @@ public class DefaultUserRegistrationService implements UserRegistrationService {
 	}
 
 	@Transactional(readOnly = true)
-	public Person retrievePerson(Long personId) {
-		return userRegistrationRepository.findOne(personId);
+	public Person retrievePerson(String username) {
+		return userRegistrationRepository.findOne(username);
+	}
+
+	@Transactional(readOnly = true)
+	public Person findByUsernameAndEmailAddress(String username,
+			String emailAddress) {
+
+		return userRegistrationRepository.findByUsernameAndEmailAddress(
+				username, emailAddress);
 	}
 
 }

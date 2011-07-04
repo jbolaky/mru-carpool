@@ -5,8 +5,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.ConstraintViolation;
@@ -49,10 +47,6 @@ public class Person extends AbstractTimestampUsernameEntity {
 	private static final long serialVersionUID = -687567688155349393L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "PERSON_ID", nullable = false)
-	private Long personId;
-
 	@Size(min = 6, groups = MandatoryDataRules.class, message = "UM1")
 	@NotNull(groups = MandatoryDataRules.class, message = "UM2")
 	@Column(name = "USERNAME")
@@ -107,10 +101,6 @@ public class Person extends AbstractTimestampUsernameEntity {
 	@Valid
 	@Embedded
 	private ContactDetails contactDetails = new ContactDetails(this);
-
-	public Long getPersonId() {
-		return personId;
-	}
 
 	public String getUsername() {
 		return username;
@@ -242,12 +232,12 @@ public class Person extends AbstractTimestampUsernameEntity {
 		Person rhs = (Person) obj;
 
 		return new EqualsBuilder().appendSuper(super.equals(obj))
-				.append(personId, rhs.personId).isEquals();
+				.append(username, rhs.username).isEquals();
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder(9, 11).append(personId).toHashCode();
+		return new HashCodeBuilder(9, 11).append(username).toHashCode();
 
 	}
 

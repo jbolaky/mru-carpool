@@ -39,10 +39,18 @@ public class DefaultUserRegistrationAcl implements UserRegistrationAcl {
 	}
 
 	public Boolean store(UserVO userVO) {
-		
+
 		Person person = UserRegistrationAclTranslator.convertToPerson(userVO);
 		person = userRegistrationService.savePerson(person);
 		return person != null ? true : false;
+	}
+
+	public UserVO findByUsernameAndEmailAddress(String username,
+			String emailAddress) {
+
+		Person person = userRegistrationService.findByUsernameAndEmailAddress(
+				username, emailAddress);
+		return UserRegistrationAclTranslator.convertToUserVO(person);
 	}
 
 }

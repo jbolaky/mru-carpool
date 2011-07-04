@@ -58,7 +58,7 @@ public class Address extends AbstractTimestampUsernameEntity {
 	private String districtCode;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "PERSON_ID")
+	@JoinColumn(name = "PERSON_USERNAME")
 	private Person person;
 
 	/**

@@ -1,5 +1,6 @@
 package com.javaid.bolaky.carpool.service.acl.userregistration.impl;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.commons.collections15.set.ListOrderedSet;
@@ -45,6 +46,55 @@ public class UserRegistrationAclTranslator {
 		}
 
 		return person;
+	}
+
+	public static UserVO convertToUserVO(Person person) {
+
+		UserVO userVO = null;
+
+		if (person != null) {
+
+			userVO = new UserVO();
+			
+			userVO.setUsername(person.getUsername());
+			userVO.setAgeGroup(person.getAgeGroup().getCode());
+			userVO.setFirstname(person.getFirstname());
+			userVO.setLastname(person.getLastname());
+			userVO.setPassword(person.getPassword());
+			userVO.setEmailAddress(person.getContactDetails() != null ? person
+					.getContactDetails().getEmailAddresse() : null);
+			userVO.setCarOwner(person.isAVehicleOwner());
+			userVO.setValidLicense(person.hasValidLicense());
+			userVO.setGender(person.getGender().getCode());
+
+			Set<Address> addresses = person.getContactDetails() != null ? person
+					.getContactDetails().getAddresses() : null;
+
+			if (addresses != null) {
+
+				Iterator<Address> iterator = addresses.iterator();
+
+				if (iterator.hasNext()) {
+
+					Address address = iterator.next();
+					userVO.setCountryCode(address.getCountryCode());
+					userVO.setAreaCode(address.getAreaCode());
+					userVO.setDistrictCode(address.getDistrictCode());
+					userVO.setAddressLine1(address.getAddressLine1());
+
+				}
+			}
+
+			userVO.setPhoneNumber(person.getContactDetails() != null ? person
+					.getContactDetails().getPhoneNumber() : null);
+			userVO.setAllowToReceiveUpdates(person.getUserPreferences() != null ? person
+					.getUserPreferences().isAllowToReceiveUpdates() : null);
+			userVO.setShareCost(person.canShareCost());
+			userVO.setShareDriving(person.canShareDriving());
+
+		}
+
+		return userVO;
 	}
 
 	public static Set<CarPoolError> convertToCarPoolErrorCodes(

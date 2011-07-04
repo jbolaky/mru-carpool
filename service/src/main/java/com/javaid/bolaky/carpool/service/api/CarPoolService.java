@@ -15,7 +15,8 @@ public interface CarPoolService {
 
 	Set<LocationVO> getAllCountries();
 
-	Boolean sendPasswordToEmail(String firstname, String lastname,
-			String password, String recipientEmailAddress)
-			throws EmailAclException;
+	Boolean emailPassword(String firstname, String lastname, String password,
+			String recipientEmailAddress) throws EmailAclException;
+
+	UserVO findByUsernameAndEmailAddress(String username, String emailAddress);
 }

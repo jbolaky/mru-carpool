@@ -2,10 +2,10 @@ package com.javaid.bolaky.domain.userregistration.entity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.Iterator;
 
+import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,7 +55,9 @@ public class UserRegistrationRepositotyIntegrationTest {
 	@Test
 	public void testSave() {
 
-		Person person = createPerson("Javaid", "password", "javaid", "javaid",
+		String username = Long.toString(RandomUtils.nextLong());
+
+		Person person = createPerson(username, "password", "javaid", "javaid",
 				2, AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
 				Gender.MALE, true, "javaid.bolaky@tnt.com", "2307768487");
 
@@ -68,11 +70,9 @@ public class UserRegistrationRepositotyIntegrationTest {
 
 		person = userRegistrationRepository.save(person);
 		assertThat(person.getCreationUsername(), is("Javaid"));
-		assertThat(person.getPersonId(), is(notNullValue()));
 
-		Person person2 = userRegistrationRepository.findOne(person
-				.getPersonId());
-		assertPerson(person2, "Javaid", "password", "javaid", "javaid", 2,
+		Person person2 = userRegistrationRepository.findOne(username);
+		assertPerson(person2, username, "password", "javaid", "javaid", 2,
 				AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
 				Gender.MALE, true, "javaid.bolaky@tnt.com", "2307768487");
 
@@ -84,6 +84,70 @@ public class UserRegistrationRepositotyIntegrationTest {
 
 		assertAddress(iterator.next(), "ADDRESS_LINE_3", "MU", "23000", "BB",
 				"BB");
+	}
+	
+	@Test
+	public void testFindByUsernameAndEmailAddress(){
+		
+		String username = Long.toString(RandomUtils.nextLong());
+		String emailAddress = Long.toString(RandomUtils.nextLong());
+
+		Person person = createPerson(username, "password", "javaid", "javaid",
+				2, AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
+				Gender.MALE, true, emailAddress, "2307768487");
+
+		Address address = new Address("ADDRESS_LINE_1", "MRU", "23000", "PL",
+				"PL");
+		person.getContactDetails().addAddress(address);
+		Address address2 = new Address("ADDRESS_LINE_3", "MU", "23000", "BB",
+				"BB");
+		person.getContactDetails().addAddress(address2);
+
+		person = userRegistrationRepository.save(person);
+		assertThat(person.getCreationUsername(), is("Javaid"));
+		
+		Person person2 = userRegistrationRepository.findByUsernameAndEmailAddress(username, emailAddress);
+		assertPerson(person2, username, "password", "javaid", "javaid", 2,
+				AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
+				Gender.MALE, true, emailAddress, "2307768487");
+
+		Iterator<Address> iterator = person2.getContactDetails().getAddresses()
+				.iterator();
+
+		assertAddress(iterator.next(), "ADDRESS_LINE_1", "MRU", "23000", "PL",
+				"PL");
+
+		assertAddress(iterator.next(), "ADDRESS_LINE_3", "MU", "23000", "BB",
+				"BB");
+		
+		person2 = userRegistrationRepository.findByUsernameAndEmailAddress(null, emailAddress);
+		assertPerson(person2, username, "password", "javaid", "javaid", 2,
+				AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
+				Gender.MALE, true, emailAddress, "2307768487");
+
+		iterator = person2.getContactDetails().getAddresses()
+				.iterator();
+
+		assertAddress(iterator.next(), "ADDRESS_LINE_1", "MRU", "23000", "PL",
+				"PL");
+
+		assertAddress(iterator.next(), "ADDRESS_LINE_3", "MU", "23000", "BB",
+				"BB");
+		
+		person2 = userRegistrationRepository.findByUsernameAndEmailAddress(username, null);
+		assertPerson(person2, username, "password", "javaid", "javaid", 2,
+				AgeGroup.THIRTY_ONE_TO_THIRTYFIVE, true, false, true, false,
+				Gender.MALE, true, emailAddress, "2307768487");
+
+		iterator = person2.getContactDetails().getAddresses()
+				.iterator();
+
+		assertAddress(iterator.next(), "ADDRESS_LINE_1", "MRU", "23000", "PL",
+				"PL");
+
+		assertAddress(iterator.next(), "ADDRESS_LINE_3", "MU", "23000", "BB",
+				"BB");
+		
 	}
 
 	private Person createPerson(String username, String password,

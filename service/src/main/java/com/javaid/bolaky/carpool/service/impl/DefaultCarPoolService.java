@@ -42,7 +42,7 @@ public class DefaultCarPoolService implements CarPoolService {
 		return locationAcl.getAllCountries();
 	}
 
-	public Boolean sendPasswordToEmail(String firstname, String lastname,
+	public Boolean emailPassword(String firstname, String lastname,
 			String password, String recipientEmailAddress)
 			throws EmailAclException {
 
@@ -54,6 +54,13 @@ public class DefaultCarPoolService implements CarPoolService {
 
 		return emailAcl.sendEmail(subjectOfEmail, messageInEmail,
 				Arrays.asList(emailAddresses));
+	}
+
+	public UserVO findByUsernameAndEmailAddress(String username,
+			String emailAddress) {
+
+		return userRegistrationAcl.findByUsernameAndEmailAddress(username,
+				emailAddress);
 	}
 
 }
