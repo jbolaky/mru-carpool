@@ -1,5 +1,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -41,7 +43,11 @@
 	</ul>
 	</li>
 	<li><a href="<c:url value="registeruser"/>">Register Free</a></li>
-	<li><a href="<c:url value="login"/>">Login</a></li>
+	<li><security:authorize ifAllGranted="ROLE_USER">
+		<a href="<c:url value="/logout" />">Logout</a>
+	</security:authorize> <security:authorize ifAllGranted="ROLE_ANONYMOUS">
+		<a href="<c:url value="login"/>">Login</a>
+	</security:authorize></li>
 </ul>
 </div>
 <div class="clear"></div>

@@ -25,7 +25,7 @@
 
 	<authentication-manager>
 		<authentication-provider>
-			<jdbc-user-service data-source-ref="user_DataSource" />
+			<jdbc-user-service data-source-ref="user_registration_DataSource" />
 		</authentication-provider>
 	</authentication-manager>
 
