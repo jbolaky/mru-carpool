@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.ConstraintViolation;
@@ -28,6 +30,7 @@ import org.hibernate.annotations.TypeDefs;
 import com.javaid.bolaky.domain.jpa.entity.AbstractTimestampUsernameEntity;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender;
+import com.javaid.bolaky.domain.userregistration.entity.enumerated.Role;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 import com.javaid.bolaky.domain.userregistration.hibernate.constraint.AgeAndLicenseCheck;
 import com.javaid.bolaky.domain.userregistration.hibernate.group.AgeGroupDataRule;
@@ -67,8 +70,8 @@ public class Person extends AbstractTimestampUsernameEntity {
 
 	@Column(name = "ACTIVE")
 	@Type(type = "yes_no")
-	private Boolean active;
-	
+	private Boolean active = Boolean.TRUE;
+
 	@Column(name = "AGE")
 	private Integer age;
 
@@ -76,6 +79,10 @@ public class Person extends AbstractTimestampUsernameEntity {
 	@Column(name = "AGE_GROUP")
 	@Type(type = "age_user_types")
 	private AgeGroup ageGroup;
+
+	@Column(name = "ROLE")
+	@Enumerated(EnumType.STRING)
+	private Role role = Role.USER;
 
 	@NotNull(groups = GenderDataRule.class, message = "U30")
 	@Column(name = "GENDER")
@@ -134,6 +141,10 @@ public class Person extends AbstractTimestampUsernameEntity {
 		return ageGroup;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
 	public Gender getGender() {
 		return gender;
 	}
@@ -180,6 +191,10 @@ public class Person extends AbstractTimestampUsernameEntity {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public void setAgeGroup(AgeGroup ageGroup) {

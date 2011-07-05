@@ -7,5 +7,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.javaid.bolaky.domain.userregistration.entity.Person</class>
 		<class>com.javaid.bolaky.domain.userregistration.entity.Address</class>
+		<class>com.javaid.bolaky.domain.userregistration.entity.User</class>
+		<class>com.javaid.bolaky.domain.userregistration.entity.Authority</class>
 	</persistence-unit>
 </persistence>
