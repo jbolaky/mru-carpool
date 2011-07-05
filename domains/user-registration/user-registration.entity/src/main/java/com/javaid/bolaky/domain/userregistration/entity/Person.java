@@ -65,6 +65,10 @@ public class Person extends AbstractTimestampUsernameEntity {
 	@Column(name = "LASTNAME")
 	private String lastname;
 
+	@Column(name = "ACTIVE")
+	@Type(type = "yes_no")
+	private Boolean active;
+	
 	@Column(name = "AGE")
 	private Integer age;
 
@@ -118,6 +122,10 @@ public class Person extends AbstractTimestampUsernameEntity {
 		return lastname;
 	}
 
+	public Boolean isActive() {
+		return active;
+	}
+
 	public Integer getAge() {
 		return age;
 	}
@@ -164,6 +172,10 @@ public class Person extends AbstractTimestampUsernameEntity {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public void setAge(Integer age) {
