@@ -43,11 +43,11 @@
 	</ul>
 	</li>
 	<li><a href="<c:url value="registeruser"/>">Register Free</a></li>
-	<li><security:authorize ifAllGranted="ROLE_USER">
+	<li><security:authorize ifAllGranted="USER">
 		<a href="<c:url value="/logout" />">Logout</a>
-	</security:authorize> <security:authorize ifAllGranted="ROLE_ANONYMOUS">
+	</security:authorize>
 		<a href="<c:url value="login"/>">Login</a>
-	</security:authorize></li>
+	</li>
 </ul>
 </div>
 <div class="clear"></div>
