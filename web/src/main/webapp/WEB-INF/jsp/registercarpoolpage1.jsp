@@ -9,43 +9,43 @@
 <h1 class="notopmargin">Password Information</h1>
 
 
-<form:form action="${flowExecutionUrl}" method="post"
+<form:form modelAttribute="carPoolRegistrationVO" action="${flowExecutionUrl}" method="post"
 	class="contentmargin">
 <fieldset>
 <table width="95%">
 	<tr>
 		<td width="40%" height="30%"><label>Car Owner:</label></td>
 		<span id="spryradio1">
-		<td><input type="radio" name="carOwner" value="radio"
+		<td><form:radiobutton type="radio" path="carOwner" value="true"
 			id="carOwner_0" /> <label>Yes</label></td>
-		<td><input type="radio" name="carOwner" value="radio"
+		<td><form:radiobutton type="radio" path="carOwner" value="false"
 			id="carOwner_1" /> <label>No</label></td>
 		</span>
 	</tr>
 	<tr>
 		<td><label>Valid Licence:</label></td>
 		<span id="spryradio2">
-		<td><input type="radio" name="validLincense" value="radio"
+		<td><form:radiobutton type="radio" path="validLicense" value="true"
 			id="validLincense_0" /> <label>Yes</label></td>
-		<td><input type="radio" name="validLincense" value="radio"
+		<td><form:radiobutton type="radio" path="validLicense" value="false"
 			id="validLincense_1" /> <label>No</label></td>
 		</span>
 	</tr>
 	<tr>
 		<td><label>Gender:</label></td>
 		<span id="spryradio3">
-		<td><input type="radio" name="gender" value="radio" id="gender_0" />
-		<label>Yes</label></td>
-		<td><input type="radio" name="gender" value="radio" id="gender_1" />
-		<label>No</label></td>
+		<td><form:radiobutton type="radio" path="gender" value="M" id="gender_0" />
+		<label>Male</label></td>
+		<td><form:radiobutton type="radio" path="gender" value="F" id="gender_1" />
+		<label>Female</label></td>
 		</span>
 	</tr>
 	<tr>
 		<td><label>Are you a smoker?</label></td>
 		<span id="spryradio4">
-		<td><input type="radio" name="smoker" value="radio" id="smoker_0" />
+		<td><form:radiobutton type="radio" path="smoker" value="true" id="smoker_0" />
 		<label>Yes</label></td>
-		<td><input type="radio" name="smoker" value="radio" id="smoker_1" />
+		<td><form:radiobutton type="radio" path="smoker" value="false" id="smoker_1" />
 		<label>No</label></td>
 		</span>
 	</tr>

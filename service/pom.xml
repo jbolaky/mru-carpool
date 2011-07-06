@@ -33,6 +33,12 @@
 			<artifactId>carpool.components.email</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
+
+			<!--To Remove -->
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+			</dependency>
 	</dependencies>
 
 </project>

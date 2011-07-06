@@ -16,6 +16,7 @@ import com.javaid.bolaky.carpool.service.vo.CarPoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
+import com.thoughtworks.xstream.XStream;
 
 @Service("carPoolService")
 public class DefaultCarPoolService implements CarPoolService {
@@ -69,6 +70,11 @@ public class DefaultCarPoolService implements CarPoolService {
 
 	public CarPoolRegistrationVO createCarpoolRegistrationVO(String username) {
 		return new CarPoolRegistrationVO(username);
+	}
+
+	public void printCarPoolRegistrationVO(
+			CarPoolRegistrationVO carPoolRegistrationVO) {
+		System.out.println(new XStream().toXML(carPoolRegistrationVO));
 	}
 
 }

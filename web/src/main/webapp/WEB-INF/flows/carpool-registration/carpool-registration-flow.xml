@@ -5,12 +5,24 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
 	<on-start>
-		<evaluate expression="carPoolService.createCarpoolRegistrationVO(currentUser.name)" result="flowScope.carPoolRegistrationVO" />
+		<evaluate
+			expression="carPoolService.createCarpoolRegistrationVO(currentUser.name)"
+			result="flowScope.carPoolRegistrationVO" />
 	</on-start>
 
-	<view-state id="registercarpoolpage1" view="registercarpoolpage1">
-
-		<transition on="nextstep" to="registercarpoolpage2" />
+	<view-state id="registercarpoolpage1" view="registercarpoolpage1" model="carPoolRegistrationVO">
+		<binder>
+			<binding property="carOwner" />
+			<binding property="validLicense" />
+			<binding property="gender" />
+			<binding property="smoker" />
+			<binding property="vehicleMake" />
+			<binding property="vehicleModel" />
+			<binding property="vehicleType" />
+		</binder>
+		<transition on="nextstep" to="registercarpoolpage2">
+			<evaluate expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
+		</transition>
 	</view-state>
 
 	<view-state id="registercarpoolpage2" view="registercarpoolpage2">
@@ -31,6 +43,6 @@
 		<transition on="confirm" to="registercarpool" />
 	</view-state>
 
-	<end-state id="registercarpool" view="homepage"/>
+	<end-state id="registercarpool" view="homepage" />
 
 </flow>
