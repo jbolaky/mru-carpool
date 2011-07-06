@@ -1,6 +1,10 @@
 package com.javaid.bolaky.carpool.service.vo;
 
-public class LocationVO {
+import java.io.Serializable;
+
+public class LocationVO implements Serializable {
+
+	private static final long serialVersionUID = -7094738648770419184L;
 
 	private Long countryId;
 	private String countryName;

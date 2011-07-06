@@ -7,10 +7,11 @@
 	rel="stylesheet" type="text/css" />
 <div id="content">
 <h1 class="notopmargin">Password Information</h1>
-<form action="registercarpoolpage2.html" method="post"
+
+
+<form:form action="${flowExecutionUrl}" method="post"
 	class="contentmargin">
 <fieldset>
-
 <table width="95%">
 	<tr>
 		<td width="40%" height="30%"><label>Car Owner:</label></td>
@@ -68,9 +69,9 @@
 	</tr>
 </table>
 <div class="topspace buttons"><input class="button"
-	name="nextStep" type="submit" value="Next Step - Travel Details" /></div>
+	name="_eventId_nextstep" type="submit" value="Next Step - Travel Details" /></div>
 </fieldset>
-</form>
+</form:form>
 </div>
 
 <script type="text/javascript">

@@ -26,5 +26,17 @@
 	<definition name="registercarpoolpage1" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/registercarpoolpage1.jsp" />
 	</definition>
+	
+	<definition name="registercarpoolpage2" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/registercarpoolpage2.jsp" />
+	</definition>
+	
+	<definition name="registercarpoolpage3" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/registercarpoolpage3.jsp" />
+	</definition>
+	
+	<definition name="registercarpoolpage4" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/registercarpoolpage4.jsp" />
+	</definition>
 
 </tiles-definitions>

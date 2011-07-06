@@ -28,7 +28,7 @@ public class ForgotPasswordController {
 	private final String forgotPasswordPage = "forgotpassword";
 	private final String loginPage = "login";
 
-	@Resource(name = "carpool_service_DefaultCarPoolService")
+	@Resource(name = "carPoolService")
 	private CarPoolService carPoolService;
 
 	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)

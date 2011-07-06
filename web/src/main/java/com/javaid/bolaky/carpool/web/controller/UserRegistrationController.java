@@ -30,7 +30,7 @@ import com.javaid.bolaky.carpool.web.controller.util.ControllerUtility;
 @Controller
 public class UserRegistrationController {
 
-	@Resource(name = "carpool_service_DefaultCarPoolService")
+	@Resource(name = "carPoolService")
 	private CarPoolService carPoolService;
 
 	private final String registerPageName = "register";

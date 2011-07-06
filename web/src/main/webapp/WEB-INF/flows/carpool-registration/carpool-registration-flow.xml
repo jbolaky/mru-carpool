@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<on-start>
+		<evaluate expression="carPoolService.createCarpoolRegistrationVO(currentUser.name)" result="flowScope.carPoolRegistrationVO" />
+	</on-start>
+
+	<view-state id="registercarpoolpage1" view="registercarpoolpage1">
+
+		<transition on="nextstep" to="registercarpoolpage2" />
+	</view-state>
+
+	<view-state id="registercarpoolpage2" view="registercarpoolpage2">
+
+		<transition on="previousstep" to="registercarpoolpage1" />
+		<transition on="nextstep" to="registercarpoolpage3" />
+	</view-state>
+
+	<view-state id="registercarpoolpage3" view="registercarpoolpage3">
+
+		<transition on="previousstep" to="registercarpoolpage2" />
+		<transition on="nextstep" to="registercarpoolpage4" />
+	</view-state>
+
+	<view-state id="registercarpoolpage4" view="registercarpoolpage4">
+
+		<transition on="previousstep" to="registercarpoolpage3" />
+		<transition on="confirm" to="registercarpool" />
+	</view-state>
+
+	<end-state id="registercarpool" view="homepage"/>
+
+</flow>
