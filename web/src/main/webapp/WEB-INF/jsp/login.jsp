@@ -33,5 +33,5 @@ your password?</a></div>
 </fieldset>
 </form>
 <p style="font-size: 95%">Not a member? <a class="common_link_style"
-	href="register.html">Register Here FREE</a></p>
+	href="<c:url value="registeruser"/>">Register Here FREE</a></p>
 </div>

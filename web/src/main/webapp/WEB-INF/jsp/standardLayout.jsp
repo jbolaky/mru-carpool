@@ -35,7 +35,7 @@
 <h3 align="center" class="notopmargin">REGISTER | SEARCH</h3>
 <div class="menu">
 <ul id="MenuBar1" class="MenuBarVertical">
-	<li><a href="homepage.html">Home</a></li>
+	<li><a href="<c:url value="/"/>">Home</a></li>
 	<li><a href="#" class="MenuBarItemSubmenu">Car Pool</a>
 	<ul>
 		<li><a href="carpoolsimplesearch.html">Search Car Pool</a></li>
