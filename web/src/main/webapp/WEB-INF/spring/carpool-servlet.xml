@@ -33,6 +33,7 @@
 		the path without the leading slash -->
 	<mvc:view-controller path="/" view-name="homepage" />
 	<mvc:view-controller path="/login" view-name="login" />
+	<mvc:view-controller path="/registercarpoolpage1" view-name="registercarpoolpage1" />
 	
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view 
 		name to resolve is treated as the name of a tiles definition -->

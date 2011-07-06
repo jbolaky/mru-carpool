@@ -22,5 +22,9 @@
 	<definition name="forgotpassword" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/forgotpassword.jsp" />
 	</definition>
+	
+	<definition name="registercarpoolpage1" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/registercarpoolpage1.jsp" />
+	</definition>
 
 </tiles-definitions>

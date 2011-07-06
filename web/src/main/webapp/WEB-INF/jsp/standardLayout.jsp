@@ -39,7 +39,7 @@
 	<li><a href="#" class="MenuBarItemSubmenu">Car Pool</a>
 	<ul>
 		<li><a href="carpoolsimplesearch.html">Search Car Pool</a></li>
-		<li><a href="registercarpoolpage1.html">Register Car Pool</a></li>
+		<li><a href="<c:url value="registercarpoolpage1"/>">Register Car Pool</a></li>
 	</ul>
 	</li>
 	<li><a href="<c:url value="registeruser"/>">Register Free</a></li>
