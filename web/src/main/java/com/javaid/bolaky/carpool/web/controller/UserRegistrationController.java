@@ -28,7 +28,7 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.carpool.web.controller.util.ControllerUtility;
 
 @Controller
-public class RegistrationController {
+public class UserRegistrationController {
 
 	@Resource(name = "carpool_service_DefaultCarPoolService")
 	private CarPoolService carPoolService;
