@@ -1,40 +1,53 @@
 package com.javaid.bolaky.carpool.service.vo.enumerated;
 
+import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.FORGOT_PASSWORD;
+import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_1;
+import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.USER_REGISTRATION;
+
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
 public enum CarPoolError {
 
-	USER_USERNAME_SIZE("S5", "UM1", "Please enter a minimun of 6 characters for username"), 
-	USER_USERNAME_NULL("S10", "UM2", "Please enter username"), 
-	USER_PASSWORD_SIZE("S15", "UM3", "Please enter a minimun of 8 characters for password"),
-	USER_PASSWORD_NULL("S20", "UM4", "Please enter password"),  
-	USER_FIRSTNAME_NULL("S25", "UM5", "Please enter firstname"), 
-	USER_LASTNAME_NULL("S30", "UM6","Please enter lastname"), 	
-	USER_EMAIL_INVALID("S35","UM7","Please enter a valid email"), 
-	USER_EMAIL_NULL("S40","UM8","Please enter email"), 
-	USER_AGEGROUP_NULL("S45","U25","Please choose age group"), 
-	USER_GENDER_NULL("S50","U30","Please choose gender"), 
-	USER_VALID_LICENSE_NULL("S55","U35","Please choose valid license"), 
-	USER_COUNTRY_CODE_NULL("S60","U50", "Please select country"), 
-	USER_AREA_CODE_NULL("S65","U55","Please select area"),
-	USER_REGION_CODE_NULL("S70","U60","Please select region"),
-	USER_CONFIRM_EMAIL_NULL("S75",null,"Please enter confirm email"),
-	USER_CONFIRM_EMAIL_ADDRESS_NOT_MATCH("S76",null,"Email address and confirm email address does not match"),
-	USER_CONFIRM_PASSWORD_NULL("S80",null,"Please enter confirm password"),
-	USER_CONFIRM_PASSWORD_NOT_MATCH("S81",null,"Password and confirm password does not match"),
+	USER_USERNAME_SIZE("S5", "UM1", USER_REGISTRATION, "Please enter a minimun of 6 characters for username"), 
+	USER_USERNAME_NULL("S10", "UM2", USER_REGISTRATION, "Please enter username"), 
+	USER_PASSWORD_SIZE("S15", "UM3", USER_REGISTRATION, "Please enter a minimun of 8 characters for password"),
+	USER_PASSWORD_NULL("S20", "UM4", USER_REGISTRATION, "Please enter password"),  
+	USER_FIRSTNAME_NULL("S25", "UM5", USER_REGISTRATION, "Please enter firstname"), 
+	USER_LASTNAME_NULL("S30", "UM6", USER_REGISTRATION, "Please enter lastname"), 	
+	USER_EMAIL_INVALID("S35","UM7", USER_REGISTRATION, "Please enter a valid email"), 
+	USER_EMAIL_NULL("S40","UM8", USER_REGISTRATION, "Please enter email"), 
+	USER_AGEGROUP_NULL("S45","U25", USER_REGISTRATION, "Please choose age group"), 
+	USER_GENDER_NULL("S50","U30", USER_REGISTRATION, "Please choose gender"), 
+	USER_VALID_LICENSE_NULL("S55","U35", USER_REGISTRATION, "Please choose valid license"), 
+	USER_COUNTRY_CODE_NULL("S60","U50", USER_REGISTRATION, "Please select country"), 
+	USER_AREA_CODE_NULL("S65","U55", USER_REGISTRATION, "Please select area"),
+	USER_REGION_CODE_NULL("S70","U60", USER_REGISTRATION, "Please select region"),
+	USER_CONFIRM_EMAIL_NULL("S75",null, USER_REGISTRATION, "Please enter confirm email"),
+	USER_CONFIRM_EMAIL_ADDRESS_NOT_MATCH("S76",null, USER_REGISTRATION, "Email address and confirm email address does not match"),
+	USER_CONFIRM_PASSWORD_NULL("S80",null, USER_REGISTRATION, "Please enter confirm password"),
+	USER_CONFIRM_PASSWORD_NOT_MATCH("S81",null, USER_REGISTRATION, "Password and confirm password does not match"),
 	
-	FORGOT_PASSWORD_INFO_REQUIRED("S90",null,"Please enter either username or email address"),
-	FORGOT_PASSWORD_EMAIL_INVALID("S91",null,"Please enter a valid email"),
+	FORGOT_PASSWORD_INFO_REQUIRED("S90",null, FORGOT_PASSWORD, "Please enter either username or email address"),
+	FORGOT_PASSWORD_EMAIL_INVALID("S91",null, FORGOT_PASSWORD, "Please enter a valid email"),
+	FORGOT_PASSWORD_ACCOUNT_NOT_FOUND("S100",null, FORGOT_PASSWORD, "Account not found, please enter a valid username or email"),
 	
-	FORGOT_PASSWORD_ACCOUNT_NOT_FOUND("S100",null,"Account not found, please enter a valid username or email");
+	REGISTER_CARPOOL_PAGE_1_CAR_OWNER_NULL("S110",null, REGISTER_CARPOOL_PAGE_1, "Please select car owner"),
+	REGISTER_CARPOOL_PAGE_1_VALID_LICENSE_NULL("S115",null, REGISTER_CARPOOL_PAGE_1, "Please select valid license"),
+	REGISTER_CARPOOL_PAGE_1_GENDER_NULL("S120",null, REGISTER_CARPOOL_PAGE_1, "Please select gender"),
+	REGISTER_CARPOOL_PAGE_1_SMOKER_NULL("S125",null, REGISTER_CARPOOL_PAGE_1, "Please select smoker"),
+	REGISTER_CARPOOL_PAGE_1_VEHICLE_MAKE_NULL("S130",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle make"),
+	REGISTER_CARPOOL_PAGE_1_VEHICLE_MODEL_NULL("S135",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle model"),
+	REGISTER_CARPOOL_PAGE_1_VEHICLE_TYPE_NULL("S140",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle type");
 	
 	private String applicationCode;
 	private String domainErrorCode;
+	private CarPoolView carPoolView;
 	private String descripion;
 
-	private CarPoolError(String code,String domainErrorCode, String descripion) {
+	private CarPoolError(String code,String domainErrorCode, CarPoolView carPoolView, String descripion) {
 		this.applicationCode = code;
 		this.domainErrorCode=domainErrorCode;
+		this.carPoolView=carPoolView;
 		this.descripion = descripion;
 	}
 
@@ -48,6 +61,10 @@ public enum CarPoolError {
 
 	public String getDescripion() {
 		return descripion;
+	}
+	
+	public CarPoolView getCarPoolView() {
+		return carPoolView;
 	}
 
 	public static CarPoolError getCarPoolError(String errorCode) {
@@ -81,4 +98,18 @@ public enum CarPoolError {
 		return null;
 	}
 
+	public static Boolean isApplicationCodeCorrespondsToView(String applicationCode,CarPoolView carPoolViews){
+		
+		boolean corresponds = false;
+		
+		for (CarPoolError carPoolErrorCode : values()) {
+			
+			if(carPoolErrorCode.getApplicationCode().equals(applicationCode) && carPoolErrorCode.getCarPoolView().equals(carPoolViews)){
+				corresponds = true;
+				break;
+			}
+		}
+		
+		return corresponds;
+	}
 }

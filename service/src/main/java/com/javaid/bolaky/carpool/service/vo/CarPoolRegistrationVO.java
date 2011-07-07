@@ -3,24 +3,33 @@ package com.javaid.bolaky.carpool.service.vo;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 public class CarPoolRegistrationVO implements Serializable {
 
 	private static final long serialVersionUID = -6418987354269415624L;
 
 	private String username;
 
+	@NotNull(message="S110")
 	private Boolean carOwner;
 
+	@NotNull(message="S115")
 	private Boolean validLicense;
 
+	@NotNull(message="S120")
 	private Character gender;
 
+	@NotNull(message="S125")
 	private Boolean smoker;
 
+	@NotNull(message="S130")
 	private String vehicleMake;
 
+	@NotNull(message="S135")
 	private String vehicleModel;
 
+	@NotNull(message="S140")
 	private String vehicleType;
 
 	private String carpoolName;
