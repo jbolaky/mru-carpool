@@ -43,7 +43,7 @@
 	</ul>
 	</li>
 	<li><a href="<c:url value="registeruser"/>">Register Free</a></li>
-	<li><security:authorize ifAllGranted="USER">
+	<li><security:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" >
 		<a href="<c:url value="/logout" />">Logout</a>
 	</security:authorize>
 		<a href="<c:url value="login"/>">Login</a>

@@ -4,13 +4,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
+	<secured attributes="ROLE_USER" match="any" />
+
 	<on-start>
 		<evaluate
 			expression="carPoolService.createCarpoolRegistrationVO(currentUser.name)"
 			result="flowScope.carPoolRegistrationVO" />
 	</on-start>
 
-	<view-state id="registercarpoolpage1" view="registercarpoolpage1" model="carPoolRegistrationVO">
+	<view-state id="registercarpoolpage1" view="registercarpoolpage1"
+		model="carPoolRegistrationVO">
 		<binder>
 			<binding property="carOwner" />
 			<binding property="validLicense" />
@@ -21,7 +24,8 @@
 			<binding property="vehicleType" />
 		</binder>
 		<transition on="nextstep" to="registercarpoolpage2">
-			<evaluate expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
+			<evaluate
+				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
 		</transition>
 	</view-state>
 

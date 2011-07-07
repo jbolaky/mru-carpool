@@ -9,12 +9,16 @@
 
 	<http use-expressions="true" auto-config="true">
 		<intercept-url pattern="/resources/**" filters="none" />
-		<intercept-url pattern="/login.jsp*" filters="none" />
-		<intercept-url pattern="/logout.jsp" filters="none" />
-		<form-login login-page="/login.jsp" login-processing-url="/loginProcess"
+		<intercept-url pattern="/SpryAssets/**" filters="none" />
+		<intercept-url pattern="/images/**" filters="none" />
+		<intercept-url pattern="/login" filters="none" />
+		<intercept-url pattern="/logout.jsp*" filters="none" />
+		<intercept-url pattern="/" filters="none" />
+		<form-login login-page="/login" login-processing-url="/loginProcess"
 			authentication-failure-url="/login?login_error=1" />
 		<logout logout-url="/logout" logout-success-url="/" />
-		<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/**"
+			access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 	</http>
 
 	<authentication-manager>
