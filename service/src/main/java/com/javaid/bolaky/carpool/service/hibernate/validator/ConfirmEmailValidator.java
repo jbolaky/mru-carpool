@@ -3,13 +3,13 @@ package com.javaid.bolaky.carpool.service.hibernate.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmEmailCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmEmail;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 
 public class ConfirmEmailValidator implements
-		ConstraintValidator<ConfirmEmailCheck, UserVO> {
+		ConstraintValidator<ConfirmEmail, UserVO> {
 
-	public void initialize(ConfirmEmailCheck emailsEnteredCheck) {
+	public void initialize(ConfirmEmail emailsEnteredCheck) {
 		// TODO Auto-generated method stub
 	}
 

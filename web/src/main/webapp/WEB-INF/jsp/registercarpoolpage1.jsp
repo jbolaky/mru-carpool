@@ -70,21 +70,21 @@
 		</tr>
 		<tr>
 			<td><label>Vehicle make:</label></td>
-			<td colspan="2"><select name="vehicleMake">
+			<td colspan="2"><form:select path="vehicleMake">
 				<option>--SELECT--</option>
-			</select></td>
+			</form:select></td>
 		</tr>
 		<tr>
 			<td><label>Vehicle Model:</label></td>
-			<td colspan="2"><select name="vehicleModel">
+			<td colspan="2"><form:select path="vehicleModel">
 				<option>--SELECT--</option>
-			</select></td>
+			</form:select></td>
 		</tr>
 		<tr>
 			<td><label>Vehicle Type:</label></td>
-			<td colspan="2"><select name="vehicleType">
+			<td colspan="2"><form:select path="vehicleType">
 				<option>--SELECT--</option>
-			</select></td>
+			</form:select></td>
 		</tr>
 	</table>
 	<div class="topspace buttons"><input class="button"

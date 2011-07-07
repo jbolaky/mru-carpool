@@ -1,8 +1,10 @@
 package com.javaid.bolaky.carpool.service.vo.enumerated;
 
 import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.FORGOT_PASSWORD;
-import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_1;
 import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.USER_REGISTRATION;
+import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_1;
+import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_2;
+import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_3;
 
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
@@ -37,7 +39,21 @@ public enum CarPoolError {
 	REGISTER_CARPOOL_PAGE_1_SMOKER_NULL("S125",null, REGISTER_CARPOOL_PAGE_1, "Please select smoker"),
 	REGISTER_CARPOOL_PAGE_1_VEHICLE_MAKE_NULL("S130",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle make"),
 	REGISTER_CARPOOL_PAGE_1_VEHICLE_MODEL_NULL("S135",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle model"),
-	REGISTER_CARPOOL_PAGE_1_VEHICLE_TYPE_NULL("S140",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle type");
+	REGISTER_CARPOOL_PAGE_1_VEHICLE_TYPE_NULL("S140",null, REGISTER_CARPOOL_PAGE_1, "Please select vehicle type"),
+	
+	REGISTER_CARPOOL_PAGE_2_CAR_POOL_NAME_NULL("S145",null, REGISTER_CARPOOL_PAGE_2, "Please enter a car pool name"),
+	REGISTER_CARPOOL_PAGE_2_CAR_POOL_DATE_NULL("S150",null, REGISTER_CARPOOL_PAGE_2, "Please enter car pool date"),
+	REGISTER_CARPOOL_PAGE_2_NUMBER_PASSENGER_NULL("S155",null, REGISTER_CARPOOL_PAGE_2, "Please enter of current passengers"),
+	REGISTER_CARPOOL_PAGE_2_FROM_AREA_CODE_NULL("S160",null, REGISTER_CARPOOL_PAGE_2, "Please select area"),
+	REGISTER_CARPOOL_PAGE_2_FROM_DISTRICT_NULL("S165",null, REGISTER_CARPOOL_PAGE_2, "Please select district"),
+	REGISTER_CARPOOL_PAGE_2_TRAVEL_TYPE_NULL("S170",null, REGISTER_CARPOOL_PAGE_2, "Please select travel type"),
+	REGISTER_CARPOOL_PAGE_2_GENDER_TO_TRAVEL_WITH_NULL("S175",null, REGISTER_CARPOOL_PAGE_2, "Please select preffered gender to travel with"),
+	REGISTER_CARPOOL_PAGE_2_SHARE_COST_NULL("S180",null, REGISTER_CARPOOL_PAGE_2, "Please select share cost"),
+	
+	REGISTER_CARPOOL_PAGE_3_TRAVEL_DAY_SEAT_NULL("S200",null, REGISTER_CARPOOL_PAGE_3, "Please select at least a travel day and enter its number of available seats"),
+	REGISTER_CARPOOL_PAGE_3_DEPARTURE_DATE_NULL("S205",null, REGISTER_CARPOOL_PAGE_3, "Please select departure date"),
+	REGISTER_CARPOOL_PAGE_3_TO_AREA_CODE_NULL("S210",null, REGISTER_CARPOOL_PAGE_3, "select area"),
+	REGISTER_CARPOOL_PAGE_3_TO_DISTRICT_CODE_NULL("S215",null, REGISTER_CARPOOL_PAGE_3, "Please select district");
 	
 	private String applicationCode;
 	private String domainErrorCode;

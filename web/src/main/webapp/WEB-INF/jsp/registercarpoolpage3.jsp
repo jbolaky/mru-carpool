@@ -2,42 +2,63 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <link href="<c:url value="/resources/styles/registercarpoolpage3.css"/>"
 	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/styles/error.css"/>"
+	rel="stylesheet" type="text/css" />
+
 <div id="content">
 <h1 class="notopmargin">Travel Details</h1>
 
-<form:form action="${flowExecutionUrl}" method="post"
+<spring:hasBindErrors name="carPoolRegistrationVO">
+	<div id="errormessage">
+	<table width="95%">
+		<spring:bind path="carPoolRegistrationVO.*">
+			<c:forEach items="${status.errorMessages}" var="error">
+				<tr>
+					<td><img
+						src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+						height="15" /></td>
+					<td><c:out value="${error}" /></td>
+				</tr>
+			</c:forEach>
+		</spring:bind>
+	</table>
+	</div>
+</spring:hasBindErrors>
+
+<form:form modelAttribute="carPoolRegistrationVO" action="${flowExecutionUrl}" method="post"
 	class="contentmargin">
 	<fieldset><label>Select the travel Days and the
 	amount of seats available for that day</label>
 	<table>
 		<tr>
-			<td width="20%"><input name="monday" type="checkbox" value="" />Monday</td>
-			<td><input name="numOfSeatsAvailableMonday" type="text"
+			<td width="20%"><form:checkbox path="travelOnMonday" type="checkbox" value="" />Monday</td>
+			<td><form:input path="numberOfAvailableSeatsOnMonday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td width="20%"><input name="tuesday" type="checkbox" value="" />Tuesday</td>
-			<td><input name="numOfSeatsAvailableTuesday" type="text"
+			<td width="20%"><form:checkbox path="travelOnTuesday" type="checkbox" value="" />Tuesday</td>
+			<td><form:input path="numberOfAvailableSeatsOnTuesday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td width="20%"><input name="wednesday" type="checkbox" value="" />Wednesday</td>
-			<td><input name="numOfSeatsAvailableWednesday" type="text"
-				value="0" class="seatsAvailable" /></td>
-		</tr>
-		<tr>
-			<td><input name="thursday" type="checkbox" value="" />Thursday</td>
-			<td><input name="numOfSeatsAvailableThursday" type="text"
-				value="0" class="seatsAvailable" /></td>
-			<td><input name="friday" type="checkbox" value="" />Friday</td>
-			<td><input name="numOfSeatsAvailableFriday" type="text"
+			<td width="20%"><form:checkbox path="travelOnWednesday" type="checkbox" value="" />Wednesday</td>
+			<td><form:input path="numberOfAvailableSeatsOnWednesday" type="text"
 				value="0" class="seatsAvailable" /></td>
 		</tr>
 		<tr>
-			<td><input name="saturday" type="checkbox" value="" />Saturday</td>
-			<td><input name="numOfSeatsAvailableSaturday" type="text"
+			<td><form:checkbox path="travelOnThursday" type="checkbox" value="" />Thursday</td>
+			<td><form:input path="numberOfAvailableSeatsOnThursday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td><input name="sunday" type="checkbox" value="" />Sunday</td>
-			<td><input name="numOfSeatsAvailableSunday" type="text"
+			<td><form:checkbox path="travelOnFriday" type="checkbox" value="" />Friday</td>
+			<td><form:input path="numberOfAvailableSeatsOnFriday" type="text"
+				value="0" class="seatsAvailable" /></td>
+		</tr>
+		<tr>
+			<td><form:checkbox path="travelOnSaturday" type="checkbox" value="" />Saturday</td>
+			<td><form:input path="numberOfAvailableSeatsOnSaturday" type="text"
+				value="0" class="seatsAvailable" /></td>
+			<td><form:checkbox path="travelOnSunday" type="checkbox" value="" />Sunday</td>
+			<td><form:input path="numberOfAvailableSeatsOnSunday" type="text"
 				value="0" class="seatsAvailable" /></td>
 		</tr>
 	</table>
@@ -46,9 +67,9 @@
 	<table width="45%">
 		<tr>
 			<td><label>Departure Time:</label></td>
-			<td><select name="departureTime">
+			<td><form:select path="departureTime">
 				<option>--ANY--</option>
-			</select></td>
+			</form:select></td>
 		</tr>
 	</table>
 	<h2 class="item">To</h2>
@@ -58,12 +79,12 @@
 			<td width="25%"><label>Region:</label></td>
 		</tr>
 		<tr>
-			<td><select name="fromDistrict">
+			<td><form:select path="toAreaCode">
 				<option>Mauritius</option>
-			</select></td>
-			<td><select name="fromRegion">
+			</form:select></td>
+			<td><form:select path="toDistrictCode">
 				<option>Mauritius</option>
-			</select></td>
+			</form:select></td>
 		</tr>
 	</table>
 	<p>To list all suburbs in your State, select State, change Region
@@ -73,7 +94,7 @@
 			<td><label>Additional Details:</label></td>
 		</tr>
 		<tr>
-			<td><textarea name="addtionalDetails" cols="50%" rows="5%"></textarea>
+			<td><form:textarea path="additionalDetails" cols="50%" rows="5%"/>
 			</td>
 		</tr>
 	</table>

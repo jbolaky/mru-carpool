@@ -3,13 +3,13 @@ package com.javaid.bolaky.carpool.service.hibernate.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmPasswordCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmPassword;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 
 public class ConfirmPasswordValidator implements
-		ConstraintValidator<ConfirmPasswordCheck, UserVO> {
+		ConstraintValidator<ConfirmPassword, UserVO> {
 
-	public void initialize(ConfirmPasswordCheck passwords) {
+	public void initialize(ConfirmPassword passwords) {
 		// TODO Auto-generated method stub
 	}
 

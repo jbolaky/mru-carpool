@@ -1,51 +1,65 @@
 package com.javaid.bolaky.carpool.service.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
+
+@TravelDays
 public class CarPoolRegistrationVO implements Serializable {
 
 	private static final long serialVersionUID = -6418987354269415624L;
 
 	private String username;
 
-	@NotNull(message="S110")
+	@NotNull(message = "S110")
 	private Boolean carOwner;
 
-	@NotNull(message="S115")
+	@NotNull(message = "S115")
 	private Boolean validLicense;
 
-	@NotNull(message="S120")
+	@NotNull(message = "S120")
 	private Character gender;
 
-	@NotNull(message="S125")
+	@NotNull(message = "S125")
 	private Boolean smoker;
 
-	@NotNull(message="S130")
+	@NotNull(message = "S130")
 	private String vehicleMake;
 
-	@NotNull(message="S135")
+	@NotNull(message = "S135")
 	private String vehicleModel;
 
-	@NotNull(message="S140")
+	@NotNull(message = "S140")
 	private String vehicleType;
 
+	@NotNull(message = "S145")
+	@NotEmpty(message = "S145")
 	private String carpoolName;
 
-	private Date carpoolDate;
+	@NotNull(message = "S150")
+	@NotEmpty(message = "S150")
+	private String carpoolDate;
 
+	@NotNull(message = "S155")
 	private Integer numberOfCurrentPassengers;
 
+	@NotNull(message = "S160")
 	private String fromAreaCode;
 
+	@NotNull(message = "S165")
 	private String fromDistrictCode;
 
+	@NotNull(message = "S170")
 	private Boolean oneWayTravel;
 
+	@NotNull(message = "S175")
 	private Character genderToTravelWith;
 
+	@NotNull(message = "S180")
 	private Boolean shareCost;
 
 	private Boolean travelOnMonday;
@@ -68,10 +82,24 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Integer numberOfAvailableSeatsOnFriday;
 
-	private Date departureTime;
+	private Boolean travelOnSaturday;
 
+	private Integer numberOfAvailableSeatsOnSaturday;
+
+	private Boolean travelOnSunday;
+
+	private Integer numberOfAvailableSeatsOnSunday;
+
+	@NotEmpty(message = "S205")
+	@NotNull(message = "S205")
+	private String departureTime;
+
+	@NotEmpty(message = "S210")
+	@NotNull(message = "S210")
 	private String toAreaCode;
 
+	@NotEmpty(message = "S215")
+	@NotNull(message = "S215")
 	private String toDistrictCode;
 
 	private String additionalDetails;
@@ -121,7 +149,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return carpoolName;
 	}
 
-	public Date getCarpoolDate() {
+	public String getCarpoolDate() {
 		return carpoolDate;
 	}
 
@@ -189,7 +217,23 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnFriday;
 	}
 
-	public Date getDepartureTime() {
+	public Boolean getTravelOnSaturday() {
+		return travelOnSaturday;
+	}
+
+	public Integer getNumberOfAvailableSeatsOnSaturday() {
+		return numberOfAvailableSeatsOnSaturday;
+	}
+
+	public Boolean getTravelOnSunday() {
+		return travelOnSunday;
+	}
+
+	public Integer getNumberOfAvailableSeatsOnSunday() {
+		return numberOfAvailableSeatsOnSunday;
+	}
+
+	public String getDepartureTime() {
 		return departureTime;
 	}
 
@@ -241,7 +285,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.carpoolName = carpoolName;
 	}
 
-	public void setCarpoolDate(Date carpoolDate) {
+	public void setCarpoolDate(String carpoolDate) {
 		this.carpoolDate = carpoolDate;
 	}
 
@@ -314,7 +358,25 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnFriday = numberOfAvailableSeatsOnFriday;
 	}
 
-	public void setDepartureTime(Date departureTime) {
+	public void setTravelOnSaturday(Boolean travelOnSaturday) {
+		this.travelOnSaturday = travelOnSaturday;
+	}
+
+	public void setNumberOfAvailableSeatsOnSaturday(
+			Integer numberOfAvailableSeatsOnSaturday) {
+		this.numberOfAvailableSeatsOnSaturday = numberOfAvailableSeatsOnSaturday;
+	}
+
+	public void setTravelOnSunday(Boolean travelOnSunday) {
+		this.travelOnSunday = travelOnSunday;
+	}
+
+	public void setNumberOfAvailableSeatsOnSunday(
+			Integer numberOfAvailableSeatsOnSunday) {
+		this.numberOfAvailableSeatsOnSunday = numberOfAvailableSeatsOnSunday;
+	}
+
+	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
 

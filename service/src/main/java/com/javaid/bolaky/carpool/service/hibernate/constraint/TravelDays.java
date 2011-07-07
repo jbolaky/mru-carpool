@@ -10,17 +10,18 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.javaid.bolaky.carpool.service.hibernate.validator.ConfirmPasswordValidator;
+import com.javaid.bolaky.carpool.service.hibernate.validator.TravelDaysValidator;
 
 @Target(TYPE)
 @Retention(RUNTIME)
-@Constraint(validatedBy = ConfirmPasswordValidator.class)
+@Constraint(validatedBy = TravelDaysValidator.class)
 @Documented
-public @interface ConfirmPasswordCheck {
+public @interface TravelDays {
 
-	String message() default "S81";
+	String message() default "S200";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
+
 }

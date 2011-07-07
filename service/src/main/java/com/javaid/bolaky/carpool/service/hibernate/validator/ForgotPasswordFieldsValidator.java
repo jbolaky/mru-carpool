@@ -3,13 +3,13 @@ package com.javaid.bolaky.carpool.service.hibernate.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.ForgotPasswordAttributeCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ForgotPasswordFields;
 import com.javaid.bolaky.carpool.service.vo.ForgotPasswordVO;
 
-public class ForgotPasswordAttributeCheckValidator implements
-		ConstraintValidator<ForgotPasswordAttributeCheck, ForgotPasswordVO> {
+public class ForgotPasswordFieldsValidator implements
+		ConstraintValidator<ForgotPasswordFields, ForgotPasswordVO> {
 
-	public void initialize(ForgotPasswordAttributeCheck constraintAnnotation) {
+	public void initialize(ForgotPasswordFields constraintAnnotation) {
 
 	}
 

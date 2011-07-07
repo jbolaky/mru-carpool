@@ -2,14 +2,33 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <link href="<c:url value="/resources/styles/registercarpoolpage2.css"/>"
 	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/styles/error.css"/>"
+	rel="stylesheet" type="text/css" />
+
 <div id="content">
 <h1 class="notopmargin">Car Pool Details</h1>
 
-<form:form action="${flowExecutionUrl}" method="post"
-	class="contentmargin">
+<spring:hasBindErrors name="carPoolRegistrationVO">
+	<div id="errormessage">
+	<table width="95%">
+		<spring:bind path="carPoolRegistrationVO.*">
+			<c:forEach items="${status.errorMessages}" var="error">
+				<tr>
+					<td><img
+						src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+						height="15" /></td>
+					<td><c:out value="${error}" /></td>
+				</tr>
+			</c:forEach>
+		</spring:bind>
+	</table>
+	</div>
+</spring:hasBindErrors> <form:form modelAttribute="carPoolRegistrationVO"
+	action="${flowExecutionUrl}" method="post" class="contentmargin">
 	<fieldset>
 
 	<table width="95%">
@@ -19,9 +38,9 @@
 			<td><label>No. Current Passengers:</label></td>
 		</tr>
 		<tr>
-			<td><input name="carPoolName" type="text" /></td>
-			<td><input name="carPoolDate" type="text" /></td>
-			<td><input name="numberPassengers" type="text" /></td>
+			<td><form:input path="carpoolName" type="text" /></td>
+			<td><form:input path="carpoolDate" type="text" /></td>
+			<td><form:input path="numberOfCurrentPassengers" type="text" /></td>
 		</tr>
 	</table>
 
@@ -34,12 +53,12 @@
 			<td width="25%"><label>Region:</label></td>
 		</tr>
 		<tr>
-			<td><select name="fromDistrict">
+			<td><form:select path="fromAreaCode">
 				<option>Mauritius</option>
-			</select></td>
-			<td><select name="fromRegion">
+			</form:select></td>
+			<td><form:select path="fromDistrictCode">
 				<option>Mauritius</option>
-			</select></td>
+			</form:select></td>
 		</tr>
 	</table>
 
@@ -47,29 +66,29 @@
 		<tr>
 			<td><label>One Way or Return?</label></td>
 			<span id="spryradio1">
-			<td><input type="radio" name="journey" value="radio"
+			<td><form:radiobutton type="radio" path="oneWayTravel" value="true"
 				id="journey_0" /> <label>Yes</label></td>
-			<td><input type="radio" name="journey" value="radio"
+			<td><form:radiobutton type="radio" path="oneWayTravel" value="false"
 				id="journey_1" /> <label>No</label></td>
 			</span>
 		</tr>
 		<tr>
 			<td><label>Preferred Gender To Travel With:</label></td>
 			<span id="spryradio2">
-			<td><input type="radio" name="genderToTravelWith" value="radio"
+			<td><form:radiobutton type="radio" path="genderToTravelWith" value="M"
 				id="genderToTravelWith_0" /> <label>Male Only</label></td>
-			<td><input type="radio" name="genderToTravelWith" value="radio"
+			<td><form:radiobutton type="radio" path="genderToTravelWith" value="F"
 				id="genderToTravelWith_1" /> <label>Female Only</label></td>
-			<td><input type="radio" name="genderToTravelWith" value="radio"
+			<td><form:radiobutton type="radio" path="genderToTravelWith" value="M"
 				id="genderToTravelWith_2" /> <label>Both</label></td>
 			</span>
 		</tr>
 		<tr>
 			<td><label>Share Costs:</label></td>
 			<span id="spryradio3">
-			<td><input type="radio" name="shareCost" value="radio"
+			<td><form:radiobutton type="radio" path="shareCost" value="true"
 				id="shareCost_0" /> <label>Yes</label></td>
-			<td><input type="radio" name="shareCost" value="radio"
+			<td><form:radiobutton type="radio" path="shareCost" value="false"
 				id="shareCost_1" /> <label>No</label></td>
 			</span>
 		</tr>

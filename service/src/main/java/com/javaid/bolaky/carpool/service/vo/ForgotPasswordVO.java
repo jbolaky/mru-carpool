@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.Email;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.ForgotPasswordAttributeCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ForgotPasswordFields;
 
-@ForgotPasswordAttributeCheck
+@ForgotPasswordFields
 public class ForgotPasswordVO implements Serializable {
 
 	private static final long serialVersionUID = 4466141537953728703L;

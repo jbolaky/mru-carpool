@@ -10,13 +10,13 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.javaid.bolaky.carpool.service.hibernate.validator.ForgotPasswordAttributeCheckValidator;
+import com.javaid.bolaky.carpool.service.hibernate.validator.ForgotPasswordFieldsValidator;
 
 @Target(TYPE)
 @Retention(RUNTIME)
-@Constraint(validatedBy = ForgotPasswordAttributeCheckValidator.class)
+@Constraint(validatedBy = ForgotPasswordFieldsValidator.class)
 @Documented
-public @interface ForgotPasswordAttributeCheck {
+public @interface ForgotPasswordFields {
 
 	String message() default "S90";
 

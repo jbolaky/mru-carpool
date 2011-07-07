@@ -2,11 +2,11 @@ package com.javaid.bolaky.carpool.service.vo;
 
 import java.io.Serializable;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmEmailCheck;
-import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmPasswordCheck;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmEmail;
+import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmPassword;
 
-@ConfirmPasswordCheck
-@ConfirmEmailCheck
+@ConfirmPassword
+@ConfirmEmail
 public class UserVO implements Serializable {
 
 	private static final long serialVersionUID = 9103665130138957313L;

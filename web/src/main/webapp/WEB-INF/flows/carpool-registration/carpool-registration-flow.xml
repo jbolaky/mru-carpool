@@ -29,16 +29,52 @@
 		</transition>
 	</view-state>
 
-	<view-state id="registercarpoolpage2" view="registercarpoolpage2">
-
+	<view-state id="registercarpoolpage2" view="registercarpoolpage2"
+		model="carPoolRegistrationVO">
+		<binder>
+			<binding property="carpoolName" />
+			<binding property="carpoolDate" />
+			<binding property="numberOfCurrentPassengers" />
+			<binding property="fromAreaCode" />
+			<binding property="fromDistrictCode" />
+			<binding property="oneWayTravel" />
+			<binding property="genderToTravelWith" />
+			<binding property="shareCost" />
+		</binder>
 		<transition on="previousstep" to="registercarpoolpage1" />
-		<transition on="nextstep" to="registercarpoolpage3" />
+		<transition on="nextstep" to="registercarpoolpage3">
+			<evaluate
+				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
+		</transition>
 	</view-state>
 
-	<view-state id="registercarpoolpage3" view="registercarpoolpage3">
-
+	<view-state id="registercarpoolpage3" view="registercarpoolpage3"
+		model="carPoolRegistrationVO">
+		<binder>
+			<binding property="travelOnMonday" />
+			<binding property="numberOfAvailableSeatsOnMonday" />
+			<binding property="travelOnTuesday" />
+			<binding property="numberOfAvailableSeatsOnTuesday" />
+			<binding property="travelOnWednesday" />
+			<binding property="numberOfAvailableSeatsOnWednesday" />
+			<binding property="travelOnThursday" />
+			<binding property="numberOfAvailableSeatsOnThursday" />
+			<binding property="travelOnFriday" />
+			<binding property="numberOfAvailableSeatsOnFriday" />
+			<binding property="travelOnSaturday" />
+			<binding property="numberOfAvailableSeatsOnSaturday" />
+			<binding property="travelOnSunday" />
+			<binding property="numberOfAvailableSeatsOnSunday" />
+			<binding property="departureTime" />
+			<binding property="toAreaCode" />
+			<binding property="toDistrictCode" />
+			<binding property="additionalDetails" />
+		</binder>
 		<transition on="previousstep" to="registercarpoolpage2" />
-		<transition on="nextstep" to="registercarpoolpage4" />
+		<transition on="nextstep" to="registercarpoolpage4">
+			<evaluate
+				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
+		</transition>
 	</view-state>
 
 	<view-state id="registercarpoolpage4" view="registercarpoolpage4">
