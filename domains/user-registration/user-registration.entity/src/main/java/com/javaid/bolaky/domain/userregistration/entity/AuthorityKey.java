@@ -19,7 +19,7 @@ public class AuthorityKey implements Serializable {
 
 	@Column(name = "authority", nullable = false)
 	@Enumerated(EnumType.STRING)
-	private Role role = Role.USER;
+	private Role role = Role.ROLE_USER;
 
 	public String getUsername() {
 		return username;

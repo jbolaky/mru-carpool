@@ -82,7 +82,7 @@ public class Person extends AbstractTimestampUsernameEntity {
 
 	@Column(name = "ROLE")
 	@Enumerated(EnumType.STRING)
-	private Role role = Role.USER;
+	private Role role = Role.ROLE_USER;
 
 	@NotNull(groups = GenderDataRule.class, message = "U30")
 	@Column(name = "GENDER")
