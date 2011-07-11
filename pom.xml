@@ -58,10 +58,13 @@
 		<jbossall-client.version>4.2.2.GA</jbossall-client.version>
 		<geronimo-ejb_3.0_spec.version>1.0.1</geronimo-ejb_3.0_spec.version>
 		<geronimo-annotation_3.0_spec.version>1.1.1</geronimo-annotation_3.0_spec.version>
+		<geronimo-j2ee_1.4_spec.version>1.1</geronimo-j2ee_1.4_spec.version>
 		<maven-ear-plugin.version>2.5</maven-ear-plugin.version>
 		<mysql.version>5.1.9</mysql.version>
 		<apache.tiles.version>2.1.3</apache.tiles.version>
 		<commons-email.version>1.2</commons-email.version>
+		<jackson-mapper-asl.version>1.6.4</jackson-mapper-asl.version>
+		<validation-api.version>1.0.0.GA</validation-api.version>
 	</properties>
 
 	<dependencies>
@@ -125,6 +128,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-j2ee_1.4_spec</artifactId>
+				<version>${geronimo-j2ee_1.4_spec.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>jboss</groupId>
@@ -233,7 +242,12 @@
 				<version>${hibernate-core.version}</version>
 			</dependency>
 
-			<!-- Hibernate Validator -->
+			<!--  JSR 303 with Hibernate Validator -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${validation-api.version}</version>
+		</dependency>
 			<dependency>
 			    <groupId>org.hibernate</groupId>
 			    <artifactId>hibernate-validator</artifactId>
@@ -343,6 +357,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>${spring-security-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-config</artifactId>
 				<version>${spring-security-core.version}</version>
 			</dependency>
@@ -378,6 +397,13 @@
 				${commons-utility.version}
 			</version>
 			</dependency>
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson-mapper-asl.version}</version>
+		</dependency>
 
 			<!-- Rest CXF Framework -->
 			<dependency>
@@ -455,6 +481,12 @@
 				<version>${dozer.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>${xstream.version}</version>
+			</dependency>
+
 			<!-- Provided Dependencies -->
 			<dependency>
 				<groupId>org.apache.geronimo.specs</groupId>
@@ -468,6 +500,11 @@
 				<groupId>org.apache.tiles</groupId>
 				<artifactId>tiles-jsp</artifactId>
 				<version>${apache.tiles.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
 			</dependency>
 
 			<!-- Test Dependency -->
@@ -488,18 +525,6 @@
 				<artifactId>powermock-api-mockito</artifactId>
 				<version>${powermock.version}</version>
 				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.thoughtworks.xstream</groupId>
-				<artifactId>xstream</artifactId>
-				<version>${xstream.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<scope>test</scope>
-				<version>${mysql.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
