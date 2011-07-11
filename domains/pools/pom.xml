@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.javaid.bolaky.carpool.domains</groupId>
+		<artifactId>carpool.domains.parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.javaid.bolaky.carpool.domains.pools</groupId>
+	<artifactId>carpool.domains.pools.parent</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>carpool.domains.pools.parent</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+		<module>pools.entity</module>
+		<module>pools.service</module>
+	</modules>
+
+	<dependencies>
+	</dependencies>
+
+</project>
