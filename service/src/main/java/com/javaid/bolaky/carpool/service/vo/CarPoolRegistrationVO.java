@@ -5,6 +5,9 @@ import java.io.Serializable;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
+import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
+
+@TravelDays
 public class CarPoolRegistrationVO implements Serializable {
 
 	private static final long serialVersionUID = -6418987354269415624L;
