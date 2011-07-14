@@ -38,6 +38,7 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.javaid.bolaky.domain.jpa.entity.AbstractTimestampUsernameEntity;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
@@ -70,6 +71,16 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	@NotNull(message = "P10", groups = MandatoryDataRules.class)
 	@Column(name = "USERNAME")
 	private String username;
+	
+	@NotNull(message = "P11", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P11", groups = MandatoryDataRules.class)
+	@Column(name = "POOL_NAME")
+	private String poolName;
+	
+	@NotNull(message = "P12", groups = MandatoryDataRules.class)
+	@Type(type = "yes_no")
+	@Column(name = "SHARE_COST")
+	private Boolean shareCost;
 
 	@NotNull(message = "P20", groups = MandatoryDataRules.class)
 	@Column(name = "POOL_TYPE")
@@ -92,12 +103,17 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	private Boolean oneWayTravel;
 
 	@Column(name = "NUMBER_OF_CURRENT_PASSENGER")
-	private Integer numberOfCurrentPassengers;
+	private Integer numberOfCurrentPassengers = 0;
 
 	@NotNull(message = "P60", groups = MandatoryDataRules.class)
 	@Type(type = "gender_user_types")
 	@Column(name = "PREFFERED_GENDER_TO_TRAVEL_WITH")
 	private Gender prefferedGenderToTravelWith;
+	
+	@NotNull(message = "P61", groups = MandatoryDataRules.class)
+	@Type(type = "gender_user_types")
+	@Column(name = "GENDER")
+	private Gender gender;
 
 	@Column(name = "USER_POOL_ADDITIONAL_DETAILS")
 	private String userPoolAdditionalDetails;
@@ -134,6 +150,18 @@ public class Pool extends AbstractTimestampUsernameEntity {
 
 	public Long getPoolId() {
 		return poolId;
+	}
+
+	public String getPoolName() {
+		return poolName;
+	}
+
+	public Boolean getShareCost() {
+		return shareCost;
+	}
+
+	public Gender getGender() {
+		return gender;
 	}
 
 	public String getUsername() {
@@ -214,6 +242,18 @@ public class Pool extends AbstractTimestampUsernameEntity {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public void setPoolName(String poolName) {
+		this.poolName = poolName;
+	}
+
+	public void setShareCost(Boolean shareCost) {
+		this.shareCost = shareCost;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	public void setPoolType(PoolType poolType) {

@@ -3,11 +3,14 @@ package com.javaid.bolaky.domain.pools.enumerated;
 public enum PoolsError {
 
 	POOLS_USERNAME_NULL("P10","username cannot be null"),
+	POOLS_POOLNAME_NULL("P11","pool name cannot be null"),
+	POOLS_SHARECOST_NULL("P12","share cost cannot be null"),
 	POOLS_POOL_TYPE_NULL("P20","pool type cannot be null"),
 	POOLS_VALID_LICENSE_NULL("P30","valid license cannot be null"),
 	POOLS_SMOKER_NULL("P40","smoker cannot be null"),
 	POOLS_ONE_WAY_TRAVEL_NULL("P50","one way travel cannot be null"),
-	POOLS_GENDER_TO_TRAVEL_WITH_NULL("P60","valid license cannot be null"),
+	POOLS_GENDER_TO_TRAVEL_WITH_NULL("P60","preffered gender to travel with cannot be null"),
+	POOLS_GENDER_NULL("P61","gender cannot be null"),
 	POOLS_VEHICLE_OWNER_NULL("P70","vehicle owner cannot be null"),
 	POOLS_VEHICLE_MAX_SEATS_NUMBER_NULL("P80","vehicle maximum seats number cannot be null"),
 	POOLS_VEHICLE_MAKE_CODE_NULL("P90","vehicle make code cannot be null"),
