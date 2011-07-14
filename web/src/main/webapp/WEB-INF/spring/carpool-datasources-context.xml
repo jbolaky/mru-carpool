@@ -8,7 +8,12 @@
 	<!-- DataSource configuration for Apache Commons DBCP. -->
 	<bean id="user_registration_DataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc:mysql://localhost:3306/userregistration" p:username="root"
+		p:url="jdbc:mysql://localhost:3306/carpool" p:username="root"
+		p:password="root" />
+
+	<bean id="pools_DataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://localhost:3306/carpool" p:username="root"
 		p:password="root" />
 
 </beans>
