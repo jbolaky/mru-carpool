@@ -45,6 +45,7 @@ import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
+import com.javaid.bolaky.domain.pools.hibernate.constraint.SeatAvailability;
 import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 
 @Entity
@@ -56,6 +57,7 @@ import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 		@TypeDef(name = "gender_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.Gender")),
 		@TypeDef(name = "pool_status_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus")),
 		@TypeDef(name = "pool_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolType")) })
+@SeatAvailability(groups = MandatoryDataRules.class)
 public class Pool extends AbstractTimestampUsernameEntity {
 
 	private static final long serialVersionUID = 9210101505830391192L;

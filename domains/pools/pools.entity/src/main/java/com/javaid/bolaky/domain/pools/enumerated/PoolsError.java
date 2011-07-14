@@ -21,7 +21,16 @@ public enum PoolsError {
 	POOLS_END_DATE_NULL("P170","end date cannot be null"),
 	POOLS_END_DATE_SHOULD_BE_IN_FUTURE("P171","end date should be in the future"),
 	POOLS_TO_AREA_CODE_NULL("P180","to area code cannot be null"),
-	POOLS_TO_DISTRICT_CODE_NULL("P190","to district code cannot be null");
+	POOLS_TO_DISTRICT_CODE_NULL("P190","to district code cannot be null"),
+	
+	POOLS_SEATS_NOT_AVAILABLE("P200","seats not available"),
+	POOLS_MONDAY_SEATS_NOT_AVAILABLE("P201"," monday seats not available"),
+	POOLS_TUESDAY_SEATS_NOT_AVAILABLE("P202","tuesday seats not available"),
+	POOLS_WEDNESDAY_SEATS_NOT_AVAILABLE("P203","wednesday seats not available"),
+	POOLS_THURSDAY_SEATS_NOT_AVAILABLE("P204","thursday seats not available"),
+	POOLS_FRIDAY_SEATS_NOT_AVAILABLE("P205","friday seats not available"),
+	POOLS_SATURDAY_SEATS_NOT_AVAILABLE("P206","saturday seats not available"),
+	POOLS_SUNDAY_SEATS_NOT_AVAILABLE("P207","sunday seats not available");
 	
 	private String errorCode;
 	private String errorDescription;

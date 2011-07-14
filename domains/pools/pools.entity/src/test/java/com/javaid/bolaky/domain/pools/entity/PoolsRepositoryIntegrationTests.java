@@ -91,7 +91,7 @@ public class PoolsRepositoryIntegrationTests {
 		String username4 = Long.toString(RandomUtils.nextLong());
 
 		Pool pool = createPool(username1, PoolType.CARPOOL, true, true, true,
-				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
+				2, 12, Gender.FEMALE, "No additional details", true, "A", "B",
 				"C", new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
