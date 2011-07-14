@@ -9,7 +9,7 @@ public enum PoolsError {
 	POOLS_ONE_WAY_TRAVEL_NULL("P50","one way travel cannot be null"),
 	POOLS_GENDER_TO_TRAVEL_WITH_NULL("P60","valid license cannot be null"),
 	POOLS_VEHICLE_OWNER_NULL("P70","vehicle owner cannot be null"),
-	POOLS_VEHICLE_SEATS_NUMBER_NULL("P80","vehicle seats number cannot be null"),
+	POOLS_VEHICLE_MAX_SEATS_NUMBER_NULL("P80","vehicle maximum seats number cannot be null"),
 	POOLS_VEHICLE_MAKE_CODE_NULL("P90","vehicle make code cannot be null"),
 	POOLS_VEHICLE_MODEL_CODE_NULL("P100","vehicle model code cannot be null"),
 	POOLS_VEHICLE_TYPE_CODE_NULL("P110","vehicle type code cannot be null"),

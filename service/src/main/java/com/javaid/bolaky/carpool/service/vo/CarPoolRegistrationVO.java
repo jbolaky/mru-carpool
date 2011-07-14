@@ -19,56 +19,42 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Integer poolCode;
 
-	@NotNull(message = "S110")
 	private Boolean carOwner;
 
-	@NotNull(message = "S115")
 	private Boolean validLicense;
 
 	@NotNull(message = "S120")
 	private Character gender;
 
-	@NotNull(message = "S125")
 	private Boolean smoker;
 
 	private Integer maxNumberOfSeats;
 
-	@NotNull(message = "S130")
 	private String vehicleMake;
 
-	@NotNull(message = "S135")
 	private String vehicleModel;
 
-	@NotNull(message = "S140")
 	private String vehicleType;
 
 	@NotNull(message = "S145")
 	@NotEmpty(message = "S145")
 	private String carpoolName;
 
-	@NotNull(message = "S150")
-	@NotEmpty(message = "S150")
 	private LocalDate startingCarpoolDate;
 	
 	private LocalDate endOfPoolDate;
 	
-	@NotEmpty(message = "S205")
-	@NotNull(message = "S205")
 	private LocalTime departureTime;
 
 	@NotNull(message = "S155")
 	private Integer numberOfCurrentPassengers;
 
-	@NotNull(message = "S160")
 	private String fromAreaCode;
 
-	@NotNull(message = "S165")
 	private String fromDistrictCode;
 
-	@NotNull(message = "S170")
 	private Boolean oneWayTravel;
 
-	@NotNull(message = "S175")
 	private Character genderToTravelWith;
 
 	@NotNull(message = "S180")
@@ -102,12 +88,8 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Integer numberOfAvailableSeatsOnSunday;
 
-	@NotEmpty(message = "S210")
-	@NotNull(message = "S210")
 	private String toAreaCode;
 
-	@NotEmpty(message = "S215")
-	@NotNull(message = "S215")
 	private String toDistrictCode;
 
 	private String additionalDetails;

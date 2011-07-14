@@ -5,6 +5,7 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 
@@ -21,14 +22,17 @@ public class VehicleInfo {
 	private Integer maxNumberOfSeats;
 
 	@NotNull(message = "P90", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P90", groups = MandatoryDataRules.class)
 	@Column(name = "MAKE_CODE")
 	private String makeCode;
 
 	@NotNull(message = "P100", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P100", groups = MandatoryDataRules.class)
 	@Column(name = "MODEL_CODE")
 	private String modelCode;
 
 	@NotNull(message = "P110", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P110", groups = MandatoryDataRules.class)
 	@Column(name = "TYPE_CODE")
 	private String typeCode;
 

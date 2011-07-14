@@ -6,6 +6,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.LocalDate;
 
 import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
@@ -20,10 +21,12 @@ public class DestinationInfo {
 	private LocalDate endDate;
 
 	@NotNull(message = "P180", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P180", groups = MandatoryDataRules.class)
 	@Column(name = "TO_AREA_CODE")
 	private String toAreaCode;
 
 	@NotNull(message = "P190", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P190", groups = MandatoryDataRules.class)
 	@Column(name = "TO_DISTRICT_CODE")
 	private String toDistictCode;
 

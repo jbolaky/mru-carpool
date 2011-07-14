@@ -6,6 +6,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
@@ -26,10 +27,12 @@ public class StartingPointInfo {
 	private LocalTime departureTime;
 
 	@NotNull(message = "P150", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P150", groups = MandatoryDataRules.class)
 	@Column(name = "FROM_AREA_CODE")
 	private String fromAreaCode;
 
 	@NotNull(message = "P160", groups = MandatoryDataRules.class)
+	@NotEmpty(message = "P160", groups = MandatoryDataRules.class)
 	@Column(name = "FROM_DISTRICT_CODE")
 	private String fromDistrictCode;
 
