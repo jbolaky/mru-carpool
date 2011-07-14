@@ -24,8 +24,6 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.javaid.bolaky.domain.pools.entity.Passenger;
-import com.javaid.bolaky.domain.pools.entity.Pool;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
 import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus;
@@ -60,10 +58,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(username1, PoolType.CARPOOL, true, true, true,
-				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
-				"C", new LocalDate(), new LocalTime(), "A", "B",
-				new LocalDate(), "A", "B");
+		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
+				PoolType.CARPOOL, true, true, true, 2, 2, Gender.FEMALE,
+				"No additional details", true, "A", "B", "C", new LocalDate(),
+				new LocalTime(), "A", "B", new LocalDate(), "A", "B");
 
 		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
 		pool.setAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
@@ -90,9 +88,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(username1, PoolType.CARPOOL, true, true, true,
-				2, 12, Gender.FEMALE, "No additional details", true, "A", "B",
-				"C", new LocalDate().plusDays(1), new LocalTime(), "A", "B",
+		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
+				PoolType.CARPOOL, true, true, true, 2, 12, Gender.FEMALE,
+				"No additional details", true, "A", "B", "C",
+				new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
 		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
@@ -132,9 +131,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(username1, PoolType.CARPOOL, true, true, true,
-				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
-				"C", new LocalDate().minusDays(4), new LocalTime(), "A", "B",
+		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
+				PoolType.CARPOOL, true, true, true, 2, 2, Gender.FEMALE,
+				"No additional details", true, "A", "B", "C",
+				new LocalDate().minusDays(4), new LocalTime(), "A", "B",
 				new LocalDate().minusDays(1), "A", "B");
 
 		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
@@ -171,9 +171,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(username1, PoolType.CARPOOL, true, true, true,
-				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
-				"C", new LocalDate().plusDays(1), new LocalTime(), "A", "B",
+		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
+				PoolType.CARPOOL, true, true, true, 2, 2, Gender.FEMALE,
+				"No additional details", true, "A", "B", "C",
+				new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
 		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
@@ -202,7 +203,8 @@ public class PoolsRepositoryIntegrationTests {
 		assertThat(pool.getAvailableSeatsForADay(DayOfWeek.SUNDAY), is(3));
 	}
 
-	private Pool createPool(String username, PoolType poolType,
+	private Pool createPool(Boolean shareCost, String carPoolName,
+			Gender gender, String username, PoolType poolType,
 			Boolean validLicense, Boolean smoker, Boolean oneWayTravel,
 			Integer numberOfCurrentPassengers, Integer vehicleSeatsNumber,
 			Gender prefferedGenderToTravelWith,
@@ -215,6 +217,9 @@ public class PoolsRepositoryIntegrationTests {
 
 		Pool pool = new Pool();
 
+		pool.setGender(gender);
+		pool.setShareCost(shareCost);
+		pool.setPoolName(carPoolName);
 		pool.setUsername(username);
 		pool.setPoolType(poolType);
 		pool.setValidLicense(validLicense);
