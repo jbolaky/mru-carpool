@@ -2,15 +2,9 @@ package com.javaid.bolaky.carpool.service.vo;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
-import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
-
-@TravelDays
 public class CarPoolRegistrationVO implements Serializable {
 
 	private static final long serialVersionUID = -6418987354269415624L;
@@ -23,9 +17,6 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Boolean validLicense;
 
-	@NotNull(message = "S120")
-	private Character gender;
-
 	private Boolean smoker;
 
 	private Integer maxNumberOfSeats;
@@ -36,17 +27,14 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private String vehicleType;
 
-	@NotNull(message = "S145")
-	@NotEmpty(message = "S145")
 	private String carpoolName;
 
 	private LocalDate startingCarpoolDate;
-	
+
 	private LocalDate endOfPoolDate;
-	
+
 	private LocalTime departureTime;
 
-	@NotNull(message = "S155")
 	private Integer numberOfCurrentPassengers;
 
 	private String fromAreaCode;
@@ -57,7 +45,6 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Character genderToTravelWith;
 
-	@NotNull(message = "S180")
 	private Boolean shareCost;
 
 	private Boolean travelOnMonday;
@@ -117,10 +104,6 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	public Boolean getValidLicense() {
 		return validLicense;
-	}
-
-	public Character getGender() {
-		return gender;
 	}
 
 	public Boolean getSmoker() {
@@ -265,10 +248,6 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	public void setValidLicense(Boolean validLicense) {
 		this.validLicense = validLicense;
-	}
-
-	public void setGender(Character gender) {
-		this.gender = gender;
 	}
 
 	public void setSmoker(Boolean smoker) {
