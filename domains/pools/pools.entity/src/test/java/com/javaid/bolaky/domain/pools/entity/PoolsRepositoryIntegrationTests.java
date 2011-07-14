@@ -223,11 +223,11 @@ public class PoolsRepositoryIntegrationTests {
 		pool.setNumberOfCurrentPassengers(numberOfCurrentPassengers);
 		pool.setPrefferedGenderToTravelWith(prefferedGenderToTravelWith);
 		pool.setUserPoolAdditionalDetails(userPoolAdditionalDetails);
-		pool.getVehicleInfo().setVehicleSeatsNumber(vehicleSeatsNumber);
-		pool.getVehicleInfo().setVehicleOwner(vehicleOwner);
-		pool.getVehicleInfo().setVehicleMakeCode(vehicleMakeCode);
-		pool.getVehicleInfo().setVehicleModelCode(vehicleModelCode);
-		pool.getVehicleInfo().setVehicleTypeCode(vehicleTypeCode);
+		pool.getVehicleInfo().setMaxNumberOfSeats(vehicleSeatsNumber);
+		pool.getVehicleInfo().setOwner(vehicleOwner);
+		pool.getVehicleInfo().setMakeCode(vehicleMakeCode);
+		pool.getVehicleInfo().setModelCode(vehicleModelCode);
+		pool.getVehicleInfo().setTypeCode(vehicleTypeCode);
 		pool.getStartingPointInfo().setStartingDate(startingDate);
 		pool.getStartingPointInfo().setDepartureTime(departureTime);
 		pool.getStartingPointInfo().setFromAreaCode(fromAreaCode);

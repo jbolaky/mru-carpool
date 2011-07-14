@@ -13,63 +13,63 @@ public class VehicleInfo {
 
 	@NotNull(message = "P70", groups = MandatoryDataRules.class)
 	@Type(type = "yes_no")
-	@Column(name = "VEHICLE_OWNER_INDICATOR")
-	private Boolean vehicleOwner;
+	@Column(name = "OWNER_INDICATOR")
+	private Boolean owner;
 
 	@NotNull(message = "P80", groups = MandatoryDataRules.class)
-	@Column(name = "VEHICLE_SEATS_NUMBER")
-	private Integer vehicleSeatsNumber;
+	@Column(name = "MAX_SEATS")
+	private Integer maxNumberOfSeats;
 
 	@NotNull(message = "P90", groups = MandatoryDataRules.class)
-	@Column(name = "VEHICLE_MAKE_CODE")
-	private String vehicleMakeCode;
+	@Column(name = "MAKE_CODE")
+	private String makeCode;
 
 	@NotNull(message = "P100", groups = MandatoryDataRules.class)
-	@Column(name = "VEHICLE_MODEL_CODE")
-	private String vehicleModelCode;
+	@Column(name = "MODEL_CODE")
+	private String modelCode;
 
 	@NotNull(message = "P110", groups = MandatoryDataRules.class)
-	@Column(name = "VEHICLE_TYPE_CODE")
-	private String vehicleTypeCode;
+	@Column(name = "TYPE_CODE")
+	private String typeCode;
 
-	public Boolean getVehicleOwner() {
-		return vehicleOwner;
+	public Boolean isOwner() {
+		return owner;
 	}
 
-	public String getVehicleMakeCode() {
-		return vehicleMakeCode;
+	public Integer getMaxNumberOfSeats() {
+		return maxNumberOfSeats;
 	}
 
-	public String getVehicleModelCode() {
-		return vehicleModelCode;
+	public String getMakeCode() {
+		return makeCode;
 	}
 
-	public String getVehicleTypeCode() {
-		return vehicleTypeCode;
+	public String getModelCode() {
+		return modelCode;
 	}
 
-	public Integer getVehicleSeatsNumber() {
-		return vehicleSeatsNumber;
+	public String getTypeCode() {
+		return typeCode;
 	}
 
-	public void setVehicleOwner(Boolean vehicleOwner) {
-		this.vehicleOwner = vehicleOwner;
+	public void setOwner(Boolean owner) {
+		this.owner = owner;
 	}
 
-	public void setVehicleMakeCode(String vehicleMakeCode) {
-		this.vehicleMakeCode = vehicleMakeCode;
+	public void setMaxNumberOfSeats(Integer maxNumberOfSeats) {
+		this.maxNumberOfSeats = maxNumberOfSeats;
 	}
 
-	public void setVehicleModelCode(String vehicleModelCode) {
-		this.vehicleModelCode = vehicleModelCode;
+	public void setMakeCode(String makeCode) {
+		this.makeCode = makeCode;
 	}
 
-	public void setVehicleTypeCode(String vehicleTypeCode) {
-		this.vehicleTypeCode = vehicleTypeCode;
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
 	}
 
-	public void setVehicleSeatsNumber(Integer vehicleSeatsNumber) {
-		this.vehicleSeatsNumber = vehicleSeatsNumber;
+	public void setTypeCode(String typeCode) {
+		this.typeCode = typeCode;
 	}
 
 }
