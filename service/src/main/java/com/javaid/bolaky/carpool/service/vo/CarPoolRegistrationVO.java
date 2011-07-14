@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 
 import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
 
@@ -14,6 +16,8 @@ public class CarPoolRegistrationVO implements Serializable {
 	private static final long serialVersionUID = -6418987354269415624L;
 
 	private String username;
+
+	private Integer poolCode;
 
 	@NotNull(message = "S110")
 	private Boolean carOwner;
@@ -26,6 +30,8 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	@NotNull(message = "S125")
 	private Boolean smoker;
+
+	private Integer maxNumberOfSeats;
 
 	@NotNull(message = "S130")
 	private String vehicleMake;
@@ -42,7 +48,13 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	@NotNull(message = "S150")
 	@NotEmpty(message = "S150")
-	private String carpoolDate;
+	private LocalDate startingCarpoolDate;
+	
+	private LocalDate endOfPoolDate;
+	
+	@NotEmpty(message = "S205")
+	@NotNull(message = "S205")
+	private LocalTime departureTime;
 
 	@NotNull(message = "S155")
 	private Integer numberOfCurrentPassengers;
@@ -90,10 +102,6 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Integer numberOfAvailableSeatsOnSunday;
 
-	@NotEmpty(message = "S205")
-	@NotNull(message = "S205")
-	private String departureTime;
-
 	@NotEmpty(message = "S210")
 	@NotNull(message = "S210")
 	private String toAreaCode;
@@ -111,6 +119,10 @@ public class CarPoolRegistrationVO implements Serializable {
 	public CarPoolRegistrationVO(String username) {
 		super();
 		this.username = username;
+	}
+
+	public Integer getPoolCode() {
+		return poolCode;
 	}
 
 	public String getUsername() {
@@ -133,6 +145,10 @@ public class CarPoolRegistrationVO implements Serializable {
 		return smoker;
 	}
 
+	public Integer getMaxNumberOfSeats() {
+		return maxNumberOfSeats;
+	}
+
 	public String getVehicleMake() {
 		return vehicleMake;
 	}
@@ -149,8 +165,12 @@ public class CarPoolRegistrationVO implements Serializable {
 		return carpoolName;
 	}
 
-	public String getCarpoolDate() {
-		return carpoolDate;
+	public LocalDate getStartingCarpoolDate() {
+		return startingCarpoolDate;
+	}
+
+	public LocalDate getEndOfPoolDate() {
+		return endOfPoolDate;
 	}
 
 	public Integer getNumberOfCurrentPassengers() {
@@ -233,7 +253,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnSunday;
 	}
 
-	public String getDepartureTime() {
+	public LocalTime getDepartureTime() {
 		return departureTime;
 	}
 
@@ -247,6 +267,10 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	public String getAdditionalDetails() {
 		return additionalDetails;
+	}
+
+	public void setPoolCode(Integer poolCode) {
+		this.poolCode = poolCode;
 	}
 
 	public void setUsername(String username) {
@@ -269,6 +293,10 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.smoker = smoker;
 	}
 
+	public void setMaxNumberOfSeats(Integer maxNumberOfSeats) {
+		this.maxNumberOfSeats = maxNumberOfSeats;
+	}
+
 	public void setVehicleMake(String vehicleMake) {
 		this.vehicleMake = vehicleMake;
 	}
@@ -285,8 +313,12 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.carpoolName = carpoolName;
 	}
 
-	public void setCarpoolDate(String carpoolDate) {
-		this.carpoolDate = carpoolDate;
+	public void setStartingCarpoolDate(LocalDate startingCarpoolDate) {
+		this.startingCarpoolDate = startingCarpoolDate;
+	}
+
+	public void setEndOfPoolDate(LocalDate endOfPoolDate) {
+		this.endOfPoolDate = endOfPoolDate;
 	}
 
 	public void setNumberOfCurrentPassengers(Integer numberOfCurrentPassengers) {
@@ -376,7 +408,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnSunday = numberOfAvailableSeatsOnSunday;
 	}
 
-	public void setDepartureTime(String departureTime) {
+	public void setDepartureTime(LocalTime departureTime) {
 		this.departureTime = departureTime;
 	}
 
