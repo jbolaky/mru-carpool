@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<import resource="classpath:/default-domain-spring-jpa-config.xml" />
+
+	<bean id="spring_jpa_PersistenceUnitManager"
+		class="org.springframework.data.jpa.support.MergingPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+			<list>
+				<value>classpath*:META-INF/user-registration-persistence.xml</value>
+				<value>classpath*:META-INF/pools-persistence.xml</value>
+			</list>
+		</property>
+		<property name="defaultDataSource" ref="pools_DataSource" />
+	</bean>
+
+</beans>

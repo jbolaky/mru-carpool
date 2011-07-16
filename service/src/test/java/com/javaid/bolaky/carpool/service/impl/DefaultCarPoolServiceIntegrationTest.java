@@ -29,7 +29,7 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 @Transactional(propagation = Propagation.REQUIRED)
 public class DefaultCarPoolServiceIntegrationTest {
 
-	@Resource(name = "carpool_service_DefaultCarPoolService")
+	@Resource(name = "carPoolService")
 	private CarPoolService carPoolService;
 
 	@Test
