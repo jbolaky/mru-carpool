@@ -1,7 +1,6 @@
 package com.javaid.bolaky.domain.userregistration.service.impl;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,10 +14,10 @@ import com.javaid.bolaky.domain.userregistration.service.api.UserRegistrationSer
 @Transactional(readOnly = true)
 public class DefaultUserRegistrationService implements UserRegistrationService {
 
-	@Resource(name = "userRegistrationRepository")
+	@Autowired
 	private UserRegistrationRepository userRegistrationRepository;
 
-	@Resource(name = "springSecurityUserRepository")
+	@Autowired
 	private SpringSecurityUserRepository securityUserRepository;
 
 	@Transactional(propagation = Propagation.REQUIRED)
