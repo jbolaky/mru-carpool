@@ -40,6 +40,6 @@ public class DefaultCarPoolServiceIntegrationTest {
 		Set<CarPoolError> carPoolErrors = carPoolService.validate(userVO);
 
 		assertThat(carPoolErrors, is(notNullValue()));
-		assertTrue(carPoolErrors.size()>0);
+		assertTrue(carPoolErrors.size() > 0);
 	}
 }
