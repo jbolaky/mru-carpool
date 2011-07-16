@@ -1,6 +1,7 @@
 package com.javaid.bolaky.domain.userregistration.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,12 +12,13 @@ import com.javaid.bolaky.domain.userregistration.repository.api.SpringSecurityUs
 import com.javaid.bolaky.domain.userregistration.repository.api.UserRegistrationRepository;
 import com.javaid.bolaky.domain.userregistration.service.api.UserRegistrationService;
 
+@Transactional(readOnly = true)
 public class DefaultUserRegistrationService implements UserRegistrationService {
 
-	@Autowired
+	@Resource(name = "userRegistrationRepository")
 	private UserRegistrationRepository userRegistrationRepository;
 
-	@Autowired
+	@Resource(name = "springSecurityUserRepository")
 	private SpringSecurityUserRepository securityUserRepository;
 
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -28,12 +30,10 @@ public class DefaultUserRegistrationService implements UserRegistrationService {
 		return userRegistrationRepository.save(person);
 	}
 
-	@Transactional(readOnly = true)
 	public Person retrievePerson(String username) {
 		return userRegistrationRepository.findOne(username);
 	}
 
-	@Transactional(readOnly = true)
 	public Person findByUsernameAndEmailAddress(String username,
 			String emailAddress) {
 
