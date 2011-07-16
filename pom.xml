@@ -30,7 +30,7 @@
 		<spring-faces.version>2.3.0.RELEASE</spring-faces.version>
 		<spring-security-core.version>3.0.5.RELEASE</spring-security-core.version>
 		<springsource.jpa.version>2.0.0</springsource.jpa.version>
-		<spring-data-jpa.version>1.0.0.M2</spring-data-jpa.version>
+		<spring-data-jpa.version>1.0.0.RC1</spring-data-jpa.version>
 		<jstl.version>1.2</jstl.version>
 		<ognl.version>2.6.9</ognl.version>
 		<spring-agent.version>2.5.6</spring-agent.version>
@@ -51,6 +51,8 @@
 		<commons-dbcp.version>1.2</commons-dbcp.version>
 		<slf4j-version>1.5.10</slf4j-version>
 		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-lang.version>2.3</commons-lang.version>
+		<collections-generic.version>4.01</collections-generic.version>
 		<hsqldb.version>1.8.0.7</hsqldb.version>
 		<maven-jetty-plugin.version>6.1.8</maven-jetty-plugin.version>
 		<dozer.version>5.3.1</dozer.version>
@@ -165,6 +167,20 @@
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${commons-collections.version}</version>
+			</dependency>
+
+			<!-- Commons-Langs -->
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+
+			<!-- Collections generics -->
+			<dependency>
+				<groupId>net.sourceforge.collections</groupId>
+				<artifactId>collections-generic</artifactId>
+				<version>${collections-generic.version}</version>
 			</dependency>
 
 			<!-- DataSource -->

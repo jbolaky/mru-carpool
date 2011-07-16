@@ -24,6 +24,12 @@
 
 	<dependencies>
 
+		<!-- Commons-Collections -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+
 		<!-- InMemory DB -->
 		<dependency>
 			<groupId>hsqldb</groupId>
@@ -35,6 +41,18 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 		</dependency>
+
+		<!-- Collections generics -->
+		<dependency>
+			<groupId>net.sourceforge.collections</groupId>
+			<artifactId>collections-generic</artifactId>
+		</dependency>
+
+		<!-- Commons-Langs -->
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+			</dependency>
 
 		<!-- DataSource -->
 		<dependency>
