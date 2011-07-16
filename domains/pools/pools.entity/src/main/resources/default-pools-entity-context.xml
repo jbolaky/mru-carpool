@@ -11,39 +11,9 @@
 
 	<context:annotation-config />
 	<tx:annotation-driven />
-	<import resource="classpath:/default-domain-commons-context.xml" />
 
-	<context:component-scan
-		base-package="com.javaid.bolaky.domain.pools.repository.api" />
+	<context:component-scan base-package="com.javaid.bolaky.domain.pools.repository.api" />
 
-	<jpa:repositories
-		base-package="com.javaid.bolaky.domain.pools.repository.api" />
-
-	<!-- JPA EntityManagerFactory -->
-	<bean id="pools_entity_entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="pools_DataSource" />
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="database" value="MYSQL" />
-				<property name="showSql" value="true" />
-				<property name="generateDdl" value="true" />
-			</bean>
-		</property>
-		<property name="jpaPropertyMap">
-			<map>
-				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			</map>
-		</property>
-		<property name="persistenceProvider"
-			ref="commons_entity_ConfigurableHibernatePersistence" />
-		<property name="persistenceXmlLocation"
-			value="classpath:META-INF/pools-persistence.xml" />
-	</bean>
-
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory"
-			ref="pools_entity_entityManagerFactory" />
-	</bean>
+	<jpa:repositories base-package="com.javaid.bolaky.domain.pools.repository.api" />
 
 </beans>
