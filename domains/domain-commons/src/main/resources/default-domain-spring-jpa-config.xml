@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<import resource="classpath:/default-domain-commons-context.xml" />
+
+	<bean id="spring_orm_jpa_LocalContainerEntityManagerFactoryBean"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="${database}" />
+				<property name="showSql" value="${show_sql}" />
+				<property name="generateDdl" value="${generate_ddl}" />
+			</bean>
+		</property>
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="hibernate.dialect" value="${hibernate.dialect}" />
+			</map>
+		</property>
+		<property name="persistenceProvider"
+			ref="commons_entity_ConfigurableHibernatePersistence" />
+		<property name="persistenceUnitManager"
+			ref="spring_jpa_PersistenceUnitManager" />
+		<property name="persistenceUnitName" value="javaid.bolaky" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory"
+			ref="spring_orm_jpa_LocalContainerEntityManagerFactoryBean" />
+	</bean>
+
+</beans>
