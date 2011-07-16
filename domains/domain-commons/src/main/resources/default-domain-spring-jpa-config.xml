@@ -9,9 +9,9 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="database" value="${database}" />
-				<property name="showSql" value="${show_sql}" />
-				<property name="generateDdl" value="${generate_ddl}" />
+				<property name="database" value="MYSQL" />
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true" />
 			</bean>
 		</property>
 		<property name="jpaPropertyMap">
