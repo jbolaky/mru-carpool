@@ -1,14 +1,20 @@
 package com.javaid.bolaky.carpool.service.acl.pools.impl;
 
-import com.javaid.bolaky.carpool.service.vo.CarPoolRegistrationVO;
+import java.util.Set;
+
+import org.apache.commons.collections15.set.ListOrderedSet;
+
+import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
+import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
 import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
+import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
 
 public class PoolsAclTranslator {
 
-	public static Pool convertPool(CarPoolRegistrationVO carPoolRegistrationVO) {
+	public static Pool convertPool(PoolRegistrationVO carPoolRegistrationVO) {
 
 		Pool pool = null;
 
@@ -18,7 +24,6 @@ public class PoolsAclTranslator {
 
 			pool.setUsername(carPoolRegistrationVO.getUsername());
 
-			// FIXME
 			pool.setPoolType(PoolType.convertCode(carPoolRegistrationVO
 					.getPoolCode()));
 			pool.setValidLicense(carPoolRegistrationVO.getValidLicense());
@@ -92,10 +97,27 @@ public class PoolsAclTranslator {
 					carPoolRegistrationVO.getToAreaCode());
 			pool.getDestinationInfo().setToDistictCode(
 					carPoolRegistrationVO.getToDistrictCode());
-
 		}
 
 		return pool;
+	}
+
+	public static Set<CarPoolError> convertToCarPoolErrors(
+			Set<PoolsError> poolsErrors) {
+
+		Set<CarPoolError> carPoolErrors = null;
+
+		if (poolsErrors != null && !poolsErrors.isEmpty()) {
+
+			carPoolErrors = new ListOrderedSet<CarPoolError>();
+
+			for (PoolsError poolsError : poolsErrors) {
+
+				carPoolErrors.add(CarPoolError.convertFrom(poolsError));
+			}
+		}
+
+		return carPoolErrors;
 	}
 
 }

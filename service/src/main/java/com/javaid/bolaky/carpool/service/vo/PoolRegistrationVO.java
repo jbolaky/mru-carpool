@@ -8,7 +8,7 @@ import org.joda.time.LocalTime;
 import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
 
 @TravelDays
-public class CarPoolRegistrationVO implements Serializable {
+public class PoolRegistrationVO implements Serializable {
 
 	private static final long serialVersionUID = -6418987354269415624L;
 
@@ -16,11 +16,12 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private Integer poolCode;
 
-	private Boolean carOwner;
+	/** start of page 1 attributes */
+	private boolean carOwner;
 
-	private Boolean validLicense;
+	private boolean validLicense;
 
-	private Boolean smoker;
+	private boolean smoker;
 
 	private Integer maxNumberOfSeats;
 
@@ -29,6 +30,7 @@ public class CarPoolRegistrationVO implements Serializable {
 	private String vehicleModel;
 
 	private String vehicleType;
+	/** end of page 1 attributes */
 
 	private String carpoolName;
 
@@ -44,37 +46,37 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private String fromDistrictCode;
 
-	private Boolean oneWayTravel;
+	private boolean oneWayTravel;
 
 	private Character genderToTravelWith;
 
-	private Boolean shareCost;
+	private boolean shareCost;
 
-	private Boolean travelOnMonday;
+	private boolean travelOnMonday;
 
 	private Integer numberOfAvailableSeatsOnMonday;
 
-	private Boolean travelOnTuesday;
+	private boolean travelOnTuesday;
 
 	private Integer numberOfAvailableSeatsOnTuesday;
 
-	private Boolean travelOnWednesday;
+	private boolean travelOnWednesday;
 
 	private Integer numberOfAvailableSeatsOnWednesday;
 
-	private Boolean travelOnThursday;
+	private boolean travelOnThursday;
 
 	private Integer numberOfAvailableSeatsOnThursday;
 
-	private Boolean travelOnFriday;
+	private boolean travelOnFriday;
 
 	private Integer numberOfAvailableSeatsOnFriday;
 
-	private Boolean travelOnSaturday;
+	private boolean travelOnSaturday;
 
 	private Integer numberOfAvailableSeatsOnSaturday;
 
-	private Boolean travelOnSunday;
+	private boolean travelOnSunday;
 
 	private Integer numberOfAvailableSeatsOnSunday;
 
@@ -84,11 +86,11 @@ public class CarPoolRegistrationVO implements Serializable {
 
 	private String additionalDetails;
 
-	public CarPoolRegistrationVO() {
+	public PoolRegistrationVO() {
 		super();
 	}
 
-	public CarPoolRegistrationVO(String username) {
+	public PoolRegistrationVO(String username) {
 		super();
 		this.username = username;
 	}
@@ -101,15 +103,15 @@ public class CarPoolRegistrationVO implements Serializable {
 		return username;
 	}
 
-	public Boolean getCarOwner() {
+	public boolean getCarOwner() {
 		return carOwner;
 	}
 
-	public Boolean getValidLicense() {
+	public boolean getValidLicense() {
 		return validLicense;
 	}
 
-	public Boolean getSmoker() {
+	public boolean getSmoker() {
 		return smoker;
 	}
 
@@ -153,7 +155,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return fromDistrictCode;
 	}
 
-	public Boolean getOneWayTravel() {
+	public boolean getOneWayTravel() {
 		return oneWayTravel;
 	}
 
@@ -161,11 +163,11 @@ public class CarPoolRegistrationVO implements Serializable {
 		return genderToTravelWith;
 	}
 
-	public Boolean getShareCost() {
+	public boolean getShareCost() {
 		return shareCost;
 	}
 
-	public Boolean getTravelOnMonday() {
+	public boolean getTravelOnMonday() {
 		return travelOnMonday;
 	}
 
@@ -173,7 +175,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnMonday;
 	}
 
-	public Boolean getTravelOnTuesday() {
+	public boolean getTravelOnTuesday() {
 		return travelOnTuesday;
 	}
 
@@ -181,7 +183,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnTuesday;
 	}
 
-	public Boolean getTravelOnWednesday() {
+	public boolean getTravelOnWednesday() {
 		return travelOnWednesday;
 	}
 
@@ -189,7 +191,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnWednesday;
 	}
 
-	public Boolean getTravelOnThursday() {
+	public boolean getTravelOnThursday() {
 		return travelOnThursday;
 	}
 
@@ -197,7 +199,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnThursday;
 	}
 
-	public Boolean getTravelOnFriday() {
+	public boolean getTravelOnFriday() {
 		return travelOnFriday;
 	}
 
@@ -205,7 +207,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnFriday;
 	}
 
-	public Boolean getTravelOnSaturday() {
+	public boolean getTravelOnSaturday() {
 		return travelOnSaturday;
 	}
 
@@ -213,7 +215,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnSaturday;
 	}
 
-	public Boolean getTravelOnSunday() {
+	public boolean getTravelOnSunday() {
 		return travelOnSunday;
 	}
 
@@ -245,15 +247,15 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.username = username;
 	}
 
-	public void setCarOwner(Boolean carOwner) {
+	public void setCarOwner(boolean carOwner) {
 		this.carOwner = carOwner;
 	}
 
-	public void setValidLicense(Boolean validLicense) {
+	public void setValidLicense(boolean validLicense) {
 		this.validLicense = validLicense;
 	}
 
-	public void setSmoker(Boolean smoker) {
+	public void setSmoker(boolean smoker) {
 		this.smoker = smoker;
 	}
 
@@ -297,7 +299,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.fromDistrictCode = fromDistrictCode;
 	}
 
-	public void setOneWayTravel(Boolean oneWayTravel) {
+	public void setOneWayTravel(boolean oneWayTravel) {
 		this.oneWayTravel = oneWayTravel;
 	}
 
@@ -305,11 +307,11 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.genderToTravelWith = genderToTravelWith;
 	}
 
-	public void setShareCost(Boolean shareCost) {
+	public void setShareCost(boolean shareCost) {
 		this.shareCost = shareCost;
 	}
 
-	public void setTravelOnMonday(Boolean travelOnMonday) {
+	public void setTravelOnMonday(boolean travelOnMonday) {
 		this.travelOnMonday = travelOnMonday;
 	}
 
@@ -318,7 +320,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnMonday = numberOfAvailableSeatsOnMonday;
 	}
 
-	public void setTravelOnTuesday(Boolean travelOnTuesday) {
+	public void setTravelOnTuesday(boolean travelOnTuesday) {
 		this.travelOnTuesday = travelOnTuesday;
 	}
 
@@ -327,7 +329,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnTuesday = numberOfAvailableSeatsOnTuesday;
 	}
 
-	public void setTravelOnWednesday(Boolean travelOnWednesday) {
+	public void setTravelOnWednesday(boolean travelOnWednesday) {
 		this.travelOnWednesday = travelOnWednesday;
 	}
 
@@ -336,7 +338,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnWednesday = numberOfAvailableSeatsOnWednesday;
 	}
 
-	public void setTravelOnThursday(Boolean travelOnThursday) {
+	public void setTravelOnThursday(boolean travelOnThursday) {
 		this.travelOnThursday = travelOnThursday;
 	}
 
@@ -345,7 +347,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnThursday = numberOfAvailableSeatsOnThursday;
 	}
 
-	public void setTravelOnFriday(Boolean travelOnFriday) {
+	public void setTravelOnFriday(boolean travelOnFriday) {
 		this.travelOnFriday = travelOnFriday;
 	}
 
@@ -354,7 +356,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnFriday = numberOfAvailableSeatsOnFriday;
 	}
 
-	public void setTravelOnSaturday(Boolean travelOnSaturday) {
+	public void setTravelOnSaturday(boolean travelOnSaturday) {
 		this.travelOnSaturday = travelOnSaturday;
 	}
 
@@ -363,7 +365,7 @@ public class CarPoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnSaturday = numberOfAvailableSeatsOnSaturday;
 	}
 
-	public void setTravelOnSunday(Boolean travelOnSunday) {
+	public void setTravelOnSunday(boolean travelOnSunday) {
 		this.travelOnSunday = travelOnSunday;
 	}
 

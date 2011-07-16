@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.javaid.bolaky.carpool.service.api.CarPoolService;
+import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 
@@ -38,6 +39,18 @@ public class DefaultCarPoolServiceIntegrationTest {
 		UserVO userVO = new UserVO();
 
 		Set<CarPoolError> carPoolErrors = carPoolService.validate(userVO);
+
+		assertThat(carPoolErrors, is(notNullValue()));
+		assertTrue(carPoolErrors.size() > 0);
+	}
+
+	@Test
+	public void testValidateForPoolRegistrationVO() {
+
+		PoolRegistrationVO poolRegistrationVO = new PoolRegistrationVO();
+
+		Set<CarPoolError> carPoolErrors = carPoolService
+				.validate(poolRegistrationVO);
 
 		assertThat(carPoolErrors, is(notNullValue()));
 		assertTrue(carPoolErrors.size() > 0);

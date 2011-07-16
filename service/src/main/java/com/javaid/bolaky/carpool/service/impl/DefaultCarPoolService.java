@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 import com.javaid.bolaky.carpool.service.acl.email.api.EmailAcl;
 import com.javaid.bolaky.carpool.service.acl.email.impl.EmailAclException;
 import com.javaid.bolaky.carpool.service.acl.location.api.LocationAcl;
+import com.javaid.bolaky.carpool.service.acl.pools.api.PoolsAcl;
 import com.javaid.bolaky.carpool.service.acl.userregistration.api.UserRegistrationAcl;
 import com.javaid.bolaky.carpool.service.api.CarPoolService;
-import com.javaid.bolaky.carpool.service.vo.CarPoolRegistrationVO;
+import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
@@ -27,6 +28,9 @@ public class DefaultCarPoolService implements CarPoolService {
 	@Resource(name = "carpool_service_DefaultEmailAcl")
 	private EmailAcl emailAcl;
 
+	@Resource(name = "pools_service_DefaultPoolsAcl")
+	private PoolsAcl poolsAcl;
+
 	private LocationAcl locationAcl;
 
 	public Set<CarPoolError> validate(UserVO userVO) {
@@ -35,6 +39,10 @@ public class DefaultCarPoolService implements CarPoolService {
 				.validate(userVO);
 
 		return carPoolErrorCodes;
+	}
+
+	public Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO) {
+		return poolsAcl.validate(carPoolRegistrationVO);
 	}
 
 	public Boolean store(UserVO userVO) {
@@ -68,12 +76,12 @@ public class DefaultCarPoolService implements CarPoolService {
 				emailAddress);
 	}
 
-	public CarPoolRegistrationVO createCarpoolRegistrationVO(String username) {
-		return new CarPoolRegistrationVO(username);
+	public PoolRegistrationVO createCarpoolRegistrationVO(String username) {
+		return new PoolRegistrationVO(username);
 	}
 
 	public void printCarPoolRegistrationVO(
-			CarPoolRegistrationVO carPoolRegistrationVO) {
+			PoolRegistrationVO carPoolRegistrationVO) {
 		System.out.println(new XStream().toXML(carPoolRegistrationVO));
 	}
 

@@ -3,7 +3,7 @@ package com.javaid.bolaky.carpool.service.api;
 import java.util.Set;
 
 import com.javaid.bolaky.carpool.service.acl.email.impl.EmailAclException;
-import com.javaid.bolaky.carpool.service.vo.CarPoolRegistrationVO;
+import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
@@ -11,6 +11,8 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 public interface CarPoolService {
 
 	Set<CarPoolError> validate(UserVO userVO);
+	
+	Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO);
 
 	Boolean store(UserVO userVO);
 
@@ -21,7 +23,7 @@ public interface CarPoolService {
 
 	UserVO findByUsernameAndEmailAddress(String username, String emailAddress);
 	
-	CarPoolRegistrationVO createCarpoolRegistrationVO(String username);
+	PoolRegistrationVO createCarpoolRegistrationVO(String username);
 	
-	void printCarPoolRegistrationVO(CarPoolRegistrationVO carPoolRegistrationVO);
+	void printCarPoolRegistrationVO(PoolRegistrationVO carPoolRegistrationVO);
 }

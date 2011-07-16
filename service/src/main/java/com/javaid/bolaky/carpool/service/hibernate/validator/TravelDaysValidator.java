@@ -4,16 +4,16 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
-import com.javaid.bolaky.carpool.service.vo.CarPoolRegistrationVO;
+import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 
 public class TravelDaysValidator implements
-		ConstraintValidator<TravelDays, CarPoolRegistrationVO> {
+		ConstraintValidator<TravelDays, PoolRegistrationVO> {
 
 	public void initialize(TravelDays travelDays) {
 		// TODO Auto-generated method stub
 	}
 
-	public boolean isValid(CarPoolRegistrationVO carPoolRegistrationVO,
+	public boolean isValid(PoolRegistrationVO carPoolRegistrationVO,
 			ConstraintValidatorContext context) {
 
 		boolean isValid = true;

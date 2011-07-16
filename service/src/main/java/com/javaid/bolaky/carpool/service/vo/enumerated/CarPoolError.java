@@ -6,6 +6,7 @@ import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGIST
 import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_2;
 import static com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolView.REGISTER_CARPOOL_PAGE_3;
 
+import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
 public enum CarPoolError {
@@ -110,6 +111,22 @@ public enum CarPoolError {
 			for (CarPoolError carPoolErrorCode : values()) {
 
 				if (personErrorCode.getCode().equalsIgnoreCase(carPoolErrorCode.getDomainErrorCode())) {
+
+					return carPoolErrorCode;
+				}
+			}
+		}
+
+		return null;
+	}
+	
+	public static CarPoolError convertFrom(PoolsError poolsError) {
+
+		if (poolsError != null) {
+
+			for (CarPoolError carPoolErrorCode : values()) {
+
+				if (poolsError.getErrorCode().equalsIgnoreCase(carPoolErrorCode.getDomainErrorCode())) {
 
 					return carPoolErrorCode;
 				}
