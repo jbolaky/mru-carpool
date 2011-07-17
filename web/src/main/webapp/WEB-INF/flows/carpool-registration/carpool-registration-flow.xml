@@ -15,10 +15,11 @@
 	<view-state id="registercarpoolpage1" view="registercarpoolpage1"
 		model="carPoolRegistrationVO">
 		<binder>
+			<binding property="poolCode" />
 			<binding property="carOwner" />
 			<binding property="validLicense" />
-			<binding property="gender" />
 			<binding property="smoker" />
+			<binding property="maxNumberOfSeats" />
 			<binding property="vehicleMake" />
 			<binding property="vehicleModel" />
 			<binding property="vehicleType" />

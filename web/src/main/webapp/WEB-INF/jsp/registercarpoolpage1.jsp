@@ -33,6 +33,14 @@
 	<fieldset>
 	<table width="95%">
 		<tr>
+			<td><label>Pool type:</label></td>
+			<td colspan="2"><form:select path="poolCode">
+				<option>--SELECT--</option>
+				<form:option value="1">Car Pool</form:option>
+				<form:option value="2">Van Pool</form:option>
+			</form:select></td>
+		</tr>
+		<tr>
 			<td width="40%" height="30%"><label>Car Owner:</label></td>
 			<span id="spryradio1">
 			<td><form:radiobutton type="radio" path="carOwner" value="true"
@@ -51,15 +59,6 @@
 			</span>
 		</tr>
 		<tr>
-			<td><label>Gender:</label></td>
-			<span id="spryradio3">
-			<td><form:radiobutton type="radio" path="gender" value="M"
-				id="gender_0" /> <label>Male</label></td>
-			<td><form:radiobutton type="radio" path="gender" value="F"
-				id="gender_1" /> <label>Female</label></td>
-			</span>
-		</tr>
-		<tr>
 			<td><label>Are you a smoker?</label></td>
 			<span id="spryradio4">
 			<td><form:radiobutton type="radio" path="smoker" value="true"
@@ -72,19 +71,30 @@
 			<td><label>Vehicle make:</label></td>
 			<td colspan="2"><form:select path="vehicleMake">
 				<option>--SELECT--</option>
+				<form:option value="ALPRM">Alpha Romeo</form:option>
+				<form:option value="2">Toyota</form:option>
 			</form:select></td>
 		</tr>
 		<tr>
 			<td><label>Vehicle Model:</label></td>
 			<td colspan="2"><form:select path="vehicleModel">
 				<option>--SELECT--</option>
+				<form:option value="1">Spider</form:option>
+				<form:option value="2">GT</form:option>
+				<form:option value="3">Mito</form:option>
 			</form:select></td>
 		</tr>
 		<tr>
 			<td><label>Vehicle Type:</label></td>
 			<td colspan="2"><form:select path="vehicleType">
 				<option>--SELECT--</option>
+				<form:option value="1">Sedan</form:option>
+				<form:option value="2">Couper</form:option>
 			</form:select></td>
+		</tr>
+		<tr>
+			<td><label>Maximun number of seats available:</label></td>
+			<td><form:input path="maxNumberOfSeats" type="text" /></td>
 		</tr>
 	</table>
 	<div class="topspace buttons"><input class="button"

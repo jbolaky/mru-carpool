@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.apache.commons.collections15.set.ListOrderedSet;
 
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.*;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
@@ -24,10 +25,12 @@ public class PoolsAclTranslator {
 
 			pool.setUsername(carPoolRegistrationVO.getUsername());
 
-			pool.setPoolType(PoolType.convertCode(carPoolRegistrationVO
-					.getPoolCode()));
-			pool.setValidLicense(carPoolRegistrationVO.getValidLicense());
-			pool.setSmoker(carPoolRegistrationVO.getSmoker());
+			pool.setPoolType(PoolType
+					.convertCode(convertToInteger(carPoolRegistrationVO
+							.getPoolCode())));
+			pool.setValidLicense(convertToBoolean(carPoolRegistrationVO
+					.getValidLicense()));
+			pool.setSmoker(convertToBoolean(carPoolRegistrationVO.getSmoker()));
 			pool.setOneWayTravel(carPoolRegistrationVO.getOneWayTravel());
 			pool.setNumberOfCurrentPassengers(carPoolRegistrationVO
 					.getNumberOfCurrentPassengers());
@@ -36,45 +39,54 @@ public class PoolsAclTranslator {
 			pool.setUserPoolAdditionalDetails(carPoolRegistrationVO
 					.getAdditionalDetails());
 
-			if (carPoolRegistrationVO.getTravelOnMonday()) {
+			if (carPoolRegistrationVO.getTravelOnMonday() != null
+					&& carPoolRegistrationVO.getTravelOnMonday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.MONDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnMonday());
 			}
-			if (carPoolRegistrationVO.getTravelOnTuesday()) {
+			if (carPoolRegistrationVO.getTravelOnTuesday() != null
+					&& carPoolRegistrationVO.getTravelOnTuesday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.TUESDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnTuesday());
 			}
-			if (carPoolRegistrationVO.getTravelOnWednesday()) {
+			if (carPoolRegistrationVO.getTravelOnWednesday() != null
+					&& carPoolRegistrationVO.getTravelOnWednesday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.WEDNESDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnWednesday());
 			}
-			if (carPoolRegistrationVO.getTravelOnThursday()) {
+			if (carPoolRegistrationVO.getTravelOnThursday() != null
+					&& carPoolRegistrationVO.getTravelOnThursday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.THURSDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnThursday());
 			}
-			if (carPoolRegistrationVO.getTravelOnFriday()) {
+			if (carPoolRegistrationVO.getTravelOnFriday() != null
+					&& carPoolRegistrationVO.getTravelOnFriday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.FRIDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnFriday());
 			}
-			if (carPoolRegistrationVO.getTravelOnSaturday()) {
+			if (carPoolRegistrationVO.getTravelOnSaturday() != null
+					&& carPoolRegistrationVO.getTravelOnSaturday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.SATURDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnSaturday());
 			}
-			if (carPoolRegistrationVO.getTravelOnSunday()) {
+			if (carPoolRegistrationVO.getTravelOnSunday() != null
+					&& carPoolRegistrationVO.getTravelOnSunday()) {
 				pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY,
 						carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnSunday());
 			}
 
-			pool.getVehicleInfo().setOwner(carPoolRegistrationVO.getCarOwner());
+			pool.getVehicleInfo().setOwner(
+					convertToBoolean(carPoolRegistrationVO.getCarOwner()));
 			pool.getVehicleInfo().setMaxNumberOfSeats(
-					carPoolRegistrationVO.getMaxNumberOfSeats());
+					convertToInteger(carPoolRegistrationVO
+							.getMaxNumberOfSeats()));
 			pool.getVehicleInfo().setMakeCode(
 					carPoolRegistrationVO.getVehicleMake());
 			pool.getVehicleInfo().setModelCode(
@@ -113,7 +125,12 @@ public class PoolsAclTranslator {
 
 			for (PoolsError poolsError : poolsErrors) {
 
-				carPoolErrors.add(CarPoolError.convertFrom(poolsError));
+				CarPoolError carPoolError = CarPoolError
+						.convertFrom(poolsError);
+
+				if (carPoolError != null) {
+					carPoolErrors.add(carPoolError);
+				}
 			}
 		}
 
