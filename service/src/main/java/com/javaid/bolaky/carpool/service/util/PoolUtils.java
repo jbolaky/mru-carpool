@@ -57,11 +57,9 @@ public class PoolUtils {
 
 			try {
 				DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-				Date date = dateFormat.parse(localDateInString);
 				localDate = LocalDate.fromDateFields(dateFormat
 						.parse(localDateInString));
 			} catch (ParseException pe) {
-				System.out.println(pe);
 			}
 		}
 
@@ -75,7 +73,7 @@ public class PoolUtils {
 		if (localTimeInString != null) {
 
 			try {
-				DateFormat dateFormat = DateFormat.getTimeInstance();
+				DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 				localTime = LocalTime.fromDateFields(dateFormat
 						.parse(localTimeInString));
 			} catch (ParseException pe) {

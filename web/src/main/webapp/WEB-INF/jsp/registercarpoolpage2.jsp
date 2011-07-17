@@ -8,6 +8,39 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/styles/error.css"/>"
 	rel="stylesheet" type="text/css" />
+<link
+	href="<c:url value="/resources/static/jQuery/css/ui-lightness/jquery-ui.css"/>"
+	rel="stylesheet" type="text/css" />
+<link
+	href="<c:url value="/resources/static/jQuery/css/jquery-ui-timepicker.css"/>"
+	rel="stylesheet" type="text/css" />
+<script
+	src="<c:url value="/resources/static/jQuery/js/jquery-ui-1.8.14.custom.min.js"/>"
+	type="text/javascript"></script>
+<script
+	src="<c:url value="/resources/static/jQuery/js/jquery.ui.timepicker.js"/>"
+	type="text/javascript"></script>
+
+<script>
+	$(function() {
+
+		$("#startingPoolDate").datepicker({
+			dateFormat : 'dd/mm/yy'
+		}).datepicker({
+			showAnim : 'slideDown'
+		});
+		;
+		
+		$("#endOfPoolDate").datepicker({
+			dateFormat : 'dd/mm/yy'
+		}).datepicker({
+			showAnim : 'slideDown'
+		});
+		;
+		
+		$('#departureTime').timepicker();
+	});
+</script>
 
 <div id="content">
 <h1 class="notopmargin">Car Pool Details</h1>
@@ -41,9 +74,10 @@
 		</tr>
 		<tr>
 			<td><form:input path="poolName" type="text" /></td>
-			<td><form:input path="startingPoolDate" type="text" /></td>
-			<td><form:input path="endOfPoolDate" type="text" /></td>
-			<td><form:input path="departureTime" type="text" /></td>
+			<td><form:input path="startingPoolDate" id="startingPoolDate"
+				type="text" /></td>
+			<td><form:input path="endOfPoolDate" id="endOfPoolDate" type="text" /></td>
+			<td><form:input path="departureTime" id="departureTime" type="text" /></td>
 			<td><form:input path="numberOfCurrentPassengers" type="text" /></td>
 		</tr>
 	</table>
@@ -72,21 +106,21 @@
 		<tr>
 			<td><label>One Way or Return?</label></td>
 			<span id="spryradio1">
-			<td><form:radiobutton type="radio" path="oneWayTravel" value="true"
-				id="journey_0" /> <label>Yes</label></td>
-			<td><form:radiobutton type="radio" path="oneWayTravel" value="false"
-				id="journey_1" /> <label>No</label></td>
+			<td><form:radiobutton type="radio" path="oneWayTravel"
+				value="true" id="journey_0" /> <label>Yes</label></td>
+			<td><form:radiobutton type="radio" path="oneWayTravel"
+				value="false" id="journey_1" /> <label>No</label></td>
 			</span>
 		</tr>
 		<tr>
 			<td><label>Preferred Gender To Travel With:</label></td>
 			<span id="spryradio2">
-			<td><form:radiobutton type="radio" path="genderToTravelWith" value="M"
-				id="genderToTravelWith_0" /> <label>Male Only</label></td>
-			<td><form:radiobutton type="radio" path="genderToTravelWith" value="F"
-				id="genderToTravelWith_1" /> <label>Female Only</label></td>
-			<td><form:radiobutton type="radio" path="genderToTravelWith" value="M"
-				id="genderToTravelWith_2" /> <label>Both</label></td>
+			<td><form:radiobutton type="radio" path="genderToTravelWith"
+				value="M" id="genderToTravelWith_0" /> <label>Male Only</label></td>
+			<td><form:radiobutton type="radio" path="genderToTravelWith"
+				value="F" id="genderToTravelWith_1" /> <label>Female Only</label></td>
+			<td><form:radiobutton type="radio" path="genderToTravelWith"
+				value="M" id="genderToTravelWith_2" /> <label>Both</label></td>
 			</span>
 		</tr>
 		<tr>
@@ -94,8 +128,8 @@
 			<span id="spryradio3">
 			<td><form:radiobutton type="radio" path="shareCost" value="true"
 				id="shareCost_0" /> <label>Yes</label></td>
-			<td><form:radiobutton type="radio" path="shareCost" value="false"
-				id="shareCost_1" /> <label>No</label></td>
+			<td><form:radiobutton type="radio" path="shareCost"
+				value="false" id="shareCost_1" /> <label>No</label></td>
 			</span>
 		</tr>
 	</table>

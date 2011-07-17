@@ -19,7 +19,7 @@
 	rel="stylesheet" type="text/css" />
 <script src="<c:url value="/resources/SpryAssets/SpryMenuBar.js"/>"
 	type="text/javascript"></script>
-<script src="<c:url value="/resources/js/jquery-1.6.1.min.js"/>"
+<script src="<c:url value="/resources/static/jQuery/js/jquery-1.5.1.min.js"/>"
 	type="text/javascript"></script>
 <link
 	href="<c:url value="/resources/SpryAssets/SpryMenuBarVertical.css"/>"
