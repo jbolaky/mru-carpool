@@ -33,13 +33,17 @@
 
 	<table width="95%">
 		<tr>
-			<td><label>CarPool Name:</label></td>
-			<td><label>CarPool Date:</label></td>
+			<td><label>Pool Name:</label></td>
+			<td><label>Starting Pool Date:</label></td>
+			<td><label>End Of Pool Date:</label></td>
+			<td><label>Departure Time:</label></td>
 			<td><label>No. Current Passengers:</label></td>
 		</tr>
 		<tr>
-			<td><form:input path="carpoolName" type="text" /></td>
-			<td><form:input path="carpoolDate" type="text" /></td>
+			<td><form:input path="poolName" type="text" /></td>
+			<td><form:input path="startingPoolDate" type="text" /></td>
+			<td><form:input path="endOfPoolDate" type="text" /></td>
+			<td><form:input path="departureTime" type="text" /></td>
 			<td><form:input path="numberOfCurrentPassengers" type="text" /></td>
 		</tr>
 	</table>
@@ -54,10 +58,12 @@
 		</tr>
 		<tr>
 			<td><form:select path="fromAreaCode">
-				<option>Mauritius</option>
+				<form:option value="">--SELECT--</form:option>
+				<form:option value="MU">Mauritius</form:option>
 			</form:select></td>
 			<td><form:select path="fromDistrictCode">
-				<option>Mauritius</option>
+				<form:option value="">--SELECT--</form:option>
+				<form:option value="MU">Mauritius</form:option>
 			</form:select></td>
 		</tr>
 	</table>

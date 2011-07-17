@@ -2,9 +2,6 @@ package com.javaid.bolaky.carpool.service.vo;
 
 import java.io.Serializable;
 
-import org.joda.time.LocalDate;
-import org.joda.time.LocalTime;
-
 import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
 
 @TravelDays
@@ -32,25 +29,27 @@ public class PoolRegistrationVO implements Serializable {
 	private String vehicleType;
 	/** end of page 1 attributes */
 
-	private String carpoolName;
+	/** start of page 2 attributes */
+	private String poolName;
 
-	private LocalDate startingCarpoolDate;
+	private String startingPoolDate;
 
-	private LocalDate endOfPoolDate;
+	private String endOfPoolDate;
 
-	private LocalTime departureTime;
+	private String departureTime;
 
-	private Integer numberOfCurrentPassengers;
+	private String numberOfCurrentPassengers;
 
 	private String fromAreaCode;
 
 	private String fromDistrictCode;
 
-	private Boolean oneWayTravel;
+	private String oneWayTravel;
 
-	private Character genderToTravelWith;
+	private String genderToTravelWith;
 
-	private Boolean shareCost;
+	private String shareCost;
+	/** end of page 2 attributes */
 
 	private Boolean travelOnMonday;
 
@@ -131,19 +130,19 @@ public class PoolRegistrationVO implements Serializable {
 		return vehicleType;
 	}
 
-	public String getCarpoolName() {
-		return carpoolName;
+	public String getPoolName() {
+		return poolName;
 	}
 
-	public LocalDate getStartingCarpoolDate() {
-		return startingCarpoolDate;
+	public String getStartingPoolDate() {
+		return startingPoolDate;
 	}
 
-	public LocalDate getEndOfPoolDate() {
+	public String getEndOfPoolDate() {
 		return endOfPoolDate;
 	}
 
-	public Integer getNumberOfCurrentPassengers() {
+	public String getNumberOfCurrentPassengers() {
 		return numberOfCurrentPassengers;
 	}
 
@@ -155,15 +154,15 @@ public class PoolRegistrationVO implements Serializable {
 		return fromDistrictCode;
 	}
 
-	public Boolean getOneWayTravel() {
+	public String getOneWayTravel() {
 		return oneWayTravel;
 	}
 
-	public Character getGenderToTravelWith() {
+	public String getGenderToTravelWith() {
 		return genderToTravelWith;
 	}
 
-	public Boolean getShareCost() {
+	public String getShareCost() {
 		return shareCost;
 	}
 
@@ -223,7 +222,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnSunday;
 	}
 
-	public LocalTime getDepartureTime() {
+	public String getDepartureTime() {
 		return departureTime;
 	}
 
@@ -275,19 +274,19 @@ public class PoolRegistrationVO implements Serializable {
 		this.vehicleType = vehicleType;
 	}
 
-	public void setCarpoolName(String carpoolName) {
-		this.carpoolName = carpoolName;
+	public void setPoolName(String poolName) {
+		this.poolName = poolName;
 	}
 
-	public void setStartingCarpoolDate(LocalDate startingCarpoolDate) {
-		this.startingCarpoolDate = startingCarpoolDate;
+	public void setStartingPoolDate(String startingPoolDate) {
+		this.startingPoolDate = startingPoolDate;
 	}
 
-	public void setEndOfPoolDate(LocalDate endOfPoolDate) {
+	public void setEndOfPoolDate(String endOfPoolDate) {
 		this.endOfPoolDate = endOfPoolDate;
 	}
 
-	public void setNumberOfCurrentPassengers(Integer numberOfCurrentPassengers) {
+	public void setNumberOfCurrentPassengers(String numberOfCurrentPassengers) {
 		this.numberOfCurrentPassengers = numberOfCurrentPassengers;
 	}
 
@@ -299,15 +298,15 @@ public class PoolRegistrationVO implements Serializable {
 		this.fromDistrictCode = fromDistrictCode;
 	}
 
-	public void setOneWayTravel(Boolean oneWayTravel) {
+	public void setOneWayTravel(String oneWayTravel) {
 		this.oneWayTravel = oneWayTravel;
 	}
 
-	public void setGenderToTravelWith(Character genderToTravelWith) {
+	public void setGenderToTravelWith(String genderToTravelWith) {
 		this.genderToTravelWith = genderToTravelWith;
 	}
 
-	public void setShareCost(Boolean shareCost) {
+	public void setShareCost(String shareCost) {
 		this.shareCost = shareCost;
 	}
 
@@ -374,7 +373,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnSunday = numberOfAvailableSeatsOnSunday;
 	}
 
-	public void setDepartureTime(LocalTime departureTime) {
+	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
 

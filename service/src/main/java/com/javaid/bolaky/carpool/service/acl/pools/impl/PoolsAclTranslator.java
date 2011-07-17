@@ -1,10 +1,15 @@
 package com.javaid.bolaky.carpool.service.acl.pools.impl;
 
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToBoolean;
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToCharacter;
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToInteger;
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToLocalDate;
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToLocalTime;
+
 import java.util.Set;
 
 import org.apache.commons.collections15.set.ListOrderedSet;
 
-import static com.javaid.bolaky.carpool.service.util.PoolUtils.*;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
@@ -25,17 +30,26 @@ public class PoolsAclTranslator {
 
 			pool.setUsername(carPoolRegistrationVO.getUsername());
 
+			pool.setPoolName(carPoolRegistrationVO.getPoolName());
+			pool.setShareCost(convertToBoolean(carPoolRegistrationVO
+					.getShareCost()));
 			pool.setPoolType(PoolType
 					.convertCode(convertToInteger(carPoolRegistrationVO
 							.getPoolCode())));
 			pool.setValidLicense(convertToBoolean(carPoolRegistrationVO
 					.getValidLicense()));
 			pool.setSmoker(convertToBoolean(carPoolRegistrationVO.getSmoker()));
-			pool.setOneWayTravel(carPoolRegistrationVO.getOneWayTravel());
-			pool.setNumberOfCurrentPassengers(carPoolRegistrationVO
+			pool.setOneWayTravel(convertToBoolean(carPoolRegistrationVO
+					.getOneWayTravel()));
+
+			Integer numberOfCurrentPassengers = convertToInteger(carPoolRegistrationVO
 					.getNumberOfCurrentPassengers());
+
+			pool.setNumberOfCurrentPassengers(numberOfCurrentPassengers != null ? numberOfCurrentPassengers
+					: 0);
 			pool.setPrefferedGenderToTravelWith(Gender
-					.convertCode(carPoolRegistrationVO.getGenderToTravelWith()));
+					.convertCode(convertToCharacter(carPoolRegistrationVO
+							.getGenderToTravelWith())));
 			pool.setUserPoolAdditionalDetails(carPoolRegistrationVO
 					.getAdditionalDetails());
 
@@ -95,16 +109,21 @@ public class PoolsAclTranslator {
 					carPoolRegistrationVO.getVehicleType());
 
 			pool.getStartingPointInfo().setStartingDate(
-					carPoolRegistrationVO.getStartingCarpoolDate());
-			pool.getStartingPointInfo().setDepartureTime(
-					carPoolRegistrationVO.getDepartureTime());
+					convertToLocalDate(carPoolRegistrationVO
+							.getStartingPoolDate()));
+			pool.getStartingPointInfo()
+					.setDepartureTime(
+							convertToLocalTime(carPoolRegistrationVO
+									.getDepartureTime()));
 			pool.getStartingPointInfo().setFromAreaCode(
 					carPoolRegistrationVO.getFromAreaCode());
 			pool.getStartingPointInfo().setFromDistrictCode(
 					carPoolRegistrationVO.getFromDistrictCode());
 
-			pool.getDestinationInfo().setEndDate(
-					carPoolRegistrationVO.getEndOfPoolDate());
+			pool.getDestinationInfo()
+					.setEndDate(
+							convertToLocalDate(carPoolRegistrationVO
+									.getEndOfPoolDate()));
 			pool.getDestinationInfo().setToAreaCode(
 					carPoolRegistrationVO.getToAreaCode());
 			pool.getDestinationInfo().setToDistictCode(

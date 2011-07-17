@@ -70,7 +70,7 @@
 		<tr>
 			<td><label>Vehicle make:</label></td>
 			<td colspan="2"><form:select path="vehicleMake">
-				<option>--SELECT--</option>
+				<form:option value="">--SELECT--</form:option>
 				<form:option value="ALPRM">Alpha Romeo</form:option>
 				<form:option value="2">Toyota</form:option>
 			</form:select></td>
@@ -78,7 +78,7 @@
 		<tr>
 			<td><label>Vehicle Model:</label></td>
 			<td colspan="2"><form:select path="vehicleModel">
-				<option>--SELECT--</option>
+				<form:option value="">--SELECT--</form:option>
 				<form:option value="1">Spider</form:option>
 				<form:option value="2">GT</form:option>
 				<form:option value="3">Mito</form:option>
@@ -87,7 +87,7 @@
 		<tr>
 			<td><label>Vehicle Type:</label></td>
 			<td colspan="2"><form:select path="vehicleType">
-				<option>--SELECT--</option>
+				<form:option value="">--SELECT--</form:option>
 				<form:option value="1">Sedan</form:option>
 				<form:option value="2">Couper</form:option>
 			</form:select></td>

@@ -33,8 +33,10 @@
 	<view-state id="registercarpoolpage2" view="registercarpoolpage2"
 		model="carPoolRegistrationVO">
 		<binder>
-			<binding property="carpoolName" />
-			<binding property="carpoolDate" />
+			<binding property="poolName" />
+			<binding property="startingPoolDate" />
+			<binding property="endOfPoolDate" />
+			<binding property="departureTime" />
 			<binding property="numberOfCurrentPassengers" />
 			<binding property="fromAreaCode" />
 			<binding property="fromDistrictCode" />

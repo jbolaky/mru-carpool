@@ -37,7 +37,8 @@ public class CarPoolRegistrationVOValidator {
 	public void validateRegistercarpoolpage2(
 			PoolRegistrationVO carPoolRegistrationVO, ValidationContext context) {
 
-		this.filterMessageForSpecificCarPoolView(null,
+		this.filterMessageForSpecificCarPoolView(
+				carPoolService.validate(carPoolRegistrationVO),
 				context.getMessageContext(),
 				CarPoolView.REGISTER_CARPOOL_PAGE_2);
 	}
