@@ -3,7 +3,6 @@ package com.javaid.bolaky.carpool.service.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;

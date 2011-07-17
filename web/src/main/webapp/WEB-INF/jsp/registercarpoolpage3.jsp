@@ -35,43 +35,35 @@
 	amount of seats available for that day</label>
 	<table>
 		<tr>
-			<td width="20%"><form:checkbox path="travelOnMonday" type="checkbox" value="" />Monday</td>
+			<td width="20%"><form:checkbox path="travelOnMonday" type="checkbox" value="true" />Monday</td>
 			<td><form:input path="numberOfAvailableSeatsOnMonday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td width="20%"><form:checkbox path="travelOnTuesday" type="checkbox" value="" />Tuesday</td>
+			<td width="20%"><form:checkbox path="travelOnTuesday" type="checkbox" value="true" />Tuesday</td>
 			<td><form:input path="numberOfAvailableSeatsOnTuesday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td width="20%"><form:checkbox path="travelOnWednesday" type="checkbox" value="" />Wednesday</td>
+			<td width="20%"><form:checkbox path="travelOnWednesday" type="checkbox" value="true" />Wednesday</td>
 			<td><form:input path="numberOfAvailableSeatsOnWednesday" type="text"
 				value="0" class="seatsAvailable" /></td>
 		</tr>
 		<tr>
-			<td><form:checkbox path="travelOnThursday" type="checkbox" value="" />Thursday</td>
+			<td><form:checkbox path="travelOnThursday" type="checkbox" value="true" />Thursday</td>
 			<td><form:input path="numberOfAvailableSeatsOnThursday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td><form:checkbox path="travelOnFriday" type="checkbox" value="" />Friday</td>
+			<td><form:checkbox path="travelOnFriday" type="checkbox" value="true" />Friday</td>
 			<td><form:input path="numberOfAvailableSeatsOnFriday" type="text"
 				value="0" class="seatsAvailable" /></td>
 		</tr>
 		<tr>
-			<td><form:checkbox path="travelOnSaturday" type="checkbox" value="" />Saturday</td>
+			<td><form:checkbox path="travelOnSaturday" type="checkbox" value="true" />Saturday</td>
 			<td><form:input path="numberOfAvailableSeatsOnSaturday" type="text"
 				value="0" class="seatsAvailable" /></td>
-			<td><form:checkbox path="travelOnSunday" type="checkbox" value="" />Sunday</td>
+			<td><form:checkbox path="travelOnSunday" type="checkbox" value="true" />Sunday</td>
 			<td><form:input path="numberOfAvailableSeatsOnSunday" type="text"
 				value="0" class="seatsAvailable" /></td>
 		</tr>
 	</table>
 	<p>Note: You must specify how many seats are available in the field
 	after the day you selected</p>
-	<table width="45%">
-		<tr>
-			<td><label>Departure Time:</label></td>
-			<td><form:select path="departureTime">
-				<option>--ANY--</option>
-			</form:select></td>
-		</tr>
-	</table>
 	<h2 class="item">To</h2>
 	<table width="95%">
 		<tr>
@@ -80,10 +72,12 @@
 		</tr>
 		<tr>
 			<td><form:select path="toAreaCode">
-				<option>Mauritius</option>
+				<form:option value="">--SELECT--</form:option>
+				<form:option value="MU">Mauritius</form:option>
 			</form:select></td>
 			<td><form:select path="toDistrictCode">
-				<option>Mauritius</option>
+				<form:option value="">--SELECT--</form:option>
+				<form:option value="MU">Mauritius</form:option>
 			</form:select></td>
 		</tr>
 	</table>

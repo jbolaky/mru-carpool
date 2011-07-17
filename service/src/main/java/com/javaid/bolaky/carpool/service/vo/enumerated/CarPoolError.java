@@ -58,7 +58,14 @@ public enum CarPoolError {
 	REGISTER_CARPOOL_PAGE_2_END_DATE_BEFORE_START_DATE("S206","P172", REGISTER_CARPOOL_PAGE_2, "Pool end date should be after pool start date"),
 	
 	REGISTER_CARPOOL_PAGE_3_TRAVEL_DAY_SEAT_NULL("S200",null, REGISTER_CARPOOL_PAGE_3, "Please select at least a travel day and enter its number of available seats"),
-	REGISTER_CARPOOL_PAGE_3_TO_AREA_CODE_NULL("S210","P180", REGISTER_CARPOOL_PAGE_3, "select area"),
+	REGISTER_CARPOOL_PAGE_3_MONDAY_SEATS_NOT_AVAILABLE("S201","P201", REGISTER_CARPOOL_PAGE_3, "Number of available seats on monday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_TUESDAY_SEATS_NOT_AVAILABLE("S202","P202", REGISTER_CARPOOL_PAGE_3, "Number of available seats on tuesday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_WEDNESDAY_SEATS_NOT_AVAILABLE("S203","P203", REGISTER_CARPOOL_PAGE_3, "Number of available seats on wednesday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_THURSDAY_SEATS_NOT_AVAILABLE("S204","P204", REGISTER_CARPOOL_PAGE_3, "Number of available seats on thursday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_FRIDAY_SEATS_NOT_AVAILABLE("S205","P205", REGISTER_CARPOOL_PAGE_3, "Number of available seats on friday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_SATURDAY_SEATS_NOT_AVAILABLE("S206","P206", REGISTER_CARPOOL_PAGE_3, "Number of available seats on saturday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_SUNDAY_SEATS_NOT_AVAILABLE("S207","P207", REGISTER_CARPOOL_PAGE_3, "Number of available seats on sunday exceeded"),
+	REGISTER_CARPOOL_PAGE_3_TO_AREA_CODE_NULL("S210","P180", REGISTER_CARPOOL_PAGE_3, "Please select region"),
 	REGISTER_CARPOOL_PAGE_3_TO_DISTRICT_CODE_NULL("S215","P190", REGISTER_CARPOOL_PAGE_3, "Please select district");
 	
 	private String applicationCode;

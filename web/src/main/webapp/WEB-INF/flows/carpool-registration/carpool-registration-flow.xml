@@ -68,7 +68,6 @@
 			<binding property="numberOfAvailableSeatsOnSaturday" />
 			<binding property="travelOnSunday" />
 			<binding property="numberOfAvailableSeatsOnSunday" />
-			<binding property="departureTime" />
 			<binding property="toAreaCode" />
 			<binding property="toDistrictCode" />
 			<binding property="additionalDetails" />

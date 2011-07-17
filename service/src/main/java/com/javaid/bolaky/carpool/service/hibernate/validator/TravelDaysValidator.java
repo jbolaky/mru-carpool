@@ -1,5 +1,8 @@
 package com.javaid.bolaky.carpool.service.hibernate.validator;
 
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToBoolean;
+import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToInteger;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
@@ -18,28 +21,34 @@ public class TravelDaysValidator implements
 
 		boolean isValid = true;
 
-		Boolean travelOnMonday = carPoolRegistrationVO.getTravelOnMonday();
-		Integer numberOfAvailableSeatsOnMonday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnMonday();
-		Boolean travelOnTuesday = carPoolRegistrationVO.getTravelOnThursday();
-		Integer numberOfAvailableSeatsOnTuesday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnTuesday();
-		Boolean travelOnWednesday = carPoolRegistrationVO
-				.getTravelOnWednesday();
-		Integer numberOfAvailableSeatsOnWednesday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnWednesday();
-		Boolean travelOnThursday = carPoolRegistrationVO.getTravelOnThursday();
-		Integer numberOfAvailableSeatsOnThursday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnThursday();
-		Boolean travelOnFriday = carPoolRegistrationVO.getTravelOnFriday();
-		Integer numberOfAvailableSeatsOnFriday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnFriday();
-		Boolean travelOnSaturday = carPoolRegistrationVO.getTravelOnSaturday();
-		Integer numberOfAvailableSeatsOnSaturday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnSaturday();
-		Boolean travelOnSunday = carPoolRegistrationVO.getTravelOnSunday();
-		Integer numberOfAvailableSeatsOnSunday = carPoolRegistrationVO
-				.getNumberOfAvailableSeatsOnSunday();
+		Boolean travelOnMonday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnMonday());
+		Integer numberOfAvailableSeatsOnMonday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnMonday());
+		Boolean travelOnTuesday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnThursday());
+		Integer numberOfAvailableSeatsOnTuesday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnTuesday());
+		Boolean travelOnWednesday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnWednesday());
+		Integer numberOfAvailableSeatsOnWednesday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnWednesday());
+		Boolean travelOnThursday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnThursday());
+		Integer numberOfAvailableSeatsOnThursday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnThursday());
+		Boolean travelOnFriday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnFriday());
+		Integer numberOfAvailableSeatsOnFriday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnFriday());
+		Boolean travelOnSaturday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnSaturday());
+		Integer numberOfAvailableSeatsOnSaturday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnSaturday());
+		Boolean travelOnSunday = convertToBoolean(carPoolRegistrationVO
+				.getTravelOnSunday());
+		Integer numberOfAvailableSeatsOnSunday = convertToInteger(carPoolRegistrationVO
+				.getNumberOfAvailableSeatsOnSunday());
 
 		if ((travelOnMonday == null || (travelOnMonday != null && !travelOnMonday))
 				&& (travelOnTuesday == null || (travelOnTuesday != null && !travelOnTuesday))

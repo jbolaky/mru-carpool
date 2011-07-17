@@ -51,39 +51,41 @@ public class PoolRegistrationVO implements Serializable {
 	private String shareCost;
 	/** end of page 2 attributes */
 
-	private Boolean travelOnMonday;
+	/** start of page 3 attributes */
+	private String travelOnMonday;
 
-	private Integer numberOfAvailableSeatsOnMonday;
+	private String numberOfAvailableSeatsOnMonday;
 
-	private Boolean travelOnTuesday;
+	private String travelOnTuesday;
 
-	private Integer numberOfAvailableSeatsOnTuesday;
+	private String numberOfAvailableSeatsOnTuesday;
 
-	private Boolean travelOnWednesday;
+	private String travelOnWednesday;
 
-	private Integer numberOfAvailableSeatsOnWednesday;
+	private String numberOfAvailableSeatsOnWednesday;
 
-	private Boolean travelOnThursday;
+	private String travelOnThursday;
 
-	private Integer numberOfAvailableSeatsOnThursday;
+	private String numberOfAvailableSeatsOnThursday;
 
-	private Boolean travelOnFriday;
+	private String travelOnFriday;
 
-	private Integer numberOfAvailableSeatsOnFriday;
+	private String numberOfAvailableSeatsOnFriday;
 
-	private Boolean travelOnSaturday;
+	private String travelOnSaturday;
 
-	private Integer numberOfAvailableSeatsOnSaturday;
+	private String numberOfAvailableSeatsOnSaturday;
 
-	private Boolean travelOnSunday;
+	private String travelOnSunday;
 
-	private Integer numberOfAvailableSeatsOnSunday;
+	private String numberOfAvailableSeatsOnSunday;
 
 	private String toAreaCode;
 
 	private String toDistrictCode;
 
 	private String additionalDetails;
+	/** end of page 3 attributes */
 
 	public PoolRegistrationVO() {
 		super();
@@ -166,59 +168,59 @@ public class PoolRegistrationVO implements Serializable {
 		return shareCost;
 	}
 
-	public Boolean getTravelOnMonday() {
+	public String getTravelOnMonday() {
 		return travelOnMonday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnMonday() {
+	public String getNumberOfAvailableSeatsOnMonday() {
 		return numberOfAvailableSeatsOnMonday;
 	}
 
-	public Boolean getTravelOnTuesday() {
+	public String getTravelOnTuesday() {
 		return travelOnTuesday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnTuesday() {
+	public String getNumberOfAvailableSeatsOnTuesday() {
 		return numberOfAvailableSeatsOnTuesday;
 	}
 
-	public Boolean getTravelOnWednesday() {
+	public String getTravelOnWednesday() {
 		return travelOnWednesday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnWednesday() {
+	public String getNumberOfAvailableSeatsOnWednesday() {
 		return numberOfAvailableSeatsOnWednesday;
 	}
 
-	public Boolean getTravelOnThursday() {
+	public String getTravelOnThursday() {
 		return travelOnThursday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnThursday() {
+	public String getNumberOfAvailableSeatsOnThursday() {
 		return numberOfAvailableSeatsOnThursday;
 	}
 
-	public Boolean getTravelOnFriday() {
+	public String getTravelOnFriday() {
 		return travelOnFriday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnFriday() {
+	public String getNumberOfAvailableSeatsOnFriday() {
 		return numberOfAvailableSeatsOnFriday;
 	}
 
-	public Boolean getTravelOnSaturday() {
+	public String getTravelOnSaturday() {
 		return travelOnSaturday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnSaturday() {
+	public String getNumberOfAvailableSeatsOnSaturday() {
 		return numberOfAvailableSeatsOnSaturday;
 	}
 
-	public Boolean getTravelOnSunday() {
+	public String getTravelOnSunday() {
 		return travelOnSunday;
 	}
 
-	public Integer getNumberOfAvailableSeatsOnSunday() {
+	public String getNumberOfAvailableSeatsOnSunday() {
 		return numberOfAvailableSeatsOnSunday;
 	}
 
@@ -310,66 +312,66 @@ public class PoolRegistrationVO implements Serializable {
 		this.shareCost = shareCost;
 	}
 
-	public void setTravelOnMonday(Boolean travelOnMonday) {
+	public void setTravelOnMonday(String travelOnMonday) {
 		this.travelOnMonday = travelOnMonday;
 	}
 
 	public void setNumberOfAvailableSeatsOnMonday(
-			Integer numberOfAvailableSeatsOnMonday) {
+			String numberOfAvailableSeatsOnMonday) {
 		this.numberOfAvailableSeatsOnMonday = numberOfAvailableSeatsOnMonday;
 	}
 
-	public void setTravelOnTuesday(Boolean travelOnTuesday) {
+	public void setTravelOnTuesday(String travelOnTuesday) {
 		this.travelOnTuesday = travelOnTuesday;
 	}
 
 	public void setNumberOfAvailableSeatsOnTuesday(
-			Integer numberOfAvailableSeatsOnTuesday) {
+			String numberOfAvailableSeatsOnTuesday) {
 		this.numberOfAvailableSeatsOnTuesday = numberOfAvailableSeatsOnTuesday;
 	}
 
-	public void setTravelOnWednesday(Boolean travelOnWednesday) {
+	public void setTravelOnWednesday(String travelOnWednesday) {
 		this.travelOnWednesday = travelOnWednesday;
 	}
 
 	public void setNumberOfAvailableSeatsOnWednesday(
-			Integer numberOfAvailableSeatsOnWednesday) {
+			String numberOfAvailableSeatsOnWednesday) {
 		this.numberOfAvailableSeatsOnWednesday = numberOfAvailableSeatsOnWednesday;
 	}
 
-	public void setTravelOnThursday(Boolean travelOnThursday) {
+	public void setTravelOnThursday(String travelOnThursday) {
 		this.travelOnThursday = travelOnThursday;
 	}
 
 	public void setNumberOfAvailableSeatsOnThursday(
-			Integer numberOfAvailableSeatsOnThursday) {
+			String numberOfAvailableSeatsOnThursday) {
 		this.numberOfAvailableSeatsOnThursday = numberOfAvailableSeatsOnThursday;
 	}
 
-	public void setTravelOnFriday(Boolean travelOnFriday) {
+	public void setTravelOnFriday(String travelOnFriday) {
 		this.travelOnFriday = travelOnFriday;
 	}
 
 	public void setNumberOfAvailableSeatsOnFriday(
-			Integer numberOfAvailableSeatsOnFriday) {
+			String numberOfAvailableSeatsOnFriday) {
 		this.numberOfAvailableSeatsOnFriday = numberOfAvailableSeatsOnFriday;
 	}
 
-	public void setTravelOnSaturday(Boolean travelOnSaturday) {
+	public void setTravelOnSaturday(String travelOnSaturday) {
 		this.travelOnSaturday = travelOnSaturday;
 	}
 
 	public void setNumberOfAvailableSeatsOnSaturday(
-			Integer numberOfAvailableSeatsOnSaturday) {
+			String numberOfAvailableSeatsOnSaturday) {
 		this.numberOfAvailableSeatsOnSaturday = numberOfAvailableSeatsOnSaturday;
 	}
 
-	public void setTravelOnSunday(Boolean travelOnSunday) {
+	public void setTravelOnSunday(String travelOnSunday) {
 		this.travelOnSunday = travelOnSunday;
 	}
 
 	public void setNumberOfAvailableSeatsOnSunday(
-			Integer numberOfAvailableSeatsOnSunday) {
+			String numberOfAvailableSeatsOnSunday) {
 		this.numberOfAvailableSeatsOnSunday = numberOfAvailableSeatsOnSunday;
 	}
 
