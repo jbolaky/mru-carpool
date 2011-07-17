@@ -54,7 +54,8 @@ public enum CarPoolError {
 	REGISTER_CARPOOL_PAGE_2_TRAVEL_TYPE_NULL("S170","P50", REGISTER_CARPOOL_PAGE_2, "Please select travel type"),
 	REGISTER_CARPOOL_PAGE_2_GENDER_TO_TRAVEL_WITH_NULL("S175","P60", REGISTER_CARPOOL_PAGE_2, "Please select preffered gender to travel with"),
 	REGISTER_CARPOOL_PAGE_2_SHARE_COST_NULL("S180","P12", REGISTER_CARPOOL_PAGE_2, "Please select share cost"),
-	REGISTER_CARPOOL_PAGE_3_DEPARTURE_TIME_NULL("S205","P140", REGISTER_CARPOOL_PAGE_2, "Please select departure time"),
+	REGISTER_CARPOOL_PAGE_2_DEPARTURE_TIME_NULL("S205","P140", REGISTER_CARPOOL_PAGE_2, "Please select departure time"),
+	REGISTER_CARPOOL_PAGE_2_END_DATE_BEFORE_START_DATE("S206","P172", REGISTER_CARPOOL_PAGE_2, "Pool end date should be after pool start date"),
 	
 	REGISTER_CARPOOL_PAGE_3_TRAVEL_DAY_SEAT_NULL("S200",null, REGISTER_CARPOOL_PAGE_3, "Please select at least a travel day and enter its number of available seats"),
 	REGISTER_CARPOOL_PAGE_3_TO_AREA_CODE_NULL("S210","P180", REGISTER_CARPOOL_PAGE_3, "select area"),

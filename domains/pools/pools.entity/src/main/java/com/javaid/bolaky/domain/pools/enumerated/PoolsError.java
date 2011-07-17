@@ -23,6 +23,7 @@ public enum PoolsError {
 	POOLS_FROM_DISTRICT_CODE_NULL("P160","from district code cannot be null"),
 	POOLS_END_DATE_NULL("P170","end date cannot be null"),
 	POOLS_END_DATE_SHOULD_BE_IN_FUTURE("P171","end date should be in the future"),
+	POOLS_END_DATE_SHOULD_BE_AFTER_START_DATE("P172","end date should after start date"),
 	POOLS_TO_AREA_CODE_NULL("P180","to area code cannot be null"),
 	POOLS_TO_DISTRICT_CODE_NULL("P190","to district code cannot be null"),
 	

@@ -46,6 +46,7 @@ import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
+import com.javaid.bolaky.domain.pools.hibernate.constraint.PoolEndDate;
 import com.javaid.bolaky.domain.pools.hibernate.constraint.SeatAvailability;
 import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 
@@ -59,6 +60,7 @@ import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 		@TypeDef(name = "pool_status_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus")),
 		@TypeDef(name = "pool_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolType")) })
 @SeatAvailability(groups = MandatoryDataRules.class)
+@PoolEndDate(groups = MandatoryDataRules.class)
 public class Pool extends AbstractTimestampUsernameEntity {
 
 	private static final long serialVersionUID = 9210101505830391192L;
@@ -71,12 +73,12 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	@NotNull(message = "P10", groups = MandatoryDataRules.class)
 	@Column(name = "USERNAME")
 	private String username;
-	
+
 	@NotNull(message = "P11", groups = MandatoryDataRules.class)
 	@NotEmpty(message = "P11", groups = MandatoryDataRules.class)
 	@Column(name = "POOL_NAME")
 	private String poolName;
-	
+
 	@NotNull(message = "P12", groups = MandatoryDataRules.class)
 	@Type(type = "yes_no")
 	@Column(name = "SHARE_COST")
@@ -109,7 +111,7 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	@Type(type = "gender_user_types")
 	@Column(name = "PREFFERED_GENDER_TO_TRAVEL_WITH")
 	private Gender prefferedGenderToTravelWith;
-	
+
 	@NotNull(message = "P61", groups = MandatoryDataRules.class)
 	@Type(type = "gender_user_types")
 	@Column(name = "GENDER")
