@@ -2,6 +2,10 @@ package com.javaid.bolaky.carpool.service.vo;
 
 import java.io.Serializable;
 
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.javaid.bolaky.carpool.service.hibernate.constraint.TravelDays;
 
 @TravelDays
@@ -14,11 +18,11 @@ public class PoolRegistrationVO implements Serializable {
 	/** start of page 1 attributes */
 	private String poolCode;
 
-	private String carOwner;
+	private Boolean carOwner;
 
-	private String validLicense;
+	private Boolean validLicense;
 
-	private String smoker;
+	private Boolean smoker;
 
 	private String maxNumberOfSeats;
 
@@ -32,11 +36,14 @@ public class PoolRegistrationVO implements Serializable {
 	/** start of page 2 attributes */
 	private String poolName;
 
-	private String startingPoolDate;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate startingPoolDate;
 
-	private String endOfPoolDate;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate endOfPoolDate;
 
-	private String departureTime;
+	@DateTimeFormat(pattern = "h:mm")
+	private LocalTime departureTime;
 
 	private String numberOfCurrentPassengers;
 
@@ -44,39 +51,39 @@ public class PoolRegistrationVO implements Serializable {
 
 	private String fromDistrictCode;
 
-	private String oneWayTravel;
+	private Boolean oneWayTravel;
 
 	private String genderToTravelWith;
 
-	private String shareCost;
+	private Boolean shareCost;
 	/** end of page 2 attributes */
 
 	/** start of page 3 attributes */
-	private String travelOnMonday;
+	private Boolean travelOnMonday;
 
 	private String numberOfAvailableSeatsOnMonday;
 
-	private String travelOnTuesday;
+	private Boolean travelOnTuesday;
 
 	private String numberOfAvailableSeatsOnTuesday;
 
-	private String travelOnWednesday;
+	private Boolean travelOnWednesday;
 
 	private String numberOfAvailableSeatsOnWednesday;
 
-	private String travelOnThursday;
+	private Boolean travelOnThursday;
 
 	private String numberOfAvailableSeatsOnThursday;
 
-	private String travelOnFriday;
+	private Boolean travelOnFriday;
 
 	private String numberOfAvailableSeatsOnFriday;
 
-	private String travelOnSaturday;
+	private Boolean travelOnSaturday;
 
 	private String numberOfAvailableSeatsOnSaturday;
 
-	private String travelOnSunday;
+	private Boolean travelOnSunday;
 
 	private String numberOfAvailableSeatsOnSunday;
 
@@ -85,6 +92,7 @@ public class PoolRegistrationVO implements Serializable {
 	private String toDistrictCode;
 
 	private String additionalDetails;
+
 	/** end of page 3 attributes */
 
 	public PoolRegistrationVO() {
@@ -104,15 +112,15 @@ public class PoolRegistrationVO implements Serializable {
 		return username;
 	}
 
-	public String getCarOwner() {
+	public Boolean getCarOwner() {
 		return carOwner;
 	}
 
-	public String getValidLicense() {
+	public Boolean getValidLicense() {
 		return validLicense;
 	}
 
-	public String getSmoker() {
+	public Boolean getSmoker() {
 		return smoker;
 	}
 
@@ -136,11 +144,11 @@ public class PoolRegistrationVO implements Serializable {
 		return poolName;
 	}
 
-	public String getStartingPoolDate() {
+	public LocalDate getStartingPoolDate() {
 		return startingPoolDate;
 	}
 
-	public String getEndOfPoolDate() {
+	public LocalDate getEndOfPoolDate() {
 		return endOfPoolDate;
 	}
 
@@ -156,7 +164,7 @@ public class PoolRegistrationVO implements Serializable {
 		return fromDistrictCode;
 	}
 
-	public String getOneWayTravel() {
+	public Boolean getOneWayTravel() {
 		return oneWayTravel;
 	}
 
@@ -164,11 +172,11 @@ public class PoolRegistrationVO implements Serializable {
 		return genderToTravelWith;
 	}
 
-	public String getShareCost() {
+	public Boolean getShareCost() {
 		return shareCost;
 	}
 
-	public String getTravelOnMonday() {
+	public Boolean getTravelOnMonday() {
 		return travelOnMonday;
 	}
 
@@ -176,7 +184,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnMonday;
 	}
 
-	public String getTravelOnTuesday() {
+	public Boolean getTravelOnTuesday() {
 		return travelOnTuesday;
 	}
 
@@ -184,7 +192,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnTuesday;
 	}
 
-	public String getTravelOnWednesday() {
+	public Boolean getTravelOnWednesday() {
 		return travelOnWednesday;
 	}
 
@@ -192,7 +200,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnWednesday;
 	}
 
-	public String getTravelOnThursday() {
+	public Boolean getTravelOnThursday() {
 		return travelOnThursday;
 	}
 
@@ -200,7 +208,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnThursday;
 	}
 
-	public String getTravelOnFriday() {
+	public Boolean getTravelOnFriday() {
 		return travelOnFriday;
 	}
 
@@ -208,7 +216,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnFriday;
 	}
 
-	public String getTravelOnSaturday() {
+	public Boolean getTravelOnSaturday() {
 		return travelOnSaturday;
 	}
 
@@ -216,7 +224,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnSaturday;
 	}
 
-	public String getTravelOnSunday() {
+	public Boolean getTravelOnSunday() {
 		return travelOnSunday;
 	}
 
@@ -224,7 +232,7 @@ public class PoolRegistrationVO implements Serializable {
 		return numberOfAvailableSeatsOnSunday;
 	}
 
-	public String getDepartureTime() {
+	public LocalTime getDepartureTime() {
 		return departureTime;
 	}
 
@@ -248,15 +256,15 @@ public class PoolRegistrationVO implements Serializable {
 		this.username = username;
 	}
 
-	public void setCarOwner(String carOwner) {
+	public void setCarOwner(Boolean carOwner) {
 		this.carOwner = carOwner;
 	}
 
-	public void setValidLicense(String validLicense) {
+	public void setValidLicense(Boolean validLicense) {
 		this.validLicense = validLicense;
 	}
 
-	public void setSmoker(String smoker) {
+	public void setSmoker(Boolean smoker) {
 		this.smoker = smoker;
 	}
 
@@ -280,11 +288,11 @@ public class PoolRegistrationVO implements Serializable {
 		this.poolName = poolName;
 	}
 
-	public void setStartingPoolDate(String startingPoolDate) {
+	public void setStartingPoolDate(LocalDate startingPoolDate) {
 		this.startingPoolDate = startingPoolDate;
 	}
 
-	public void setEndOfPoolDate(String endOfPoolDate) {
+	public void setEndOfPoolDate(LocalDate endOfPoolDate) {
 		this.endOfPoolDate = endOfPoolDate;
 	}
 
@@ -300,7 +308,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.fromDistrictCode = fromDistrictCode;
 	}
 
-	public void setOneWayTravel(String oneWayTravel) {
+	public void setOneWayTravel(Boolean oneWayTravel) {
 		this.oneWayTravel = oneWayTravel;
 	}
 
@@ -308,11 +316,11 @@ public class PoolRegistrationVO implements Serializable {
 		this.genderToTravelWith = genderToTravelWith;
 	}
 
-	public void setShareCost(String shareCost) {
+	public void setShareCost(Boolean shareCost) {
 		this.shareCost = shareCost;
 	}
 
-	public void setTravelOnMonday(String travelOnMonday) {
+	public void setTravelOnMonday(Boolean travelOnMonday) {
 		this.travelOnMonday = travelOnMonday;
 	}
 
@@ -321,7 +329,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnMonday = numberOfAvailableSeatsOnMonday;
 	}
 
-	public void setTravelOnTuesday(String travelOnTuesday) {
+	public void setTravelOnTuesday(Boolean travelOnTuesday) {
 		this.travelOnTuesday = travelOnTuesday;
 	}
 
@@ -330,7 +338,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnTuesday = numberOfAvailableSeatsOnTuesday;
 	}
 
-	public void setTravelOnWednesday(String travelOnWednesday) {
+	public void setTravelOnWednesday(Boolean travelOnWednesday) {
 		this.travelOnWednesday = travelOnWednesday;
 	}
 
@@ -339,7 +347,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnWednesday = numberOfAvailableSeatsOnWednesday;
 	}
 
-	public void setTravelOnThursday(String travelOnThursday) {
+	public void setTravelOnThursday(Boolean travelOnThursday) {
 		this.travelOnThursday = travelOnThursday;
 	}
 
@@ -348,7 +356,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnThursday = numberOfAvailableSeatsOnThursday;
 	}
 
-	public void setTravelOnFriday(String travelOnFriday) {
+	public void setTravelOnFriday(Boolean travelOnFriday) {
 		this.travelOnFriday = travelOnFriday;
 	}
 
@@ -357,7 +365,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnFriday = numberOfAvailableSeatsOnFriday;
 	}
 
-	public void setTravelOnSaturday(String travelOnSaturday) {
+	public void setTravelOnSaturday(Boolean travelOnSaturday) {
 		this.travelOnSaturday = travelOnSaturday;
 	}
 
@@ -366,7 +374,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnSaturday = numberOfAvailableSeatsOnSaturday;
 	}
 
-	public void setTravelOnSunday(String travelOnSunday) {
+	public void setTravelOnSunday(Boolean travelOnSunday) {
 		this.travelOnSunday = travelOnSunday;
 	}
 
@@ -375,7 +383,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.numberOfAvailableSeatsOnSunday = numberOfAvailableSeatsOnSunday;
 	}
 
-	public void setDepartureTime(String departureTime) {
+	public void setDepartureTime(LocalTime departureTime) {
 		this.departureTime = departureTime;
 	}
 

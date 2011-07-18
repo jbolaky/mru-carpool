@@ -1,10 +1,7 @@
 package com.javaid.bolaky.carpool.service.acl.pools.impl;
 
-import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToBoolean;
 import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToCharacter;
 import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToInteger;
-import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToLocalDate;
-import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToLocalTime;
 
 import java.util.Set;
 
@@ -31,16 +28,13 @@ public class PoolsAclTranslator {
 			pool.setUsername(carPoolRegistrationVO.getUsername());
 
 			pool.setPoolName(carPoolRegistrationVO.getPoolName());
-			pool.setShareCost(convertToBoolean(carPoolRegistrationVO
-					.getShareCost()));
+			pool.setShareCost(carPoolRegistrationVO.getShareCost());
 			pool.setPoolType(PoolType
 					.convertCode(convertToInteger(carPoolRegistrationVO
 							.getPoolCode())));
-			pool.setValidLicense(convertToBoolean(carPoolRegistrationVO
-					.getValidLicense()));
-			pool.setSmoker(convertToBoolean(carPoolRegistrationVO.getSmoker()));
-			pool.setOneWayTravel(convertToBoolean(carPoolRegistrationVO
-					.getOneWayTravel()));
+			pool.setValidLicense(carPoolRegistrationVO.getValidLicense());
+			pool.setSmoker(carPoolRegistrationVO.getSmoker());
+			pool.setOneWayTravel(carPoolRegistrationVO.getOneWayTravel());
 
 			Integer numberOfCurrentPassengers = convertToInteger(carPoolRegistrationVO
 					.getNumberOfCurrentPassengers());
@@ -53,64 +47,60 @@ public class PoolsAclTranslator {
 			pool.setUserPoolAdditionalDetails(carPoolRegistrationVO
 					.getAdditionalDetails());
 
-			Boolean travelOnMonday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnMonday());
+			Boolean travelOnMonday = carPoolRegistrationVO.getTravelOnMonday();
 			if (travelOnMonday != null && travelOnMonday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.MONDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnMonday()));
 			}
 
-			Boolean travelOnTuesday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnTuesday());
+			Boolean travelOnTuesday = carPoolRegistrationVO
+					.getTravelOnTuesday();
 			if (travelOnTuesday != null && travelOnTuesday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.TUESDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnTuesday()));
 			}
 
-			Boolean travelOnWednesday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnWednesday());
+			Boolean travelOnWednesday = carPoolRegistrationVO
+					.getTravelOnWednesday();
 			if (travelOnWednesday != null && travelOnWednesday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.WEDNESDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnWednesday()));
 			}
 
-			Boolean travelOnThursday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnThursday());
+			Boolean travelOnThursday = carPoolRegistrationVO
+					.getTravelOnThursday();
 			if (travelOnThursday != null && travelOnThursday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.THURSDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnThursday()));
 			}
 
-			Boolean travelOnFriday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnFriday());
+			Boolean travelOnFriday = carPoolRegistrationVO.getTravelOnFriday();
 			if (travelOnFriday != null && travelOnFriday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.FRIDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnFriday()));
 			}
 
-			Boolean travelOnSaturday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnSaturday());
+			Boolean travelOnSaturday = carPoolRegistrationVO
+					.getTravelOnSaturday();
 			if (travelOnSaturday != null && travelOnSaturday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.SATURDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnSaturday()));
 			}
 
-			Boolean travelOnSunday = convertToBoolean(carPoolRegistrationVO
-					.getTravelOnSunday());
+			Boolean travelOnSunday = carPoolRegistrationVO.getTravelOnSunday();
 			if (travelOnSunday != null && travelOnSunday) {
 				pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY,
 						convertToInteger(carPoolRegistrationVO
 								.getNumberOfAvailableSeatsOnSunday()));
 			}
 
-			pool.getVehicleInfo().setOwner(
-					convertToBoolean(carPoolRegistrationVO.getCarOwner()));
+			pool.getVehicleInfo().setOwner(carPoolRegistrationVO.getCarOwner());
 			pool.getVehicleInfo().setMaxNumberOfSeats(
 					convertToInteger(carPoolRegistrationVO
 							.getMaxNumberOfSeats()));
@@ -122,21 +112,16 @@ public class PoolsAclTranslator {
 					carPoolRegistrationVO.getVehicleType());
 
 			pool.getStartingPointInfo().setStartingDate(
-					convertToLocalDate(carPoolRegistrationVO
-							.getStartingPoolDate()));
-			pool.getStartingPointInfo()
-					.setDepartureTime(
-							convertToLocalTime(carPoolRegistrationVO
-									.getDepartureTime()));
+					carPoolRegistrationVO.getStartingPoolDate());
+			pool.getStartingPointInfo().setDepartureTime(
+					carPoolRegistrationVO.getDepartureTime());
 			pool.getStartingPointInfo().setFromAreaCode(
 					carPoolRegistrationVO.getFromAreaCode());
 			pool.getStartingPointInfo().setFromDistrictCode(
 					carPoolRegistrationVO.getFromDistrictCode());
 
-			pool.getDestinationInfo()
-					.setEndDate(
-							convertToLocalDate(carPoolRegistrationVO
-									.getEndOfPoolDate()));
+			pool.getDestinationInfo().setEndDate(
+					carPoolRegistrationVO.getEndOfPoolDate());
 			pool.getDestinationInfo().setToAreaCode(
 					carPoolRegistrationVO.getToAreaCode());
 			pool.getDestinationInfo().setToDistictCode(
