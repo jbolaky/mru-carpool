@@ -7,12 +7,12 @@
 	rel="stylesheet" type="text/css" />
 <div id="content">
 <h1 class="notopmargin">Confirmation Message</h1>
-<p>Thank you. Your pool has been added.</p>
+<p>Thank you. Your pool is nearly added.</p>
 <form:form action="${flowExecutionUrl}" method="post">
 	<table align="center" width="30%">
 		<tr>
-			<td width="10%"><label>Name:</label></td>
-			<td>Loremsum</td>
+			<td width="10%"><label>Pool Name:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.poolName}"/></td>
 			<td width="10%">&nbsp;</td>
 			<td>&nbsp;</td>
 		</tr>
@@ -31,6 +31,7 @@
 	</table>
 	<div class="topspace buttons"><input class="button"
 		name="_eventId_previousstep" type="submit"
-		value="Click Here To Go Back" /><input class="button" name="_eventId_confirm"
-		type="submit" value="Click Here To Register Carpool" /></div></div>
+		value="Click Here To Go Back" /><input class="button"
+		name="_eventId_confirm" type="submit"
+		value="Click Here To Register Carpool" /></div></div>
 </form:form>
