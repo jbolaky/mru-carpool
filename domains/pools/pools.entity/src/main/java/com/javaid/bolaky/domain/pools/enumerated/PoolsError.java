@@ -11,6 +11,7 @@ public enum PoolsError {
 	POOLS_ONE_WAY_TRAVEL_NULL("P50","one way travel cannot be null"),
 	POOLS_GENDER_TO_TRAVEL_WITH_NULL("P60","preffered gender to travel with cannot be null"),
 	POOLS_GENDER_NULL("P61","gender cannot be null"),
+	POOLS_NUMBER_OF_PASSENGERS_EXCEEDS_MAX_SEATS_NUMBER("P62","number of current passenger should be less than maximun seats available"),
 	POOLS_VEHICLE_OWNER_NULL("P70","vehicle owner cannot be null"),
 	POOLS_VEHICLE_MAX_SEATS_NUMBER_NULL("P80","vehicle maximum seats number cannot be null"),
 	POOLS_VEHICLE_MAKE_CODE_NULL("P90","vehicle make code cannot be null"),

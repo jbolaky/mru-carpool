@@ -46,6 +46,7 @@ import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
+import com.javaid.bolaky.domain.pools.hibernate.constraint.NumberOfPassengersCheck;
 import com.javaid.bolaky.domain.pools.hibernate.constraint.PoolEndDate;
 import com.javaid.bolaky.domain.pools.hibernate.constraint.SeatAvailability;
 import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
@@ -61,6 +62,7 @@ import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 		@TypeDef(name = "pool_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolType")) })
 @SeatAvailability(groups = MandatoryDataRules.class)
 @PoolEndDate(groups = MandatoryDataRules.class)
+@NumberOfPassengersCheck(groups = MandatoryDataRules.class)
 public class Pool extends AbstractTimestampUsernameEntity {
 
 	private static final long serialVersionUID = 9210101505830391192L;
