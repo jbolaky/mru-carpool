@@ -65,11 +65,11 @@ public class DefaultPoolsServiceIntegrationTests {
 				"No additional details", true, "A", "B", "C", new LocalDate(),
 				new LocalTime(), "A", "B", new LocalDate(), "A", "B");
 
-		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
-		pool.setAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
-		pool.setAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
-		pool.setAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
-		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
+		pool.addAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
+		pool.addAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
+		pool.addAdditionalSeatsForADay(DayOfWeek.SUNDAY, 2);
 
 		Passenger passenger1 = createPassenger(username2, StateStatus.ACCEPTED);
 		Passenger passenger2 = createPassenger(username3, StateStatus.PENDING);
@@ -96,11 +96,11 @@ public class DefaultPoolsServiceIntegrationTests {
 				new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
-		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
-		pool.setAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
-		pool.setAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
-		pool.setAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
-		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
+		pool.addAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
+		pool.addAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
+		pool.addAdditionalSeatsForADay(DayOfWeek.SUNDAY, 2);
 
 		Passenger passenger1 = createPassenger(username2, StateStatus.ACCEPTED);
 		Passenger passenger2 = createPassenger(username3, StateStatus.PENDING);
@@ -139,11 +139,11 @@ public class DefaultPoolsServiceIntegrationTests {
 				new LocalDate().minusDays(4), new LocalTime(), "A", "B",
 				new LocalDate().minusDays(1), "A", "B");
 
-		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
-		pool.setAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
-		pool.setAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
-		pool.setAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
-		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
+		pool.addAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
+		pool.addAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
+		pool.addAdditionalSeatsForADay(DayOfWeek.SUNDAY, 2);
 
 		Passenger passenger1 = createPassenger(username2, StateStatus.ACCEPTED);
 		Passenger passenger2 = createPassenger(username3, StateStatus.PENDING);
@@ -179,11 +179,11 @@ public class DefaultPoolsServiceIntegrationTests {
 				new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
-		pool.setAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
-		pool.setAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
-		pool.setAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
-		pool.setAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
-		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
+		pool.addAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
+		pool.addAvailableSeatsForADay(DayOfWeek.WEDNESDAY, 3);
+		pool.addAvailableSeatsForADay(DayOfWeek.FRIDAY, 5);
+		pool.addAdditionalSeatsForADay(DayOfWeek.SUNDAY, 2);
 
 		Passenger passenger1 = createPassenger(username2, StateStatus.ACCEPTED);
 		Passenger passenger2 = createPassenger(username3, StateStatus.PENDING);

@@ -293,7 +293,7 @@ public class Pool extends AbstractTimestampUsernameEntity {
 		this.userPoolAdditionalDetails = userPoolAdditionalDetails;
 	}
 
-	public void setAvailableSeatsForADay(DayOfWeek dayOfWeek,
+	public void addAvailableSeatsForADay(DayOfWeek dayOfWeek,
 			Integer availableSeats) {
 
 		if (travelDaysAndAvailableSeats.containsKey(dayOfWeek)) {
@@ -302,7 +302,7 @@ public class Pool extends AbstractTimestampUsernameEntity {
 		travelDaysAndAvailableSeats.put(dayOfWeek, availableSeats);
 	}
 
-	public void addAvailableSeatsForADay(DayOfWeek dayOfWeek,
+	public void addAdditionalSeatsForADay(DayOfWeek dayOfWeek,
 			Integer availableSeatsToAdd) {
 
 		if (travelDaysAndAvailableSeats.containsKey(dayOfWeek)) {
