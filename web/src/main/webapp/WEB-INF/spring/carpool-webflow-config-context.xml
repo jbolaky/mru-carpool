@@ -21,9 +21,17 @@
 
 	<!-- Plugs in a custom creator for Web Flow views -->
 	<webflow:flow-builder-services id="flowBuilderServices"
-		view-factory-creator="mvcViewFactoryCreator" development="true" validator="validator" />
+		view-factory-creator="mvcViewFactoryCreator" development="true"
+		validator="validator" conversion-service="defaultConversionService" />
 
-	<bean id="validator"
+	<bean id="defaultConversionService"
+		class="org.springframework.binding.convert.service.DefaultConversionService">
+		<constructor-arg ref="poolCustomsConversionService" />
+	</bean>
+
+
+	<bean id="
+		validator "
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 	<!-- The registry of executable flow definitions -->

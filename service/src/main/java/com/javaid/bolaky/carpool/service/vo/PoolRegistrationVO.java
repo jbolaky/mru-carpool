@@ -16,7 +16,7 @@ public class PoolRegistrationVO implements Serializable {
 	private String username;
 
 	/** start of page 1 attributes */
-	private String poolCode;
+	private PoolType poolCode;
 
 	private Boolean carOwner;
 
@@ -104,7 +104,7 @@ public class PoolRegistrationVO implements Serializable {
 		this.username = username;
 	}
 
-	public String getPoolCode() {
+	public PoolType getPoolCode() {
 		return poolCode;
 	}
 
@@ -248,7 +248,7 @@ public class PoolRegistrationVO implements Serializable {
 		return additionalDetails;
 	}
 
-	public void setPoolCode(String poolCode) {
+	public void setPoolCode(PoolType poolCode) {
 		this.poolCode = poolCode;
 	}
 

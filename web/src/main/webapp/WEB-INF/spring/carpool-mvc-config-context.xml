@@ -10,7 +10,7 @@
 	<context:component-scan base-package="com.javaid.bolaky.carpool.web" />
 
 	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="poolCustomsConversionService" />
 
 	<mvc:resources mapping="/resources/**" location="/" />
 	<!--mvc:default-servlet-handler / -->
@@ -20,6 +20,16 @@
 		the path without the leading slash -->
 	<mvc:view-controller path="/" view-name="homepage" />
 	<mvc:view-controller path="/login" view-name="login" />
+
+	<bean id="poolCustomsConversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean
+					class="com.javaid.bolaky.carpool.web.webflow.convertor.PoolTypeConverterFactory" />
+			</list>
+		</property>
+	</bean>
 
 	<!-- Configures the Tiles layout system -->
 	<bean id="tilesConfigurer"

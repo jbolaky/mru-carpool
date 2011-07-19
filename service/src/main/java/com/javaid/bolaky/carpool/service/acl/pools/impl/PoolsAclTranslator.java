@@ -31,7 +31,8 @@ public class PoolsAclTranslator {
 			pool.setShareCost(carPoolRegistrationVO.getShareCost());
 			pool.setPoolType(PoolType
 					.convertCode(convertToInteger(carPoolRegistrationVO
-							.getPoolCode())));
+							.getPoolCode() != null ? carPoolRegistrationVO
+							.getPoolCode().getCode() : null)));
 			pool.setValidLicense(carPoolRegistrationVO.getValidLicense());
 			pool.setSmoker(carPoolRegistrationVO.getSmoker());
 			pool.setOneWayTravel(carPoolRegistrationVO.getOneWayTravel());
