@@ -1,4 +1,4 @@
-package com.javaid.bolaky.carpool.web.webflow.convertor;
+package com.javaid.bolaky.carpool.web.convertor;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
