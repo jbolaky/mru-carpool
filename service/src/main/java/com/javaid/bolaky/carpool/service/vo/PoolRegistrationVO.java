@@ -42,7 +42,7 @@ public class PoolRegistrationVO implements Serializable {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate endOfPoolDate;
 
-	@DateTimeFormat(pattern = "h:mm")
+	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime departureTime;
 
 	private String numberOfCurrentPassengers;

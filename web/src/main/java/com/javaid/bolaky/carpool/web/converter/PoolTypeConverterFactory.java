@@ -1,4 +1,4 @@
-package com.javaid.bolaky.carpool.web.convertor;
+package com.javaid.bolaky.carpool.web.converter;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;

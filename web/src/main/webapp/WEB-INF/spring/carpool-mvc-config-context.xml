@@ -10,7 +10,7 @@
 	<context:component-scan base-package="com.javaid.bolaky.carpool.web" />
 
 	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven conversion-service="poolCustomsConversionService" />
+	<mvc:annotation-driven conversion-service="poolFormattingConversionService" />
 
 	<mvc:resources mapping="/resources/**" location="/" />
 	<!--mvc:default-servlet-handler / -->
@@ -21,15 +21,8 @@
 	<mvc:view-controller path="/" view-name="homepage" />
 	<mvc:view-controller path="/login" view-name="login" />
 
-	<bean id="poolCustomsConversionService"
-		class="org.springframework.context.support.ConversionServiceFactoryBean">
-		<property name="converters">
-			<list>
-				<bean
-					class="com.javaid.bolaky.carpool.web.convertor.PoolTypeConverterFactory" />
-			</list>
-		</property>
-	</bean>
+	<bean id="poolFormattingConversionService"
+		class="com.javaid.bolaky.carpool.web.converter.support.PoolFormattingConversionServiceFactoryBean" />
 
 	<!-- Configures the Tiles layout system -->
 	<bean id="tilesConfigurer"

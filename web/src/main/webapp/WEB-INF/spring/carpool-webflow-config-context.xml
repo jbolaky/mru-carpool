@@ -26,7 +26,7 @@
 
 	<bean id="defaultConversionService"
 		class="org.springframework.binding.convert.service.DefaultConversionService">
-		<constructor-arg ref="poolCustomsConversionService" />
+		<constructor-arg ref="poolFormattingConversionService" />
 	</bean>
 
 
