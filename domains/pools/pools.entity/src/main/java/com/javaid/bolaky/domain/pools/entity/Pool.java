@@ -57,7 +57,7 @@ import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 		@TypeDef(name = "hibernate_persistentDateTime", typeClass = org.joda.time.contrib.hibernate.PersistentDateTime.class),
 		@TypeDef(name = "persistence_Local_Date", typeClass = org.joda.time.contrib.hibernate.PersistentLocalDate.class),
 		@TypeDef(name = "persistence_Local_Time", typeClass = org.joda.time.contrib.hibernate.PersistentLocalTimeAsTime.class),
-		@TypeDef(name = "gender_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.Gender")),
+		@TypeDef(name = "pool_gender_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.Gender")),
 		@TypeDef(name = "pool_status_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus")),
 		@TypeDef(name = "pool_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolType")) })
 @SeatAvailability(groups = MandatoryDataRules.class)
@@ -110,12 +110,12 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	private Integer numberOfCurrentPassengers = 0;
 
 	@NotNull(message = "P60", groups = MandatoryDataRules.class)
-	@Type(type = "gender_user_types")
+	@Type(type = "pool_gender_user_types")
 	@Column(name = "PREFFERED_GENDER_TO_TRAVEL_WITH")
 	private Gender prefferedGenderToTravelWith;
 
 	@NotNull(message = "P61", groups = MandatoryDataRules.class)
-	@Type(type = "gender_user_types")
+	@Type(type = "pool_gender_user_types")
 	@Column(name = "GENDER")
 	private Gender gender;
 

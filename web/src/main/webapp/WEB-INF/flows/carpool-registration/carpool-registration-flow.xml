@@ -6,6 +6,8 @@
 
 	<secured attributes="ROLE_USER" match="any" />
 
+	<persistence-context />
+
 	<on-start>
 		<evaluate
 			expression="carPoolService.createCarpoolRegistrationVO(currentUser.name)"
@@ -15,7 +17,7 @@
 	<view-state id="registercarpoolpage1" view="registercarpoolpage1"
 		model="carPoolRegistrationVO">
 		<binder>
-			<binding property="poolCode" />
+			<binding property="poolType" />
 			<binding property="carOwner" />
 			<binding property="validLicense" />
 			<binding property="smoker" />
@@ -24,6 +26,10 @@
 			<binding property="vehicleModel" />
 			<binding property="vehicleType" />
 		</binder>
+		<on-render>
+			<evaluate
+				expression="carPoolService.populateGenderAndUsername(carPoolRegistrationVO,currentUser.name)" />
+		</on-render>
 		<transition on="nextstep" to="registercarpoolpage2">
 			<evaluate
 				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
@@ -82,7 +88,9 @@
 	<view-state id="registercarpoolpage4" view="registercarpoolpage4">
 
 		<transition on="previousstep" to="registercarpoolpage3" />
-		<transition on="confirm" to="registercarpool" />
+		<transition on="confirm" to="registercarpool">
+			<evaluate expression="carPoolService.register(carPoolRegistrationVO)" />
+		</transition>
 	</view-state>
 
 	<end-state id="registercarpool" view="homepage" />

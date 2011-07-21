@@ -26,13 +26,13 @@ public class PoolsAclTranslator {
 			pool = new Pool();
 
 			pool.setUsername(carPoolRegistrationVO.getUsername());
-
+			pool.setGender(Gender.convertCode(carPoolRegistrationVO.getGender().charAt(0)));
 			pool.setPoolName(carPoolRegistrationVO.getPoolName());
 			pool.setShareCost(carPoolRegistrationVO.getShareCost());
 			pool.setPoolType(PoolType
 					.convertCode(convertToInteger(carPoolRegistrationVO
-							.getPoolCode() != null ? carPoolRegistrationVO
-							.getPoolCode().getCode() : null)));
+							.getPoolType() != null ? carPoolRegistrationVO
+							.getPoolType().getCode() : null)));
 			pool.setValidLicense(carPoolRegistrationVO.getValidLicense());
 			pool.setSmoker(carPoolRegistrationVO.getSmoker());
 			pool.setOneWayTravel(carPoolRegistrationVO.getOneWayTravel());

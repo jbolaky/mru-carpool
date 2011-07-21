@@ -11,10 +11,12 @@ import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 public interface CarPoolService {
 
 	Set<CarPoolError> validate(UserVO userVO);
-	
+
 	Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO);
 
 	Boolean store(UserVO userVO);
+
+	Boolean register(PoolRegistrationVO poolRegistrationVO);
 
 	Set<LocationVO> getAllCountries();
 
@@ -22,8 +24,10 @@ public interface CarPoolService {
 			String recipientEmailAddress) throws EmailAclException;
 
 	UserVO findByUsernameAndEmailAddress(String username, String emailAddress);
-	
+
 	PoolRegistrationVO createCarpoolRegistrationVO(String username);
 	
+	void populateGenderAndUsername(PoolRegistrationVO poolRegistrationVO, String username);
+
 	void printCarPoolRegistrationVO(PoolRegistrationVO carPoolRegistrationVO);
 }

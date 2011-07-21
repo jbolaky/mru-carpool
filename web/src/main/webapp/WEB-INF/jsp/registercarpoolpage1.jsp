@@ -34,7 +34,7 @@
 	<table width="95%">
 		<tr>
 			<td><label>Pool type:</label></td>
-			<td colspan="2"><form:select path="poolCode">
+			<td colspan="2"><form:select path="poolType">
 				<option>--SELECT--</option>
 				<form:option value="1">Car Pool</form:option>
 				<form:option value="2">Van Pool</form:option>

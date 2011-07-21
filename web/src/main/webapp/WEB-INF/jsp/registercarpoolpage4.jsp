@@ -10,24 +10,138 @@
 <p>Thank you. Your pool is nearly added.</p>
 <form:form action="${flowExecutionUrl}" method="post">
 	<table align="center" width="30%">
+
 		<tr>
 			<td width="10%"><label>Pool Name:</label></td>
-			<td><c:out value="${carPoolRegistrationVO.poolName}"/></td>
+			<td><c:out value="${carPoolRegistrationVO.poolName}" /></td>
 			<td width="10%">&nbsp;</td>
 			<td>&nbsp;</td>
 		</tr>
+
 		<tr>
-			<td><label>From:</label></td>
-			<td>Adeline</td>
-			<td><label>To:</label></td>
-			<td>Berrimah</td>
-		</tr>
-		<tr>
-			<td><label>Dept.Time:</label></td>
-			<td>0045</td>
-			<td>&nbsp;</td>
+			<td width="10%"><label>Pool Type:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.poolType}" /></td>
+			<td width="10%">&nbsp;</td>
 			<td>&nbsp;</td>
 		</tr>
+
+		<tr>
+			<td width="10%"><label>Starting Pool Date and Time:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.startingPoolDate}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>End Pool Date:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.endOfPoolDate}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>One way travel:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.oneWayTravel}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>Preferred gender to travel with:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.genderToTravelWith}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>Share Cost:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.shareCost}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>From District:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.fromAreaCode}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>From Region:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.fromDistrictCode}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>To District:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.toAreaCode}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>To Region:</label></td>
+			<td><c:out value="${carPoolRegistrationVO.toDistrictCode}" /></td>
+			<td width="10%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td width="10%"><label>To Travel on each:</label></td>
+			<c:if test="${carPoolRegistrationVO.travelOnMonday == 'true'}">
+				<td>monday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnMonday}" /></td>
+			</c:if>
+
+			<c:if test="${carPoolRegistrationVO.travelOnTuesday == 'true'}">
+				<td>tuesday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnTuesday}" /></td>
+			</c:if>
+
+			<c:if test="${carPoolRegistrationVO.travelOnWednesday == 'true'}">
+				<td>wednesday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnWednesday}" /></td>
+			</c:if>
+
+			<c:if test="${carPoolRegistrationVO.travelOnThursday == 'true'}">
+				<td>thursday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnThursday}" /></td>
+			</c:if>
+
+			<c:if test="${carPoolRegistrationVO.travelOnFriday == 'true'}">
+				<td>friday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnFriday}" /></td>
+			</c:if>
+
+			<c:if test="${carPoolRegistrationVO.travelOnSaturday == 'true'}">
+				<td>saturday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnSaturday}" /></td>
+			</c:if>
+
+			<c:if test="${carPoolRegistrationVO.travelOnSunday == 'true'}">
+				<td>sunday</td>
+				<td width="10%">with currently</td>
+				<td width="10%"><c:out
+					value="${carPoolRegistrationVO.numberOfAvailableSeatsOnSunday}" /></td>
+			</c:if>
+			<td width="10%">place available</td>
+			<td>&nbsp;</td>
+		</tr>
+
 	</table>
 	<div class="topspace buttons"><input class="button"
 		name="_eventId_previousstep" type="submit"

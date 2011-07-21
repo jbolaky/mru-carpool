@@ -14,9 +14,11 @@ public class PoolRegistrationVO implements Serializable {
 	private static final long serialVersionUID = -6418987354269415624L;
 
 	private String username;
+	
+	private String gender;
 
 	/** start of page 1 attributes */
-	private PoolType poolCode;
+	private PoolType poolType;
 
 	private Boolean carOwner;
 
@@ -104,12 +106,16 @@ public class PoolRegistrationVO implements Serializable {
 		this.username = username;
 	}
 
-	public PoolType getPoolCode() {
-		return poolCode;
+	public PoolType getPoolType() {
+		return poolType;
 	}
 
 	public String getUsername() {
 		return username;
+	}
+
+	public String getGender() {
+		return gender;
 	}
 
 	public Boolean getCarOwner() {
@@ -248,8 +254,8 @@ public class PoolRegistrationVO implements Serializable {
 		return additionalDetails;
 	}
 
-	public void setPoolCode(PoolType poolCode) {
-		this.poolCode = poolCode;
+	public void setPoolType(PoolType poolType) {
+		this.poolType = poolType;
 	}
 
 	public void setUsername(String username) {
@@ -258,6 +264,10 @@ public class PoolRegistrationVO implements Serializable {
 
 	public void setCarOwner(Boolean carOwner) {
 		this.carOwner = carOwner;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public void setValidLicense(Boolean validLicense) {

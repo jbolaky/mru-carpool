@@ -16,8 +16,7 @@ public class DefaultPoolsAcl implements PoolsAcl {
 	@Resource(name = "pools_DefaultService")
 	private PoolsService poolsService;
 
-	public Set<CarPoolError> validate(
-			PoolRegistrationVO carPoolRegistrationVO) {
+	public Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO) {
 
 		Set<PoolsError> poolsErrors = PoolsAclTranslator.convertPool(
 				carPoolRegistrationVO).activate();
@@ -27,8 +26,15 @@ public class DefaultPoolsAcl implements PoolsAcl {
 
 	public Boolean register(PoolRegistrationVO carPoolRegistrationVO) {
 
-		Pool pool = poolsService.save(PoolsAclTranslator
-				.convertPool(carPoolRegistrationVO));
+		Pool pool = PoolsAclTranslator.convertPool(carPoolRegistrationVO);
+
+		Set<PoolsError> poolsErrors = pool.activate();
+
+		if (poolsErrors == null
+				|| (poolsErrors != null && poolsErrors.isEmpty())) {
+
+			pool = poolsService.save(pool);
+		}
 
 		return pool != null;
 	}

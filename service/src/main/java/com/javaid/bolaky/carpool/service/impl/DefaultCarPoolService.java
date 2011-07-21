@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.javaid.bolaky.carpool.service.acl.email.api.EmailAcl;
 import com.javaid.bolaky.carpool.service.acl.email.impl.EmailAclException;
@@ -48,6 +49,21 @@ public class DefaultCarPoolService implements CarPoolService {
 	public Boolean store(UserVO userVO) {
 
 		return userRegistrationAcl.store(userVO);
+	}
+
+	@Transactional
+	public Boolean register(PoolRegistrationVO poolRegistrationVO) {
+
+		return poolsAcl.register(poolRegistrationVO);
+	}
+
+	@Transactional
+	public void populateGenderAndUsername(
+			PoolRegistrationVO poolRegistrationVO, String username) {
+
+		UserVO userVO = userRegistrationAcl.findByUsernameAndEmailAddress(username, null);
+		poolRegistrationVO.setUsername(userVO.getUsername());
+		poolRegistrationVO.setGender(userVO.getGender());
 	}
 
 	public Set<LocationVO> getAllCountries() {
