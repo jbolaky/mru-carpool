@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<link href="<c:url value="/resources/styles/login.css"/>"
+<link href="<c:url value="/resources/static/styles/login.css"/>"
 	rel="stylesheet" type="text/css" />
 <div id="content">
 <h1 class="notopmargin">Login</h1>

@@ -3,9 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<link href="<c:url value="/resources/styles/forgotpassword.css"/>"
+<link href="<c:url value="/resources/static/styles/forgotpassword.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/error.css"/>"
+<link href="<c:url value="/resources/static/styles/error.css"/>"
 	rel="stylesheet" type="text/css" />	
 	
 <div id="content">
@@ -20,7 +20,7 @@ email addres below and your password will be emailed to you.</p>
 		<c:forEach items="${errorMessages}" var="errorMessage">
 			<tr>
 				<td><img
-					src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+					src="<c:url value="/resources/static/images/error_icon.png"/>" width="15"
 					height="15" /></td>
 				<td><c:out value="${errorMessage}"></c:out></td>
 			</tr>

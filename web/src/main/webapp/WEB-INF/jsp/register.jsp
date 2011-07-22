@@ -5,14 +5,14 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <script
-	src="<c:url value="/resources/SpryAssets/SpryValidationRadio.js"/>"
+	src="<c:url value="/resources/static/SpryAssets/SpryValidationRadio.js"/>"
 	type="text/javascript"></script>
-<link href="<c:url value="/resources/styles/register.css"/>"
+<link href="<c:url value="/resources/static/styles/register.css"/>"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="/resources/SpryAssets/SpryValidationRadio.css"/>"
+	href="<c:url value="/resources/static/SpryAssets/SpryValidationRadio.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/error.css"/>"
+<link href="<c:url value="/resources/static/styles/error.css"/>"
 	rel="stylesheet" type="text/css" />
 
 <div id="content">
@@ -24,7 +24,7 @@
 		<c:forEach items="${errorMessages}" var="errorMessage">
 			<tr>
 				<td><img
-					src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+					src="<c:url value="/resources/static/images/error_icon.png"/>" width="15"
 					height="15" /></td>
 				<td><c:out value="${errorMessage}"></c:out></td>
 			</tr>

@@ -4,9 +4,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<link href="<c:url value="/resources/styles/registercarpoolpage3.css"/>"
+<link href="<c:url value="/resources/static/styles/registercarpoolpage3.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/error.css"/>"
+<link href="<c:url value="/resources/static/styles/error.css"/>"
 	rel="stylesheet" type="text/css" />
 
 <div id="content">
@@ -19,7 +19,7 @@
 			<c:forEach items="${status.errorMessages}" var="error">
 				<tr>
 					<td><img
-						src="<c:url value="/resources/images/error_icon.png"/>" width="15"
+						src="<c:url value="/resources/static/images/error_icon.png"/>" width="15"
 						height="15" /></td>
 					<td><c:out value="${error}" /></td>
 				</tr>

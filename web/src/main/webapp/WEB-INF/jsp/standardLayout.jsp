@@ -7,22 +7,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>The Free Car Pool</title>
-<link href="<c:url value="/resources/styles/footer.css"/>"
+<link href="<c:url value="/resources/static/styles/footer.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/common.css"/>"
+<link href="<c:url value="/resources/static/styles/common.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/menu.css"/>"
+<link href="<c:url value="/resources/static/styles/menu.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/header.css"/>"
+<link href="<c:url value="/resources/static/styles/header.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/styles/layout.css"/>"
+<link href="<c:url value="/resources/static/styles/layout.css"/>"
 	rel="stylesheet" type="text/css" />
-<script src="<c:url value="/resources/SpryAssets/SpryMenuBar.js"/>"
+<script src="<c:url value="/resources/static/SpryAssets/SpryMenuBar.js"/>"
 	type="text/javascript"></script>
 <script src="<c:url value="/resources/static/jQuery/js/jquery-1.5.1.min.js"/>"
 	type="text/javascript"></script>
 <link
-	href="<c:url value="/resources/SpryAssets/SpryMenuBarVertical.css"/>"
+	href="<c:url value="/resources/static/SpryAssets/SpryMenuBarVertical.css"/>"
 	rel="stylesheet" type="text/css" />
 </head>
 
@@ -74,13 +74,13 @@
 </div>
 <script type="text/javascript">
 	var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {
-		imgRight : "SpryAssets/SpryMenuBarRightHover.gif"
+		imgRight : "/resources/static/SpryAssets/SpryMenuBarRightHover.gif"
 	});
 	var MenuBar2 = new Spry.Widget.MenuBar("MenuBar2", {
-		imgRight : "SpryAssets/SpryMenuBarRightHover.gif"
+		imgRight : "/resources/static/SpryAssets/SpryMenuBarRightHover.gif"
 	});
 </script>
-<script src="<c:url value="/resources/js/pageheight.js"/>"
+<script src="<c:url value="/resources/static/js/pageheight.js"/>"
 	type="text/javascript"></script>
 </body>
 </html>
