@@ -94,7 +94,6 @@ public class PoolRegistrationVO implements Serializable {
 	private String toDistrictCode;
 
 	private String additionalDetails;
-
 	/** end of page 3 attributes */
 
 	public PoolRegistrationVO() {

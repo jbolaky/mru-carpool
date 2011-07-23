@@ -14,11 +14,10 @@ import com.javaid.bolaky.carpool.service.acl.location.api.LocationAcl;
 import com.javaid.bolaky.carpool.service.acl.pools.api.PoolsAcl;
 import com.javaid.bolaky.carpool.service.acl.userregistration.api.UserRegistrationAcl;
 import com.javaid.bolaky.carpool.service.api.CarPoolService;
-import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
+import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
-import com.thoughtworks.xstream.XStream;
 
 @Service("carPoolService")
 public class DefaultCarPoolService implements CarPoolService {
@@ -61,7 +60,8 @@ public class DefaultCarPoolService implements CarPoolService {
 	public void populateGenderAndUsername(
 			PoolRegistrationVO poolRegistrationVO, String username) {
 
-		UserVO userVO = userRegistrationAcl.findByUsernameAndEmailAddress(username, null);
+		UserVO userVO = userRegistrationAcl.findByUsernameAndEmailAddress(
+				username, null);
 		poolRegistrationVO.setUsername(userVO.getUsername());
 		poolRegistrationVO.setGender(userVO.getGender());
 	}
@@ -94,11 +94,6 @@ public class DefaultCarPoolService implements CarPoolService {
 
 	public PoolRegistrationVO createCarpoolRegistrationVO(String username) {
 		return new PoolRegistrationVO(username);
-	}
-
-	public void printCarPoolRegistrationVO(
-			PoolRegistrationVO carPoolRegistrationVO) {
-		System.out.println(new XStream().toXML(carPoolRegistrationVO));
 	}
 
 }

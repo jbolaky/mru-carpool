@@ -30,10 +30,7 @@
 			<evaluate
 				expression="carPoolService.populateGenderAndUsername(carPoolRegistrationVO,currentUser.name)" />
 		</on-render>
-		<transition on="nextstep" to="registercarpoolpage2">
-			<evaluate
-				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
-		</transition>
+		<transition on="nextstep" to="registercarpoolpage2" />
 	</view-state>
 
 	<view-state id="registercarpoolpage2" view="registercarpoolpage2"
@@ -51,10 +48,7 @@
 			<binding property="shareCost" />
 		</binder>
 		<transition on="previousstep" to="registercarpoolpage1" />
-		<transition on="nextstep" to="registercarpoolpage3">
-			<evaluate
-				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
-		</transition>
+		<transition on="nextstep" to="registercarpoolpage3" />
 	</view-state>
 
 	<view-state id="registercarpoolpage3" view="registercarpoolpage3"
@@ -79,10 +73,7 @@
 			<binding property="additionalDetails" />
 		</binder>
 		<transition on="previousstep" to="registercarpoolpage2" />
-		<transition on="nextstep" to="registercarpoolpage4">
-			<evaluate
-				expression="carPoolService.printCarPoolRegistrationVO(carPoolRegistrationVO)" />
-		</transition>
+		<transition on="nextstep" to="registercarpoolpage4" />
 	</view-state>
 
 	<view-state id="registercarpoolpage4" view="registercarpoolpage4">

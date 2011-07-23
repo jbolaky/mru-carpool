@@ -26,8 +26,8 @@ public interface CarPoolService {
 	UserVO findByUsernameAndEmailAddress(String username, String emailAddress);
 
 	PoolRegistrationVO createCarpoolRegistrationVO(String username);
-	
-	void populateGenderAndUsername(PoolRegistrationVO poolRegistrationVO, String username);
 
-	void printCarPoolRegistrationVO(PoolRegistrationVO carPoolRegistrationVO);
+	void populateGenderAndUsername(PoolRegistrationVO poolRegistrationVO,
+			String username);
+
 }
