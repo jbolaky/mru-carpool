@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.math.RandomUtils;
@@ -24,6 +25,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
 import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus;
@@ -58,10 +60,11 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
-				PoolType.CARPOOL, true, true, true, 2, 2, Gender.FEMALE,
-				"No additional details", true, "A", "B", "C", new LocalDate(),
-				new LocalTime(), "A", "B", new LocalDate(), "A", "B");
+		Pool pool = createPool(AgeGroup.EIGHTTEEN_TO_TWENTY, true, "poolname",
+				Gender.FEMALE, username1, PoolType.CARPOOL, true, true, true,
+				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
+				"C", new LocalDate(), new LocalTime(), "A", "B",
+				new LocalDate(), "A", "B");
 
 		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
 		pool.addAvailableSeatsForADay(DayOfWeek.MONDAY, 2);
@@ -88,10 +91,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
-				PoolType.CARPOOL, true, true, true, 2, 12, Gender.FEMALE,
-				"No additional details", true, "A", "B", "C",
-				new LocalDate().plusDays(1), new LocalTime(), "A", "B",
+		Pool pool = createPool(AgeGroup.EIGHTTEEN_TO_TWENTY, true, "poolname",
+				Gender.FEMALE, username1, PoolType.CARPOOL, true, true, true,
+				2, 12, Gender.FEMALE, "No additional details", true, "A", "B",
+				"C", new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
 		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
@@ -131,10 +134,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
-				PoolType.CARPOOL, true, true, true, 2, 2, Gender.FEMALE,
-				"No additional details", true, "A", "B", "C",
-				new LocalDate().minusDays(4), new LocalTime(), "A", "B",
+		Pool pool = createPool(AgeGroup.EIGHTTEEN_TO_TWENTY, true, "poolname",
+				Gender.FEMALE, username1, PoolType.CARPOOL, true, true, true,
+				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
+				"C", new LocalDate().minusDays(4), new LocalTime(), "A", "B",
 				new LocalDate().minusDays(1), "A", "B");
 
 		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
@@ -171,10 +174,10 @@ public class PoolsRepositoryIntegrationTests {
 		String username3 = Long.toString(RandomUtils.nextLong());
 		String username4 = Long.toString(RandomUtils.nextLong());
 
-		Pool pool = createPool(true, "poolname", Gender.FEMALE, username1,
-				PoolType.CARPOOL, true, true, true, 2, 2, Gender.FEMALE,
-				"No additional details", true, "A", "B", "C",
-				new LocalDate().plusDays(1), new LocalTime(), "A", "B",
+		Pool pool = createPool(AgeGroup.EIGHTTEEN_TO_TWENTY, true, "poolname",
+				Gender.FEMALE, username1, PoolType.CARPOOL, true, true, true,
+				2, 2, Gender.FEMALE, "No additional details", true, "A", "B",
+				"C", new LocalDate().plusDays(1), new LocalTime(), "A", "B",
 				new LocalDate().plusDays(1), "A", "B");
 
 		pool.addAvailableSeatsForADay(DayOfWeek.SUNDAY, 1);
@@ -203,11 +206,17 @@ public class PoolsRepositoryIntegrationTests {
 		assertThat(pool.getAvailableSeatsForADay(DayOfWeek.SUNDAY), is(3));
 	}
 
-	private Pool createPool(Boolean shareCost, String carPoolName,
-			Gender gender, String username, PoolType poolType,
-			Boolean validLicense, Boolean smoker, Boolean oneWayTravel,
-			Integer numberOfCurrentPassengers, Integer vehicleSeatsNumber,
-			Gender prefferedGenderToTravelWith,
+	@Test
+	public void testFindPool() {
+
+		List<Pool> pools = poolsRepository.findPool(null);
+	}
+
+	private Pool createPool(AgeGroup ageGroup, Boolean shareCost,
+			String carPoolName, Gender gender, String username,
+			PoolType poolType, Boolean validLicense, Boolean smoker,
+			Boolean oneWayTravel, Integer numberOfCurrentPassengers,
+			Integer vehicleSeatsNumber, Gender prefferedGenderToTravelWith,
 			String userPoolAdditionalDetails, Boolean vehicleOwner,
 			String vehicleMakeCode, String vehicleModelCode,
 			String vehicleTypeCode, LocalDate startingDate,
@@ -221,6 +230,7 @@ public class PoolsRepositoryIntegrationTests {
 		pool.setShareCost(shareCost);
 		pool.setPoolName(carPoolName);
 		pool.setUsername(username);
+		pool.setAgeGroup(ageGroup);
 		pool.setPoolType(poolType);
 		pool.setValidLicense(validLicense);
 		pool.setSmoker(smoker);

@@ -6,7 +6,8 @@ import org.springframework.data.repository.query.Param;
 
 import com.javaid.bolaky.domain.pools.entity.Pool;
 
-public interface PoolsRepository extends CrudRepository<Pool, Long> {
+public interface PoolsRepository extends PoolsRepositoryCustoms,
+		CrudRepository<Pool, Long> {
 
 	@Query(value = "select p from Pool p where p.username =:username")
 	Pool findByUsername(@Param("username") String username);

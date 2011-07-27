@@ -41,6 +41,7 @@ import org.hibernate.annotations.TypeDefs;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.javaid.bolaky.domain.jpa.entity.AbstractTimestampUsernameEntity;
+import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
 import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus;
@@ -59,6 +60,7 @@ import com.javaid.bolaky.domain.pools.hibernate.group.MandatoryDataRules;
 		@TypeDef(name = "persistence_Local_Time", typeClass = org.joda.time.contrib.hibernate.PersistentLocalTimeAsTime.class),
 		@TypeDef(name = "pool_gender_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.Gender")),
 		@TypeDef(name = "pool_status_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolStatus")),
+		@TypeDef(name = "pool_age_group_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup")),
 		@TypeDef(name = "pool_user_types", typeClass = com.javaid.bolaky.domain.hibernate.jpa.enumeration.GenericEnumUserType.class, parameters = @Parameter(name = "type", value = "com.javaid.bolaky.domain.pools.entity.enumerated.PoolType")) })
 @SeatAvailability(groups = MandatoryDataRules.class)
 @PoolEndDate(groups = MandatoryDataRules.class)
@@ -119,6 +121,11 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	@Column(name = "GENDER")
 	private Gender gender;
 
+	@NotNull(message = "P63", groups = MandatoryDataRules.class)
+	@Type(type = "pool_age_group_user_types")
+	@Column(name = "AGE_GROUP")
+	private AgeGroup ageGroup;
+
 	@Column(name = "USER_POOL_ADDITIONAL_DETAILS")
 	private String userPoolAdditionalDetails;
 
@@ -166,6 +173,10 @@ public class Pool extends AbstractTimestampUsernameEntity {
 
 	public Gender getGender() {
 		return gender;
+	}
+
+	public AgeGroup getAgeGroup() {
+		return ageGroup;
 	}
 
 	public String getUsername() {
@@ -258,6 +269,10 @@ public class Pool extends AbstractTimestampUsernameEntity {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+
+	public void setAgeGroup(AgeGroup ageGroup) {
+		this.ageGroup = ageGroup;
 	}
 
 	public void setPoolType(PoolType poolType) {
