@@ -77,5 +77,10 @@ public class PoolSearchCriteria {
 	public void setOneWayReturn(Boolean oneWayReturn) {
 		this.oneWayReturn = oneWayReturn;
 	}
+	
+	public void addDayOfWeek(DayOfWeek dayOfWeek){
+		
+		this.poolDays.add(dayOfWeek);
+	}
 
 }

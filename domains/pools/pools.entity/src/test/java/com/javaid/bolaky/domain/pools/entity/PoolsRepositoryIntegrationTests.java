@@ -33,6 +33,7 @@ import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
 import com.javaid.bolaky.domain.pools.entity.enumerated.StateStatus;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
 import com.javaid.bolaky.domain.pools.repository.api.PoolsRepository;
+import com.javaid.bolaky.domain.pools.track.vo.PoolSearchCriteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
@@ -209,7 +210,15 @@ public class PoolsRepositoryIntegrationTests {
 	@Test
 	public void testFindPool() {
 
-		List<Pool> pools = poolsRepository.findPool(null);
+		PoolSearchCriteria poolSearchCriteria = new PoolSearchCriteria();
+		poolSearchCriteria.setOneWayReturn(true);
+
+		poolSearchCriteria.addDayOfWeek(DayOfWeek.MONDAY);
+
+		List<Pool> pools = poolsRepository.findPool(poolSearchCriteria);
+
+		assertThat(pools, is(notNullValue()));
+		assertTrue(pools.size() > 0);
 	}
 
 	private Pool createPool(AgeGroup ageGroup, Boolean shareCost,
