@@ -12,4 +12,5 @@ public interface UserRegistrationAcl {
 	Boolean store(UserVO userVO);
 
 	UserVO findByUsernameAndEmailAddress(String username, String emailAddress);
+
 }

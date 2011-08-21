@@ -38,7 +38,7 @@
 	<li><a href="<c:url value="/"/>">Home</a></li>
 	<li><a href="#" class="MenuBarItemSubmenu">Car Pool</a>
 	<ul>
-		<li><a href="carpoolsimplesearch.html">Search Car Pool</a></li>
+		<li><a href="<c:url value="poolsimplesearch"/>">Search Car Pool</a></li>
 		<li><a href="<c:url value="/flows/carpool-registration"/>">Register Car Pool</a></li>
 	</ul>
 	</li>
@@ -52,7 +52,7 @@
 </div>
 <div class="clear"></div>
 <a href="#" class="button_corpbutton"></a>
-<div class="topspace greenbox"><img src="images/Publicat.jpg"
+<div class="topspace greenbox"><img src="resources/images/Publicat.jpg"
 	width="125" height="176" /></div>
 <h3 align="center" class="topspace">INFORMATION</h3>
 <div class="menu">

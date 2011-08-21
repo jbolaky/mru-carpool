@@ -45,7 +45,7 @@ public class DefaultPoolsRepositoryCustoms implements
 
 			if (poolSearchCriteria.getDriverGender() != null) {
 				criteria.add(Restrictions.eq(GENDER, poolSearchCriteria
-						.getDriverGender().getCode()));
+						.getDriverGender()));
 			}
 
 			if (poolSearchCriteria.getShareCost() != null) {

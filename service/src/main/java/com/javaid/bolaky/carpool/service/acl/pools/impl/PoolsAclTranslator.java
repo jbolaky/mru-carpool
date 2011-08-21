@@ -3,17 +3,22 @@ package com.javaid.bolaky.carpool.service.acl.pools.impl;
 import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToCharacter;
 import static com.javaid.bolaky.carpool.service.util.PoolUtils.convertToInteger;
 
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.collections15.set.ListOrderedSet;
 
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
+import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
+import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
+import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
 import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
+import com.javaid.bolaky.domain.pools.track.vo.PoolSearchCriteria;
 
 public class PoolsAclTranslator {
 
@@ -26,7 +31,8 @@ public class PoolsAclTranslator {
 			pool = new Pool();
 
 			pool.setUsername(carPoolRegistrationVO.getUsername());
-			pool.setGender(Gender.convertCode(carPoolRegistrationVO.getGender().charAt(0)));
+			pool.setGender(Gender.convertCode(carPoolRegistrationVO.getGender()
+					.charAt(0)));
 			pool.setPoolName(carPoolRegistrationVO.getPoolName());
 			pool.setShareCost(carPoolRegistrationVO.getShareCost());
 			pool.setPoolType(PoolType
@@ -153,6 +159,63 @@ public class PoolsAclTranslator {
 		}
 
 		return carPoolErrors;
+	}
+
+	public static PoolSearchCriteria convert(PoolSearchVO poolSearchVO) {
+
+		PoolSearchCriteria poolSearchCriteria = null;
+
+		if (poolSearchVO != null) {
+
+			poolSearchCriteria = new PoolSearchCriteria();
+
+			poolSearchCriteria.setDriverAgeGroup(AgeGroup
+					.convertCode(poolSearchVO.getAgeGroup()));
+			poolSearchCriteria.setDriverGender(Gender.convertCode(poolSearchVO
+					.getDriverGender()));
+			poolSearchCriteria
+					.setNumberOfCurrentPassengers(convertToInteger(poolSearchVO
+							.getNumberOfPassengers()));
+			poolSearchCriteria.setOneWayReturn(poolSearchVO.getOneWayTravel());
+			poolSearchCriteria.setShareCost(poolSearchVO.getShareCost());
+
+		}
+
+		return poolSearchCriteria;
+	}
+
+	public static Set<PoolSearchResultVO> convert(List<Pool> pools) {
+
+		Set<PoolSearchResultVO> poolSearchResultVOs = new ListOrderedSet<PoolSearchResultVO>();
+
+		if (pools != null && !pools.isEmpty()) {
+
+			for (Pool pool : pools) {
+
+				poolSearchResultVOs.add(PoolsAclTranslator.convert(pool));
+			}
+		}
+
+		return poolSearchResultVOs;
+	}
+
+	public static PoolSearchResultVO convert(Pool pool) {
+
+		PoolSearchResultVO poolSearchResultVO = null;
+
+		if (pool != null) {
+
+			poolSearchResultVO = new PoolSearchResultVO();
+
+			poolSearchResultVO.setDepartureTime(pool.getStartingPointInfo()
+					.getDepartureTime());
+			poolSearchResultVO.setDriverAdditionalDetails(pool
+					.getUserPoolAdditionalDetails());
+			poolSearchResultVO.setFromAreaName(pool.getDestinationInfo()
+					.getToAreaCode());
+		}
+
+		return poolSearchResultVO;
 	}
 
 }

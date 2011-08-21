@@ -16,6 +16,8 @@ import com.javaid.bolaky.carpool.service.acl.userregistration.api.UserRegistrati
 import com.javaid.bolaky.carpool.service.api.CarPoolService;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
+import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
+import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 
@@ -94,6 +96,10 @@ public class DefaultCarPoolService implements CarPoolService {
 
 	public PoolRegistrationVO createCarpoolRegistrationVO(String username) {
 		return new PoolRegistrationVO(username);
+	}
+
+	public Set<PoolSearchResultVO> findPools(PoolSearchVO poolSearchVO) {
+		return poolsAcl.findAvailablePools(poolSearchVO);
 	}
 
 }

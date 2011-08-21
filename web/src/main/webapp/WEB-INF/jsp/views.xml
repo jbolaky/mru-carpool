@@ -38,5 +38,13 @@
 	<definition name="registercarpoolpage4" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/registercarpoolpage4.jsp" />
 	</definition>
+	
+	<definition name="poolsimplesearch" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/poolsimplesearch.jsp" />
+	</definition>
+	
+	<definition name="pooladvancedsearch" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/pooladvancedsearch.jsp" />
+	</definition>
 
 </tiles-definitions>
