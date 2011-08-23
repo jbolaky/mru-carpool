@@ -24,6 +24,11 @@ public class DefaultPoolsService implements PoolsService {
 		return poolsRepository.save(pool);
 	}
 
+	public Pool find(Long poolId) {
+		
+		return poolsRepository.findOne(poolId);
+	}
+
 	public Pool find(String username) {
 
 		return poolsRepository.findByUsername(username);

@@ -7,6 +7,7 @@ import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
+import com.javaid.bolaky.carpool.service.vo.PoolVO;
 import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 
@@ -33,4 +34,6 @@ public interface CarPoolService {
 			String username);
 
 	Set<PoolSearchResultVO> findPools(PoolSearchVO poolSearchVO);
+
+	PoolVO findPool(Long poolId);
 }

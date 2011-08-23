@@ -9,6 +9,7 @@ import com.javaid.bolaky.carpool.service.acl.pools.api.PoolsAcl;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
+import com.javaid.bolaky.carpool.service.vo.PoolVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
@@ -49,8 +50,13 @@ public class DefaultPoolsAcl implements PoolsAcl {
 				.convert(poolSearchVO);
 
 		List<Pool> pools = poolsService.findPools(poolSearchCriteria);
-
 		return PoolsAclTranslator.convert(pools);
+	}
+
+	public PoolVO findPool(Long poolId) {
+
+		Pool pool = poolsService.find(poolId);
+		return PoolsAclTranslator.convertToPoolVO(pool);
 	}
 
 }

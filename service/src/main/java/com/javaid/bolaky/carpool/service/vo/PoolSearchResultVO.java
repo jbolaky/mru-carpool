@@ -4,6 +4,8 @@ import org.joda.time.LocalTime;
 
 public class PoolSearchResultVO {
 
+	private Long poolId;
+	
 	private String driverAdditionalDetails;
 	
 	private String fromRegionName;
@@ -33,6 +35,10 @@ public class PoolSearchResultVO {
 	private Integer saturdayNumberOfBookedPersons;
 	
 	private Integer sundayNumberOfBookedPersons;
+	
+	public Long getPoolId() {
+		return poolId;
+	}
 
 	public String getDriverAdditionalDetails() {
 		return driverAdditionalDetails;
@@ -92,6 +98,10 @@ public class PoolSearchResultVO {
 
 	public Integer getSundayNumberOfBookedPersons() {
 		return sundayNumberOfBookedPersons;
+	}
+
+	public void setPoolId(Long poolId) {
+		this.poolId = poolId;
 	}
 
 	public void setDriverAdditionalDetails(String driverAdditionalDetails) {

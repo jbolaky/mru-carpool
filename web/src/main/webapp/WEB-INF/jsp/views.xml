@@ -46,5 +46,17 @@
 	<definition name="pooladvancedsearch" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/pooladvancedsearch.jsp" />
 	</definition>
+	
+	<definition name="poolsearchresult" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/poolsearchresult.jsp" />
+	</definition>
+	
+	<definition name="viewspecificpool" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/viewspecificpool.jsp" />
+	</definition>
+	
+	<definition name="contactdriver" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/contactdriver.jsp" />
+	</definition>
 
 </tiles-definitions>

@@ -38,14 +38,16 @@ public class DefaultPoolsRepositoryCustoms implements
 
 		if (poolSearchCriteria != null) {
 
+			criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+
 			if (poolSearchCriteria.getOneWayReturn() != null) {
 				criteria.add(Restrictions.eq(ONE_WAY_RETURN,
 						poolSearchCriteria.getOneWayReturn()));
 			}
 
 			if (poolSearchCriteria.getDriverGender() != null) {
-				criteria.add(Restrictions.eq(GENDER, poolSearchCriteria
-						.getDriverGender()));
+				criteria.add(Restrictions.eq(GENDER,
+						poolSearchCriteria.getDriverGender()));
 			}
 
 			if (poolSearchCriteria.getShareCost() != null) {

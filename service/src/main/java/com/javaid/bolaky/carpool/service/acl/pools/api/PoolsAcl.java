@@ -5,6 +5,7 @@ import java.util.Set;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
+import com.javaid.bolaky.carpool.service.vo.PoolVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 
 public interface PoolsAcl {
@@ -15,4 +16,5 @@ public interface PoolsAcl {
 
 	Set<PoolSearchResultVO> findAvailablePools(PoolSearchVO poolSearchVO);
 
+	PoolVO findPool(Long poolId);
 }

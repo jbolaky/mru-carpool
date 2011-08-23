@@ -11,6 +11,7 @@ import org.apache.commons.collections15.set.ListOrderedSet;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
+import com.javaid.bolaky.carpool.service.vo.PoolVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
 import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
@@ -207,6 +208,7 @@ public class PoolsAclTranslator {
 
 			poolSearchResultVO = new PoolSearchResultVO();
 
+			poolSearchResultVO.setPoolId(pool.getPoolId());
 			poolSearchResultVO.setDepartureTime(pool.getStartingPointInfo()
 					.getDepartureTime());
 			poolSearchResultVO.setDriverAdditionalDetails(pool
@@ -218,4 +220,35 @@ public class PoolsAclTranslator {
 		return poolSearchResultVO;
 	}
 
+	public static PoolVO convertToPoolVO(Pool pool) {
+
+		PoolVO poolVO = null;
+
+		if (pool != null) {
+
+			poolVO = new PoolVO();
+
+			poolVO.setPoolId(pool.getPoolId());
+			// poolVO.setArrivalTime(pool.getDestinationInfo().)
+			poolVO.setDepartureTime(pool.getStartingPointInfo() != null ? pool
+					.getStartingPointInfo().getDepartureTime() : null);
+			poolVO.setDriverGender(pool.getGender() != null ? pool.getGender()
+					.getCode() : null);
+			poolVO.setEndDate(pool.getDestinationInfo() != null ? pool
+					.getDestinationInfo().getEndDate() : null);
+			poolVO.setNumberOfPassengers(pool.getNumberOfCurrentPassengers());
+			poolVO.setOneWayReturn(pool.getOneWayTravel());
+			poolVO.setPoolType(pool.getPoolType() != null ? com.javaid.bolaky.carpool.service.vo.PoolType
+					.convertCode(pool.getPoolType().getCode().toString())
+					: null);
+			poolVO.setPrefferedGenderToTravelWith(pool.getPrefferedGenderToTravelWith()!=null?pool.getPrefferedGenderToTravelWith().getCode():null);
+			poolVO.setShareCost(poolVO.getShareCost());
+			poolVO.setDepartureTime(pool.getStartingPointInfo()
+					.getDepartureTime());
+			poolVO.setAddtionalDetails(pool.getUserPoolAdditionalDetails());
+			poolVO.setFromAreaName(pool.getDestinationInfo().getToAreaCode());
+		}
+
+		return poolVO;
+	}
 }

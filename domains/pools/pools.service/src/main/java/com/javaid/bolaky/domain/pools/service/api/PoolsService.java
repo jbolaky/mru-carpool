@@ -11,5 +11,7 @@ public interface PoolsService {
 	
 	Pool find(String username);
 	
+	Pool find(Long poolId);
+	
 	List<Pool> findPools(PoolSearchCriteria poolSearchCriteria);
 }
