@@ -4,9 +4,7 @@ public class ContactDriverVO {
 
 	private Long poolId;
 	
-	private String firstname;
-
-	private String lastname;
+	private String username;
 
 	private String emailAddress;
 
@@ -18,12 +16,8 @@ public class ContactDriverVO {
 		return poolId;
 	}
 
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
+	public String getUsername() {
+		return username;
 	}
 
 	public String getEmailAddress() {
@@ -42,12 +36,8 @@ public class ContactDriverVO {
 		this.poolId = poolId;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public void setEmailAddress(String emailAddress) {

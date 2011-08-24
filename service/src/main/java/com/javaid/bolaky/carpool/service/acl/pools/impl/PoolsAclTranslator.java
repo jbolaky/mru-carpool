@@ -8,11 +8,14 @@ import java.util.Set;
 
 import org.apache.commons.collections15.set.ListOrderedSet;
 
+import com.javaid.bolaky.carpool.service.vo.ContactDriverVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
 import com.javaid.bolaky.carpool.service.vo.PoolVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
+import com.javaid.bolaky.domain.pools.entity.Passenger;
+import com.javaid.bolaky.domain.pools.entity.PassengerRequestInfo;
 import com.javaid.bolaky.domain.pools.entity.Pool;
 import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
@@ -241,7 +244,9 @@ public class PoolsAclTranslator {
 			poolVO.setPoolType(pool.getPoolType() != null ? com.javaid.bolaky.carpool.service.vo.PoolType
 					.convertCode(pool.getPoolType().getCode().toString())
 					: null);
-			poolVO.setPrefferedGenderToTravelWith(pool.getPrefferedGenderToTravelWith()!=null?pool.getPrefferedGenderToTravelWith().getCode():null);
+			poolVO.setPrefferedGenderToTravelWith(pool
+					.getPrefferedGenderToTravelWith() != null ? pool
+					.getPrefferedGenderToTravelWith().getCode() : null);
 			poolVO.setShareCost(poolVO.getShareCost());
 			poolVO.setDepartureTime(pool.getStartingPointInfo()
 					.getDepartureTime());
@@ -250,5 +255,29 @@ public class PoolsAclTranslator {
 		}
 
 		return poolVO;
+	}
+
+	public static Passenger convert(ContactDriverVO contactDriverVO) {
+
+		Passenger passenger = null;
+
+		if (contactDriverVO != null) {
+
+			passenger = new Passenger();
+
+			passenger.setUsername(contactDriverVO.getUsername());
+
+			PassengerRequestInfo passengerRequestInfo = new PassengerRequestInfo();
+			passengerRequestInfo.setEmailAddress(contactDriverVO
+					.getEmailAddress());
+			passengerRequestInfo.setEnquiryDetails(contactDriverVO
+					.getEnquiryDetails());
+			passengerRequestInfo.setPhoneNumber(contactDriverVO
+					.getPhoneNumber());
+
+			passenger.addPassengerRequestInfo(passengerRequestInfo);
+		}
+
+		return passenger;
 	}
 }

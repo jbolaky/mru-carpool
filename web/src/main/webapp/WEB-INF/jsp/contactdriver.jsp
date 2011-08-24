@@ -6,7 +6,7 @@
 
 <div id="content"><form:form modelAttribute="contactDriverVO"
 	action="requestcontactdriver" method="post" class="contentmargin">
-	firstname : <form:input path="firstname" />
+	Enquiry Details : <form:input path="enquiryDetails" />
 	<form:hidden value="${contactDriverVO.poolId}"
 		path="poolId"/>
 	<div class="topspace buttons"><input class="button"

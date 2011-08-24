@@ -2,6 +2,7 @@ package com.javaid.bolaky.carpool.service.acl.pools.api;
 
 import java.util.Set;
 
+import com.javaid.bolaky.carpool.service.vo.ContactDriverVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
@@ -17,4 +18,6 @@ public interface PoolsAcl {
 	Set<PoolSearchResultVO> findAvailablePools(PoolSearchVO poolSearchVO);
 
 	PoolVO findPool(Long poolId);
+	
+	Boolean addPassengerToPool(ContactDriverVO contactDriverVO);
 }

@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 import com.javaid.bolaky.carpool.service.acl.pools.api.PoolsAcl;
+import com.javaid.bolaky.carpool.service.vo.ContactDriverVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
@@ -57,6 +58,22 @@ public class DefaultPoolsAcl implements PoolsAcl {
 
 		Pool pool = poolsService.find(poolId);
 		return PoolsAclTranslator.convertToPoolVO(pool);
+	}
+
+	public Boolean addPassengerToPool(ContactDriverVO contactDriverVO) {
+		
+		Pool pool = poolsService.find(contactDriverVO.getPoolId());
+		pool.addPassengers(PoolsAclTranslator.convert(contactDriverVO));
+		
+		Set<PoolsError> poolsErrors = pool.activate();
+
+		if (poolsErrors == null
+				|| (poolsErrors != null && poolsErrors.isEmpty())) {
+
+			pool = poolsService.save(pool);
+		}
+
+		return pool != null;
 	}
 
 }

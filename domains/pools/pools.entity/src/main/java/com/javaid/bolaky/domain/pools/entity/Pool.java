@@ -338,13 +338,45 @@ public class Pool extends AbstractTimestampUsernameEntity {
 		}
 	}
 
-	public void addPassengers(Passenger passenger) {
+	public void addPassengers(final Passenger passenger) {
 
 		if (passenger != null) {
 			passenger.setPool(this);
 		}
 
-		this.passengers.add(passenger);
+		Predicate<Passenger> predicate = new Predicate<Passenger>() {
+
+			public boolean evaluate(Passenger passengerFromList) {
+
+				boolean match = false;
+				if (passenger != null
+						&& passengerFromList != null
+						&& passengerFromList.getUsername().equalsIgnoreCase(
+								passenger.getUsername())) {
+					match = true;
+				}
+				return match;
+			}
+		};
+
+		Passenger existingPassenger = CollectionUtils.find(passengers, predicate);
+
+		if (existingPassenger == null) {
+
+			this.passengers.add(passenger);
+		} else {
+
+			if (passenger != null
+					&& !passenger.getPassengerRequestInfos().isEmpty()) {
+
+				for (PassengerRequestInfo passengerRequestInfo : passenger
+						.getPassengerRequestInfos()) {
+
+					existingPassenger
+							.addPassengerRequestInfo(passengerRequestInfo);
+				}
+			}
+		}
 	}
 
 	private Set<PoolsError> validate() {

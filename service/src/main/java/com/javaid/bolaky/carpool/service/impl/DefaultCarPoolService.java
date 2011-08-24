@@ -14,6 +14,7 @@ import com.javaid.bolaky.carpool.service.acl.location.api.LocationAcl;
 import com.javaid.bolaky.carpool.service.acl.pools.api.PoolsAcl;
 import com.javaid.bolaky.carpool.service.acl.userregistration.api.UserRegistrationAcl;
 import com.javaid.bolaky.carpool.service.api.CarPoolService;
+import com.javaid.bolaky.carpool.service.vo.ContactDriverVO;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
@@ -105,6 +106,11 @@ public class DefaultCarPoolService implements CarPoolService {
 
 	public PoolVO findPool(Long poolId) {
 		return poolsAcl.findPool(poolId);
+	}
+
+	@Transactional
+	public Boolean sendRequestForPooling(ContactDriverVO contactDriverVO) {
+		return poolsAcl.addPassengerToPool(contactDriverVO);
 	}
 
 }

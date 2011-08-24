@@ -3,6 +3,7 @@ package com.javaid.bolaky.carpool.service.api;
 import java.util.Set;
 
 import com.javaid.bolaky.carpool.service.acl.email.impl.EmailAclException;
+import com.javaid.bolaky.carpool.service.vo.ContactDriverVO;
 import com.javaid.bolaky.carpool.service.vo.LocationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolRegistrationVO;
 import com.javaid.bolaky.carpool.service.vo.PoolSearchResultVO;
@@ -36,4 +37,6 @@ public interface CarPoolService {
 	Set<PoolSearchResultVO> findPools(PoolSearchVO poolSearchVO);
 
 	PoolVO findPool(Long poolId);
+	
+	Boolean sendRequestForPooling(ContactDriverVO contactDriverVO);
 }

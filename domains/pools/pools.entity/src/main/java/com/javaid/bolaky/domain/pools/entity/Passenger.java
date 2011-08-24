@@ -1,13 +1,17 @@
 package com.javaid.bolaky.domain.pools.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.apache.commons.collections15.set.ListOrderedSet;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
@@ -32,9 +36,9 @@ public class Passenger extends AbstractTimestampUsernameEntity {
 	@Type(type = "state_status_user_types")
 	@Column(name = "STATE_STATUS_INDICATOR")
 	private StateStatus stateStatus;
-	
-	@Column(name = "MESSAGE")
-	private String message;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "passenger")
+	private Set<PassengerRequestInfo> passengerRequestInfos = new ListOrderedSet<PassengerRequestInfo>();
 
 	@JoinColumn(name = "POOL_ID")
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -52,8 +56,8 @@ public class Passenger extends AbstractTimestampUsernameEntity {
 		return pool;
 	}
 
-	public String getMessage() {
-		return message;
+	public Set<PassengerRequestInfo> getPassengerRequestInfos() {
+		return passengerRequestInfos;
 	}
 
 	public void setUsername(String username) {
@@ -64,12 +68,17 @@ public class Passenger extends AbstractTimestampUsernameEntity {
 		this.stateStatus = stateStatus;
 	}
 
+	public void addPassengerRequestInfo(PassengerRequestInfo passengerRequestInfo){
+		
+		if(passengerRequestInfo!=null){
+			passengerRequestInfo.setPassenger(this);
+		}
+		
+		passengerRequestInfos.add(passengerRequestInfo);
+	}
+	
 	void setPool(Pool pool) {
 		this.pool = pool;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
 	}
 
 }
