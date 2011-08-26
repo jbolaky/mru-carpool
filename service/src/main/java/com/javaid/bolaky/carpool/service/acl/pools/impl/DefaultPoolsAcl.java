@@ -13,6 +13,7 @@ import com.javaid.bolaky.carpool.service.vo.PoolSearchVO;
 import com.javaid.bolaky.carpool.service.vo.PoolVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.pools.entity.Pool;
+import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
 import com.javaid.bolaky.domain.pools.service.api.PoolsService;
 import com.javaid.bolaky.domain.pools.track.vo.PoolSearchCriteria;
@@ -33,7 +34,7 @@ public class DefaultPoolsAcl implements PoolsAcl {
 	public Boolean register(PoolRegistrationVO carPoolRegistrationVO) {
 
 		Pool pool = PoolsAclTranslator.convertPool(carPoolRegistrationVO);
-
+		pool.setAgeGroup(AgeGroup.TWENTY_ONE_TO_TWENTYFIVE);
 		Set<PoolsError> poolsErrors = pool.activate();
 
 		if (poolsErrors == null

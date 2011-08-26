@@ -82,6 +82,10 @@ public class Pool extends AbstractTimestampUsernameEntity {
 	@NotEmpty(message = "P11", groups = MandatoryDataRules.class)
 	@Column(name = "POOL_NAME")
 	private String poolName;
+	
+	@Type(type = "yes_no")
+	@Column(name="COMPLETED")
+	private Boolean completed;
 
 	@NotNull(message = "P12", groups = MandatoryDataRules.class)
 	@Type(type = "yes_no")
@@ -165,6 +169,10 @@ public class Pool extends AbstractTimestampUsernameEntity {
 
 	public String getPoolName() {
 		return poolName;
+	}
+
+	public Boolean isCompleted() {
+		return completed;
 	}
 
 	public Boolean getShareCost() {
@@ -261,6 +269,10 @@ public class Pool extends AbstractTimestampUsernameEntity {
 
 	public void setPoolName(String poolName) {
 		this.poolName = poolName;
+	}
+
+	public void setCompleted(Boolean completed) {
+		this.completed = completed;
 	}
 
 	public void setShareCost(Boolean shareCost) {

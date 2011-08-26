@@ -16,10 +16,12 @@ import com.javaid.bolaky.carpool.service.vo.ContactDriverVO;
 public class ContactDriverController {
 
 	private static final String CONTACT_DRIVER_PAGE = "contactdriver";
+	private static final String POOL_SIMPLE_SEARCH_PAGE = "poolsimplesearch";
+	private static final String REDIRECT_PREFIX = "redirect:/";
 
 	@Resource(name = "carPoolService")
 	private CarPoolService poolService;
-	
+
 	@RequestMapping(value = "/contactdriver", method = RequestMethod.GET)
 	public String setUpContactDriverForm(@RequestParam("id") Long poolId,
 			Model model) {
@@ -38,11 +40,11 @@ public class ContactDriverController {
 
 		contactDriverVO.setUsername(SecurityContextHolder.getContext()
 				.getAuthentication().getName());
-		
-		if(!poolService.sendRequestForPooling(contactDriverVO)){
-			
+
+		if (!poolService.sendRequestForPooling(contactDriverVO)) {
+
 		}
-		
-		return CONTACT_DRIVER_PAGE;
+
+		return REDIRECT_PREFIX + POOL_SIMPLE_SEARCH_PAGE;
 	}
 }
