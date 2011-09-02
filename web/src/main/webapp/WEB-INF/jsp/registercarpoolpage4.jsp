@@ -147,5 +147,5 @@
 		name="_eventId_previousstep" type="submit"
 		value="Click Here To Go Back" /><input class="button"
 		name="_eventId_confirm" type="submit"
-		value="Click Here To Register Carpool" /></div></div>
+		value="Click Here To Save Carpool" /></div></div>
 </form:form>

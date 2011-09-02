@@ -10,6 +10,8 @@ import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 
 public class PoolSearchCriteria {
 
+	private String username;
+	
 	private Gender driverGender;
 
 	private Boolean shareCost;
@@ -25,6 +27,10 @@ public class PoolSearchCriteria {
 	private DestinationInfoPoolSearchCriteria destinationInfoPoolSearchCriteria = new DestinationInfoPoolSearchCriteria();
 
 	private Set<DayOfWeek> poolDays = new ListOrderedSet<DayOfWeek>();
+
+	public String getUsername() {
+		return username;
+	}
 
 	public Gender getDriverGender() {
 		return driverGender;
@@ -56,6 +62,10 @@ public class PoolSearchCriteria {
 
 	public Set<DayOfWeek> getPoolDays() {
 		return poolDays;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public void setDriverGender(Gender driverGender) {

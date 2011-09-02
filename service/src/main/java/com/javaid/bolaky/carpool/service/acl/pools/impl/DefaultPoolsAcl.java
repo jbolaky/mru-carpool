@@ -26,20 +26,27 @@ public class DefaultPoolsAcl implements PoolsAcl {
 	public Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO) {
 
 		Set<PoolsError> poolsErrors = PoolsAclTranslator.convertPool(
-				carPoolRegistrationVO).activate();
+				carPoolRegistrationVO, new Pool()).activate();
 
 		return PoolsAclTranslator.convertToCarPoolErrors(poolsErrors);
 	}
 
-	public Boolean register(PoolRegistrationVO carPoolRegistrationVO) {
+	public Boolean saveOrUpdate(PoolRegistrationVO carPoolRegistrationVO) {
 
-		Pool pool = PoolsAclTranslator.convertPool(carPoolRegistrationVO);
+		Pool pool = PoolsAclTranslator.convertPool(carPoolRegistrationVO,
+				new Pool());
 		pool.setAgeGroup(AgeGroup.TWENTY_ONE_TO_TWENTYFIVE);
 		Set<PoolsError> poolsErrors = pool.activate();
 
 		if (poolsErrors == null
 				|| (poolsErrors != null && poolsErrors.isEmpty())) {
 
+			if (carPoolRegistrationVO.getPoolId() != null) {
+
+				pool = poolsService.find(carPoolRegistrationVO.getPoolId());
+				pool = PoolsAclTranslator.convertPool(carPoolRegistrationVO,
+						pool);
+			}
 			pool = poolsService.save(pool);
 		}
 
@@ -55,6 +62,21 @@ public class DefaultPoolsAcl implements PoolsAcl {
 		return PoolsAclTranslator.convert(pools);
 	}
 
+	public Set<PoolVO> findPools(String username) {
+
+		PoolSearchCriteria poolSearchCriteria = PoolsAclTranslator
+				.convertToPoolSearchCriteria(username);
+
+		List<Pool> pools = poolsService.findPools(poolSearchCriteria);
+		return PoolsAclTranslator.convertToPoolVOs(pools);
+	}
+
+	public PoolRegistrationVO findPoolRegistrationVO(Long poolId) {
+
+		Pool pool = poolsService.find(poolId);
+		return PoolsAclTranslator.convertToPoolRegistrationVO(pool);
+	}
+
 	public PoolVO findPool(Long poolId) {
 
 		Pool pool = poolsService.find(poolId);
@@ -62,10 +84,10 @@ public class DefaultPoolsAcl implements PoolsAcl {
 	}
 
 	public Boolean addPassengerToPool(ContactDriverVO contactDriverVO) {
-		
+
 		Pool pool = poolsService.find(contactDriverVO.getPoolId());
 		pool.addPassengers(PoolsAclTranslator.convert(contactDriverVO));
-		
+
 		Set<PoolsError> poolsErrors = pool.activate();
 
 		if (poolsErrors == null

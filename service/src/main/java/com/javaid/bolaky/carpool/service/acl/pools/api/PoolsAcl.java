@@ -13,11 +13,15 @@ public interface PoolsAcl {
 
 	Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO);
 
-	Boolean register(PoolRegistrationVO carPoolRegistrationVO);
+	Boolean saveOrUpdate(PoolRegistrationVO carPoolRegistrationVO);
 
 	Set<PoolSearchResultVO> findAvailablePools(PoolSearchVO poolSearchVO);
 
+	Set<PoolVO> findPools(String username);
+	
 	PoolVO findPool(Long poolId);
 	
 	Boolean addPassengerToPool(ContactDriverVO contactDriverVO);
+	
+	PoolRegistrationVO findPoolRegistrationVO(Long poolId);
 }

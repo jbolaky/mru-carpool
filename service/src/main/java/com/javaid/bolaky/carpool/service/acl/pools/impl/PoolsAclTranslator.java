@@ -21,18 +21,15 @@ import com.javaid.bolaky.domain.pools.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.pools.entity.enumerated.DayOfWeek;
 import com.javaid.bolaky.domain.pools.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.pools.entity.enumerated.PoolType;
+import com.javaid.bolaky.domain.pools.entity.enumerated.StateStatus;
 import com.javaid.bolaky.domain.pools.enumerated.PoolsError;
 import com.javaid.bolaky.domain.pools.track.vo.PoolSearchCriteria;
 
 public class PoolsAclTranslator {
 
-	public static Pool convertPool(PoolRegistrationVO carPoolRegistrationVO) {
-
-		Pool pool = null;
+	public static Pool convertPool(PoolRegistrationVO carPoolRegistrationVO, Pool pool) {
 
 		if (carPoolRegistrationVO != null) {
-
-			pool = new Pool();
 
 			pool.setUsername(carPoolRegistrationVO.getUsername());
 			pool.setGender(Gender.convertCode(carPoolRegistrationVO.getGender()
@@ -188,6 +185,20 @@ public class PoolsAclTranslator {
 		return poolSearchCriteria;
 	}
 
+	public static PoolSearchCriteria convertToPoolSearchCriteria(
+			String poolCreatorUsername) {
+
+		PoolSearchCriteria poolSearchCriteria = null;
+
+		if (poolCreatorUsername != null) {
+
+			poolSearchCriteria = new PoolSearchCriteria();
+			poolSearchCriteria.setUsername(poolCreatorUsername);
+		}
+
+		return poolSearchCriteria;
+	}
+
 	public static Set<PoolSearchResultVO> convert(List<Pool> pools) {
 
 		Set<PoolSearchResultVO> poolSearchResultVOs = new ListOrderedSet<PoolSearchResultVO>();
@@ -223,6 +234,137 @@ public class PoolsAclTranslator {
 		return poolSearchResultVO;
 	}
 
+	public static PoolRegistrationVO convertToPoolRegistrationVO(Pool pool) {
+
+		PoolRegistrationVO poolRegistrationVO = null;
+
+		if (pool != null) {
+
+			poolRegistrationVO = new PoolRegistrationVO();
+
+			poolRegistrationVO.setPoolId(pool.getPoolId());
+			poolRegistrationVO.setAdditionalDetails(pool
+					.getUserPoolAdditionalDetails());
+			poolRegistrationVO.setCarOwner(pool.getVehicleInfo().isOwner());
+			poolRegistrationVO.setDepartureTime(pool.getStartingPointInfo()
+					.getDepartureTime());
+			poolRegistrationVO.setEndOfPoolDate(pool.getDestinationInfo()
+					.getEndDate());
+			poolRegistrationVO.setFromAreaCode(pool.getStartingPointInfo()
+					.getFromAreaCode());
+			poolRegistrationVO.setFromDistrictCode(pool.getStartingPointInfo()
+					.getFromDistrictCode());
+			poolRegistrationVO.setGender(pool.getGender().getCode().toString());
+			poolRegistrationVO.setGenderToTravelWith(pool
+					.getPrefferedGenderToTravelWith().getCode().toString());
+			poolRegistrationVO.setMaxNumberOfSeats(pool.getVehicleInfo()
+					.getMaxNumberOfSeats().toString());
+			poolRegistrationVO.setNumberOfCurrentPassengers(pool
+					.getNumberOfCurrentPassengers().toString());
+			poolRegistrationVO.setOneWayTravel(pool.getOneWayTravel());
+			poolRegistrationVO.setPoolName(pool.getPoolName());
+			poolRegistrationVO
+					.setPoolType(com.javaid.bolaky.carpool.service.vo.PoolType
+							.convertCode(pool.getPoolType().getCode()
+									.toString()));
+			poolRegistrationVO.setShareCost(pool.getShareCost());
+			poolRegistrationVO.setSmoker(pool.getSmoker());
+			poolRegistrationVO.setStartingPoolDate(pool.getStartingPointInfo()
+					.getStartingDate());
+			poolRegistrationVO.setToAreaCode(pool.getDestinationInfo()
+					.getToAreaCode());
+			poolRegistrationVO.setToDistrictCode(pool.getDestinationInfo()
+					.getToDistictCode());
+			poolRegistrationVO.setUsername(pool.getUsername());
+			poolRegistrationVO.setValidLicense(pool.getValidLicense());
+			poolRegistrationVO.setVehicleMake(pool.getVehicleInfo()
+					.getMakeCode());
+			poolRegistrationVO.setVehicleModel(pool.getVehicleInfo()
+					.getModelCode());
+			poolRegistrationVO.setVehicleType(pool.getVehicleInfo()
+					.getTypeCode());
+
+			for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
+
+				if (pool.getAvailableSeatsForADay(dayOfWeek) != null
+						&& pool.getAvailableSeatsForADay(dayOfWeek) != 0) {
+
+					switch (dayOfWeek) {
+					case MONDAY:
+						poolRegistrationVO.setTravelOnMonday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnMonday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+					case TUESDAY:
+						poolRegistrationVO.setTravelOnTuesday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnTuesday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+					case WEDNESDAY:
+						poolRegistrationVO.setTravelOnWednesday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnWednesday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+					case THURSDAY:
+						poolRegistrationVO.setTravelOnThursday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnThursday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+					case FRIDAY:
+						poolRegistrationVO.setTravelOnFriday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnFriday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+					case SATURDAY:
+						poolRegistrationVO.setTravelOnSaturday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnSaturday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+					case SUNDAY:
+						poolRegistrationVO.setTravelOnSunday(true);
+						poolRegistrationVO
+								.setNumberOfAvailableSeatsOnSunday(pool
+										.getAvailableSeatsForADay(dayOfWeek)
+										.toString());
+						break;
+
+					default:
+						break;
+					}
+				}
+			}
+		}
+
+		return poolRegistrationVO;
+	}
+
+	public static Set<PoolVO> convertToPoolVOs(List<Pool> pools) {
+
+		Set<PoolVO> poolVOs = new ListOrderedSet<PoolVO>();
+
+		if (pools != null && !pools.isEmpty()) {
+
+			for (Pool pool : pools) {
+
+				poolVOs.add(convertToPoolVO(pool));
+			}
+		}
+
+		return poolVOs;
+	}
+
 	public static PoolVO convertToPoolVO(Pool pool) {
 
 		PoolVO poolVO = null;
@@ -232,6 +374,10 @@ public class PoolsAclTranslator {
 			poolVO = new PoolVO();
 
 			poolVO.setPoolId(pool.getPoolId());
+			poolVO.setCompleted(pool.isCompleted());
+			poolVO.setPoolName(pool.getPoolName());
+			poolVO.setNumberOfNewPoolRequest(getNumberOfNewRequest(pool
+					.getPassengers()));
 			// poolVO.setArrivalTime(pool.getDestinationInfo().)
 			poolVO.setDepartureTime(pool.getStartingPointInfo() != null ? pool
 					.getStartingPointInfo().getDepartureTime() : null);
@@ -279,5 +425,27 @@ public class PoolsAclTranslator {
 		}
 
 		return passenger;
+	}
+
+	private static Integer getNumberOfNewRequest(Set<Passenger> passengers) {
+
+		Integer numberOfNewRequest = null;
+
+		if (passengers != null && !passengers.isEmpty()) {
+
+			for (Passenger passenger : passengers) {
+
+				if (StateStatus.PENDING.equals(passenger.getStateStatus())) {
+
+					if (numberOfNewRequest == null) {
+						numberOfNewRequest = 0;
+					}
+
+					numberOfNewRequest++;
+				}
+			}
+		}
+
+		return numberOfNewRequest;
 	}
 }

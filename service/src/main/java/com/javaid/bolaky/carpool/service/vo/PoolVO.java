@@ -11,6 +11,12 @@ public class PoolVO implements Serializable {
 
 	private Long poolId;
 	
+	private String poolName;
+	
+	private Boolean completed;
+	
+	private Integer numberOfNewPoolRequest;
+	
 	private String addtionalDetails;
 
 	private LocalTime departureTime;
@@ -55,6 +61,18 @@ public class PoolVO implements Serializable {
 	
 	public Long getPoolId() {
 		return poolId;
+	}
+
+	public String getPoolName() {
+		return poolName;
+	}
+
+	public Boolean getCompleted() {
+		return completed;
+	}
+
+	public Integer getNumberOfNewPoolRequest() {
+		return numberOfNewPoolRequest;
 	}
 
 	public String getAddtionalDetails() {
@@ -143,6 +161,18 @@ public class PoolVO implements Serializable {
 
 	public void setPoolId(Long poolId) {
 		this.poolId = poolId;
+	}
+
+	public void setPoolName(String poolName) {
+		this.poolName = poolName;
+	}
+
+	public void setCompleted(Boolean completed) {
+		this.completed = completed;
+	}
+
+	public void setNumberOfNewPoolRequest(Integer numberOfNewPoolRequest) {
+		this.numberOfNewPoolRequest = numberOfNewPoolRequest;
 	}
 
 	public void setAddtionalDetails(String addtionalDetails) {

@@ -20,7 +20,7 @@ public interface CarPoolService {
 
 	Boolean store(UserVO userVO);
 
-	Boolean register(PoolRegistrationVO poolRegistrationVO);
+	Boolean saveOrUpdate(PoolRegistrationVO poolRegistrationVO);
 
 	Set<LocationVO> getAllCountries();
 
@@ -31,11 +31,15 @@ public interface CarPoolService {
 
 	PoolRegistrationVO createCarpoolRegistrationVO(String username);
 
+	PoolRegistrationVO findPoolRegistrationVO(Long poolId);
+	
 	void populateGenderAndUsername(PoolRegistrationVO poolRegistrationVO,
 			String username);
 
 	Set<PoolSearchResultVO> findPools(PoolSearchVO poolSearchVO);
 
+	Set<PoolVO> findPools(String username);
+	
 	PoolVO findPool(Long poolId);
 	
 	Boolean sendRequestForPooling(ContactDriverVO contactDriverVO);

@@ -80,7 +80,7 @@
 
 		<transition on="previousstep" to="registercarpoolpage3" />
 		<transition on="confirm" to="registercarpool">
-			<evaluate expression="carPoolService.register(carPoolRegistrationVO)" />
+			<evaluate expression="carPoolService.saveOrUpdate(carPoolRegistrationVO)" />
 		</transition>
 	</view-state>
 

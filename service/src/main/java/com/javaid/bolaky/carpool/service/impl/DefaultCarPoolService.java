@@ -55,9 +55,9 @@ public class DefaultCarPoolService implements CarPoolService {
 	}
 
 	@Transactional
-	public Boolean register(PoolRegistrationVO poolRegistrationVO) {
+	public Boolean saveOrUpdate(PoolRegistrationVO poolRegistrationVO) {
 
-		return poolsAcl.register(poolRegistrationVO);
+		return poolsAcl.saveOrUpdate(poolRegistrationVO);
 	}
 
 	@Transactional
@@ -100,10 +100,21 @@ public class DefaultCarPoolService implements CarPoolService {
 		return new PoolRegistrationVO(username);
 	}
 
+	@Transactional
+	public PoolRegistrationVO findPoolRegistrationVO(Long poolId) {
+		return poolsAcl.findPoolRegistrationVO(poolId);
+	}
+
 	public Set<PoolSearchResultVO> findPools(PoolSearchVO poolSearchVO) {
 		return poolsAcl.findAvailablePools(poolSearchVO);
 	}
 
+	@Transactional
+	public Set<PoolVO> findPools(String username) {
+		return poolsAcl.findPools(username);
+	}
+
+	@Transactional
 	public PoolVO findPool(Long poolId) {
 		return poolsAcl.findPool(poolId);
 	}

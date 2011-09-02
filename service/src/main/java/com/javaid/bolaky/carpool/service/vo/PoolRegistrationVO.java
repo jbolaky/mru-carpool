@@ -13,8 +13,10 @@ public class PoolRegistrationVO implements Serializable {
 
 	private static final long serialVersionUID = -6418987354269415624L;
 
-	private String username;
+	private Long poolId;
 	
+	private String username;
+
 	private String gender;
 
 	/** start of page 1 attributes */
@@ -63,37 +65,38 @@ public class PoolRegistrationVO implements Serializable {
 	/** start of page 3 attributes */
 	private Boolean travelOnMonday;
 
-	private String numberOfAvailableSeatsOnMonday;
+	private String numberOfAvailableSeatsOnMonday = "0";
 
 	private Boolean travelOnTuesday;
 
-	private String numberOfAvailableSeatsOnTuesday;
+	private String numberOfAvailableSeatsOnTuesday = "0";
 
 	private Boolean travelOnWednesday;
 
-	private String numberOfAvailableSeatsOnWednesday;
+	private String numberOfAvailableSeatsOnWednesday = "0";
 
 	private Boolean travelOnThursday;
 
-	private String numberOfAvailableSeatsOnThursday;
+	private String numberOfAvailableSeatsOnThursday = "0";
 
 	private Boolean travelOnFriday;
 
-	private String numberOfAvailableSeatsOnFriday;
+	private String numberOfAvailableSeatsOnFriday = "0";
 
 	private Boolean travelOnSaturday;
 
-	private String numberOfAvailableSeatsOnSaturday;
+	private String numberOfAvailableSeatsOnSaturday = "0";
 
 	private Boolean travelOnSunday;
 
-	private String numberOfAvailableSeatsOnSunday;
+	private String numberOfAvailableSeatsOnSunday = "0";
 
 	private String toAreaCode;
 
 	private String toDistrictCode;
 
 	private String additionalDetails;
+
 	/** end of page 3 attributes */
 
 	public PoolRegistrationVO() {
@@ -103,6 +106,10 @@ public class PoolRegistrationVO implements Serializable {
 	public PoolRegistrationVO(String username) {
 		super();
 		this.username = username;
+	}
+
+	public Long getPoolId() {
+		return poolId;
 	}
 
 	public PoolType getPoolType() {
@@ -251,6 +258,10 @@ public class PoolRegistrationVO implements Serializable {
 
 	public String getAdditionalDetails() {
 		return additionalDetails;
+	}
+
+	public void setPoolId(Long poolId) {
+		this.poolId = poolId;
 	}
 
 	public void setPoolType(PoolType poolType) {

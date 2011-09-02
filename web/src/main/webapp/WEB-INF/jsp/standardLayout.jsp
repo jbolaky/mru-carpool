@@ -50,17 +50,18 @@
 	</ul>
 	</li>
 	<li><a href="<c:url value="registeruser"/>">Register Free</a></li>
-	<li><c:choose>
+	<c:choose>
 		<c:when
 			test='<%=SecurityContextHolder.getContext() != null && SecurityContextHolder.getContext().getAuthentication()!=null && SecurityContextHolder.getContext().getAuthentication().getName()!=null && !SecurityContextHolder.getContext().getAuthentication().getName().equalsIgnoreCase("anonymousUser")%>'>
 			<security:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
-				<a href="<c:url value="/logout" />">Logout</a>
+				<li><a href="<c:url value="/memberarea" />">Member Area</a></li>
+				<li><a href="<c:url value="/logout" />">Logout</a></li>
 			</security:authorize>
 		</c:when>
 		<c:otherwise>
-			<a href="<c:url value="login"/>">Login</a>
+			<li><a href="<c:url value="login"/>">Login</a></li>
 		</c:otherwise>
-	</c:choose></li>
+	</c:choose>
 </ul>
 </div>
 <div class="clear"></div>

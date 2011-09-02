@@ -1,8 +1,9 @@
 package com.javaid.bolaky.carpool.web.controller;
 
+import static com.javaid.bolaky.carpool.web.controller.util.ControllerUtility.getUsername;
+
 import javax.annotation.Resource;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +39,7 @@ public class ContactDriverController {
 	public String setUpContactDriverForm(ContactDriverVO contactDriverVO,
 			Model model) {
 
-		contactDriverVO.setUsername(SecurityContextHolder.getContext()
-				.getAuthentication().getName());
+		contactDriverVO.setUsername(getUsername());
 
 		if (!poolService.sendRequestForPooling(contactDriverVO)) {
 

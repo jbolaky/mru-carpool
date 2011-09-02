@@ -58,5 +58,9 @@
 	<definition name="contactdriver" extends="standardLayout">
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/contactdriver.jsp" />
 	</definition>
+	
+	<definition name="memberarea" extends="standardLayout">
+		<put-attribute name="mainContent" value="/WEB-INF/jsp/memberarea.jsp" />
+	</definition>
 
 </tiles-definitions>

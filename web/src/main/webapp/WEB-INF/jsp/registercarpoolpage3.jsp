@@ -4,7 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<link href="<c:url value="/resources/static/styles/registercarpoolpage3.css"/>"
+<link
+	href="<c:url value="/resources/static/styles/registercarpoolpage3.css"/>"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/static/styles/error.css"/>"
 	rel="stylesheet" type="text/css" />
@@ -19,47 +20,52 @@
 			<c:forEach items="${status.errorMessages}" var="error">
 				<tr>
 					<td><img
-						src="<c:url value="/resources/static/images/error_icon.png"/>" width="15"
-						height="15" /></td>
+						src="<c:url value="/resources/static/images/error_icon.png"/>"
+						width="15" height="15" /></td>
 					<td><c:out value="${error}" /></td>
 				</tr>
 			</c:forEach>
 		</spring:bind>
 	</table>
 	</div>
-</spring:hasBindErrors>
-
-<form:form modelAttribute="carPoolRegistrationVO" action="${flowExecutionUrl}" method="post"
-	class="contentmargin">
+</spring:hasBindErrors> <form:form modelAttribute="carPoolRegistrationVO"
+	action="${flowExecutionUrl}" method="post" class="contentmargin">
 	<fieldset><label>Select the travel Days and the
 	amount of seats available for that day</label>
 	<table>
 		<tr>
-			<td width="20%"><form:checkbox path="travelOnMonday" type="checkbox" value="true" />Monday</td>
-			<td><form:input path="numberOfAvailableSeatsOnMonday" type="text"
-				value="0" class="seatsAvailable" /></td>
-			<td width="20%"><form:checkbox path="travelOnTuesday" type="checkbox" value="true" />Tuesday</td>
-			<td><form:input path="numberOfAvailableSeatsOnTuesday" type="text"
-				value="0" class="seatsAvailable" /></td>
-			<td width="20%"><form:checkbox path="travelOnWednesday" type="checkbox" value="true" />Wednesday</td>
-			<td><form:input path="numberOfAvailableSeatsOnWednesday" type="text"
-				value="0" class="seatsAvailable" /></td>
+			<td width="20%"><form:checkbox path="travelOnMonday"
+				type="checkbox" value="true" />Monday</td>
+			<td><form:input path="numberOfAvailableSeatsOnMonday"
+				type="text" class="seatsAvailable" /></td>
+			<td width="20%"><form:checkbox path="travelOnTuesday"
+				type="checkbox" value="true" />Tuesday</td>
+			<td><form:input path="numberOfAvailableSeatsOnTuesday"
+				type="text" class="seatsAvailable" /></td>
+			<td width="20%"><form:checkbox path="travelOnWednesday"
+				type="checkbox" value="true" />Wednesday</td>
+			<td><form:input path="numberOfAvailableSeatsOnWednesday"
+				type="text" class="seatsAvailable" /></td>
 		</tr>
 		<tr>
-			<td><form:checkbox path="travelOnThursday" type="checkbox" value="true" />Thursday</td>
-			<td><form:input path="numberOfAvailableSeatsOnThursday" type="text"
-				value="0" class="seatsAvailable" /></td>
-			<td><form:checkbox path="travelOnFriday" type="checkbox" value="true" />Friday</td>
-			<td><form:input path="numberOfAvailableSeatsOnFriday" type="text"
-				value="0" class="seatsAvailable" /></td>
+			<td><form:checkbox path="travelOnThursday" type="checkbox"
+				value="true" />Thursday</td>
+			<td><form:input path="numberOfAvailableSeatsOnThursday"
+				type="text" class="seatsAvailable" /></td>
+			<td><form:checkbox path="travelOnFriday" type="checkbox"
+				value="true" />Friday</td>
+			<td><form:input path="numberOfAvailableSeatsOnFriday"
+				type="text" class="seatsAvailable" /></td>
 		</tr>
 		<tr>
-			<td><form:checkbox path="travelOnSaturday" type="checkbox" value="true" />Saturday</td>
-			<td><form:input path="numberOfAvailableSeatsOnSaturday" type="text"
-				value="0" class="seatsAvailable" /></td>
-			<td><form:checkbox path="travelOnSunday" type="checkbox" value="true" />Sunday</td>
-			<td><form:input path="numberOfAvailableSeatsOnSunday" type="text"
-				value="0" class="seatsAvailable" /></td>
+			<td><form:checkbox path="travelOnSaturday" type="checkbox"
+				value="true" />Saturday</td>
+			<td><form:input path="numberOfAvailableSeatsOnSaturday"
+				type="text" class="seatsAvailable" /></td>
+			<td><form:checkbox path="travelOnSunday" type="checkbox"
+				value="true" />Sunday</td>
+			<td><form:input path="numberOfAvailableSeatsOnSunday"
+				type="text" class="seatsAvailable" /></td>
 		</tr>
 	</table>
 	<p>Note: You must specify how many seats are available in the field
@@ -88,7 +94,7 @@
 			<td><label>Additional Details:</label></td>
 		</tr>
 		<tr>
-			<td><form:textarea path="additionalDetails" cols="50%" rows="5%"/>
+			<td><form:textarea path="additionalDetails" cols="50%" rows="5%" />
 			</td>
 		</tr>
 	</table>
