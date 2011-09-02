@@ -89,6 +89,7 @@ public class DefaultCarPoolService implements CarPoolService {
 				Arrays.asList(emailAddresses));
 	}
 
+	@Transactional
 	public UserVO findByUsernameAndEmailAddress(String username,
 			String emailAddress) {
 

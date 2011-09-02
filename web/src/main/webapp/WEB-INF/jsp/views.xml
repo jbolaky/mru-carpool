@@ -59,8 +59,12 @@
 		<put-attribute name="mainContent" value="/WEB-INF/jsp/contactdriver.jsp" />
 	</definition>
 	
+	<definition name="memberArea"  template="/WEB-INF/jsp/memberarea.jsp">
+		<put-attribute name="registerPage" value="/WEB-INF/jsp/register.jsp" />
+	</definition>
+	
 	<definition name="memberarea" extends="standardLayout">
-		<put-attribute name="mainContent" value="/WEB-INF/jsp/memberarea.jsp" />
+		<put-attribute name="mainContent" value="memberArea" />
 	</definition>
 
 </tiles-definitions>
