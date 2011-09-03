@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmEmail;
 import com.javaid.bolaky.carpool.service.hibernate.constraint.ConfirmPassword;
+import com.javaid.bolaky.carpool.service.vo.enumerated.AgeGroup;
 
 @ConfirmPassword
 @ConfirmEmail
@@ -13,7 +14,7 @@ public class UserVO implements Serializable {
 
 	private String username;
 
-	private Integer ageGroup;
+	private AgeGroup ageGroup;
 
 	private String firstname;
 
@@ -53,7 +54,7 @@ public class UserVO implements Serializable {
 		return username;
 	}
 
-	public Integer getAgeGroup() {
+	public AgeGroup getAgeGroup() {
 		return ageGroup;
 	}
 
@@ -129,7 +130,7 @@ public class UserVO implements Serializable {
 		this.username = username;
 	}
 
-	public void setAgeGroup(Integer ageGroup) {
+	public void setAgeGroup(AgeGroup ageGroup) {
 		this.ageGroup = ageGroup;
 	}
 

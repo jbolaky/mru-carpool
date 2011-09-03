@@ -43,7 +43,7 @@
 			<td><form:input path="username" type="text" /></td>
 			<td><label>Age Group:</label></td>
 			<td><form:select path="ageGroup">
-				<form:option value="">--SELECT-</form:option>
+				<form:option value="">--SELECT--</form:option>
 				<form:option value="25">18-25</form:option>
 				<form:option value="32">26-32</form:option>
 				<form:option value="40">33-40</form:option>

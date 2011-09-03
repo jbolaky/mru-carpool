@@ -6,10 +6,10 @@ import java.util.Set;
 import org.apache.commons.collections15.set.ListOrderedSet;
 
 import com.javaid.bolaky.carpool.service.vo.UserVO;
+import com.javaid.bolaky.carpool.service.vo.enumerated.AgeGroup;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.userregistration.entity.Address;
 import com.javaid.bolaky.domain.userregistration.entity.Person;
-import com.javaid.bolaky.domain.userregistration.entity.enumerated.AgeGroup;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
@@ -23,7 +23,8 @@ public class UserRegistrationAclTranslator {
 
 			person = new Person();
 			person.setUsername(userVO.getUsername());
-			person.setAgeGroup(AgeGroup.convertCode(userVO.getAgeGroup()));
+			person.setAgeGroup(userVO.getAgeGroup() != null ? com.javaid.bolaky.domain.userregistration.entity.enumerated.AgeGroup
+					.convertCode(userVO.getAgeGroup().getCode()) : null);
 			person.setFirstname(userVO.getFirstname());
 			person.setLastname(userVO.getLastname());
 			person.setPassword(userVO.getPassword());
@@ -55,9 +56,10 @@ public class UserRegistrationAclTranslator {
 		if (person != null) {
 
 			userVO = new UserVO();
-			
+
 			userVO.setUsername(person.getUsername());
-			userVO.setAgeGroup(person.getAgeGroup().getCode());
+			userVO.setAgeGroup(person.getAgeGroup() != null ? AgeGroup
+					.convertCode(person.getAgeGroup().getCode()) : null);
 			userVO.setFirstname(person.getFirstname());
 			userVO.setLastname(person.getLastname());
 			userVO.setPassword(person.getPassword());
