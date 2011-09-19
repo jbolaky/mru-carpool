@@ -2,12 +2,14 @@ package com.javaid.bolaky.domain.userregistration.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
@@ -69,7 +71,7 @@ public class Person extends AbstractTimestampUsernameEntity {
 	private String lastname;
 
 	@Column(name = "ACTIVE")
-	@Type(type = "yes_no")
+	@Type(type = "boolean")
 	private Boolean active = Boolean.TRUE;
 
 	@Column(name = "AGE")
@@ -105,6 +107,9 @@ public class Person extends AbstractTimestampUsernameEntity {
 	@Column(name = "SHARE_DRIVING_IND")
 	@Type(type = "yes_no")
 	private Boolean shareDriving;
+
+	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+	private Set<Authority> authorities = new ListOrderedSet<Authority>();
 
 	@Embedded
 	private UserPreferences userPreferences = new UserPreferences();
@@ -167,6 +172,23 @@ public class Person extends AbstractTimestampUsernameEntity {
 
 	public UserPreferences getUserPreferences() {
 		return userPreferences;
+	}
+
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void addAuthority(Authority authority) {
+
+		if (authority != null) {
+			authority.setPerson(this);
+		}
+
+		System.out.println(this.authorities.add(authority));
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
 	}
 
 	public void setUsername(String username) {

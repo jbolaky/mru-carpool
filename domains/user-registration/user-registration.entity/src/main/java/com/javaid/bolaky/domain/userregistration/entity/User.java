@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.apache.commons.collections15.set.ListOrderedSet;
 import org.hibernate.annotations.Type;
 
-@Entity
+//@Entity
 @Table(name = "users")
 public class User implements Serializable {
 
@@ -64,7 +64,7 @@ public class User implements Serializable {
 	public void addAuthority(Authority authority) {
 
 		if (authority != null) {
-			authority.setUser(this);
+		//	authority.setUser(this);
 		}
 
 		this.authorities.add(authority);

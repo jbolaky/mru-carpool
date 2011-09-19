@@ -21,6 +21,10 @@
 	<mvc:view-controller path="/" view-name="homepage" />
 	<mvc:view-controller path="/login" view-name="login" />
 
+	<!--bean id="poolFormattingConversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		<property name="converters"> <list> <ref bean="stringToAgeGroupConverterFactory" 
+		/> </list> </property> </bean -->
+
 	<bean id="poolFormattingConversionService"
 		class="com.javaid.bolaky.carpool.web.converter.support.PoolFormattingConversionServiceFactoryBean" />
 

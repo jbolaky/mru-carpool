@@ -22,7 +22,7 @@ public enum AgeGroup {
 
 			for (AgeGroup ageGroup : values()) {
 
-				if (age < ageGroup.getCode()) {
+				if (age <= ageGroup.getCode()) {
 					return ageGroup;
 				}
 			}

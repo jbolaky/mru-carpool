@@ -19,6 +19,8 @@ public interface CarPoolService {
 	Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO);
 
 	Boolean store(UserVO userVO);
+	
+	Boolean update(UserVO userVO);
 
 	Boolean saveOrUpdate(PoolRegistrationVO poolRegistrationVO);
 

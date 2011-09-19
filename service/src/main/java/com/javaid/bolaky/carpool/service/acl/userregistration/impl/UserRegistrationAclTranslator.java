@@ -9,19 +9,17 @@ import com.javaid.bolaky.carpool.service.vo.UserVO;
 import com.javaid.bolaky.carpool.service.vo.enumerated.AgeGroup;
 import com.javaid.bolaky.carpool.service.vo.enumerated.CarPoolError;
 import com.javaid.bolaky.domain.userregistration.entity.Address;
+import com.javaid.bolaky.domain.userregistration.entity.Authority;
 import com.javaid.bolaky.domain.userregistration.entity.Person;
 import com.javaid.bolaky.domain.userregistration.entity.enumerated.Gender;
 import com.javaid.bolaky.domain.userregistration.enumerated.PersonErrorCode;
 
 public class UserRegistrationAclTranslator {
 
-	public static Person convertToPerson(UserVO userVO) {
-
-		Person person = null;
+	public static Person convertToPerson(UserVO userVO, Person person) {
 
 		if (userVO != null) {
 
-			person = new Person();
 			person.setUsername(userVO.getUsername());
 			person.setAgeGroup(userVO.getAgeGroup() != null ? com.javaid.bolaky.domain.userregistration.entity.enumerated.AgeGroup
 					.convertCode(userVO.getAgeGroup().getCode()) : null);
@@ -44,6 +42,11 @@ public class UserRegistrationAclTranslator {
 					new Address(userVO.getAddressLine1(), userVO
 							.getCountryCode(), null, userVO.getAreaCode(),
 							userVO.getDistrictCode()));
+			
+			/*Authority authority = new Authority();
+			authority.getRole();
+			
+			person.addAuthority(authority);*/
 		}
 
 		return person;

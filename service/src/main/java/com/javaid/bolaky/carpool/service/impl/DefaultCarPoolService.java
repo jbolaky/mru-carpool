@@ -53,6 +53,12 @@ public class DefaultCarPoolService implements CarPoolService {
 
 		return userRegistrationAcl.store(userVO);
 	}
+	
+	@Transactional
+	public Boolean update(UserVO userVO) {
+
+		return userRegistrationAcl.update(userVO);
+	}
 
 	@Transactional
 	public Boolean saveOrUpdate(PoolRegistrationVO poolRegistrationVO) {

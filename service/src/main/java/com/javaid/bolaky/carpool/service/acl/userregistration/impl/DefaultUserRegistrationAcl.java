@@ -26,7 +26,8 @@ public class DefaultUserRegistrationAcl implements UserRegistrationAcl {
 
 	public Set<CarPoolError> validate(UserVO userVO) {
 
-		Person person = UserRegistrationAclTranslator.convertToPerson(userVO);
+		Person person = UserRegistrationAclTranslator.convertToPerson(userVO,
+				new Person());
 
 		Set<PersonErrorCode> personErrorCodes = person.validate(
 				MandatoryDataRules.class, AddressDataRule.class,
@@ -40,7 +41,17 @@ public class DefaultUserRegistrationAcl implements UserRegistrationAcl {
 
 	public Boolean store(UserVO userVO) {
 
-		Person person = UserRegistrationAclTranslator.convertToPerson(userVO);
+		Person person = UserRegistrationAclTranslator.convertToPerson(userVO,
+				new Person());
+		person = userRegistrationService.savePerson(person);
+		return person != null ? true : false;
+	}
+
+	public Boolean update(UserVO userVO) {
+
+		Person person = userRegistrationService.retrievePerson(userVO
+				.getUsername());
+		person = UserRegistrationAclTranslator.convertToPerson(userVO, person);
 		person = userRegistrationService.savePerson(person);
 		return person != null ? true : false;
 	}

@@ -17,14 +17,14 @@ public class DefaultUserRegistrationService implements UserRegistrationService {
 	@Autowired
 	private UserRegistrationRepository userRegistrationRepository;
 
-	@Autowired
+	//@Autowired
 	private SpringSecurityUserRepository securityUserRepository;
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Person savePerson(Person person) {
 
-		User user = createUser(person);
-		user = securityUserRepository.save(user);
+		//User user = createUser(person);
+		//user = securityUserRepository.save(user);
 
 		return userRegistrationRepository.save(person);
 	}

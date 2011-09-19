@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
@@ -22,6 +21,15 @@
 			</list>
 		</property>
 		<property name="defaultDataSource" ref="pools_DataSource" />
+	</bean>
+
+	<bean id="x" class="com.javaid.bolaky.domain.pools.entity.Test">
+		<constructor-arg>
+			<list>
+				<value>0.913291139</value>
+				<value>0.086708861</value>
+			</list>
+		</constructor-arg>
 	</bean>
 
 </beans>

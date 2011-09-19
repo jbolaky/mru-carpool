@@ -10,12 +10,15 @@
 	<http use-expressions="true" auto-config="true">
 		<intercept-url pattern="/resources/**" filters="none" />
 		<intercept-url pattern="/login" filters="none" />
-		<intercept-url pattern="/registeruser" filters="none" />
+		<intercept-url pattern="/registeruser"
+			access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER','ROLE_ADMIN')" />
 		<intercept-url pattern="/getareas" filters="none" />
 		<intercept-url pattern="/getdistricts" filters="none" />
-		<intercept-url pattern="/saveuser" filters="none" />
+		<intercept-url pattern="/saveuser"
+			access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER','ROLE_ADMIN')" />
 		<intercept-url pattern="/logout.jsp*" filters="none" />
-		<intercept-url pattern="/" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/"
+			access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER','ROLE_ADMIN')" />
 		<form-login login-page="/login" login-processing-url="/loginProcess"
 			authentication-failure-url="/login?login_error=1" />
 		<logout logout-url="/logout" logout-success-url="/" />
@@ -25,7 +28,10 @@
 
 	<authentication-manager>
 		<authentication-provider>
-			<jdbc-user-service data-source-ref="pools_DataSource" />
+			<jdbc-user-service
+				authorities-by-username-query="select USERNAME,AUTHORITY from AUTHORITIES where USERNAME = ?"
+				users-by-username-query="select USERNAME,PASSWORD,ACTIVE from PERSON where USERNAME = ?"
+				data-source-ref="pools_DataSource" />
 		</authentication-provider>
 	</authentication-manager>
 

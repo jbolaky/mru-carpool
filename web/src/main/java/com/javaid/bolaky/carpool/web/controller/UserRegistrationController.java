@@ -1,5 +1,8 @@
 package com.javaid.bolaky.carpool.web.controller;
 
+import static com.javaid.bolaky.carpool.web.controller.util.ControllerUtility.getUsername;
+import static com.javaid.bolaky.carpool.web.controller.util.ControllerUtility.setUsername;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,9 +11,6 @@ import java.util.Set;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
@@ -81,8 +81,20 @@ public class UserRegistrationController {
 			return registerPageName;
 		}
 
-		this.setSecurityContext(userVO.getUsername(),userVO.getPassword());
-		Assert.isTrue(carPoolService.store(userVO), "Is expected to be true");
+		// this.setSecurityContext(userVO.getUsername(),userVO.getPassword());
+
+		if (getUsername() != null
+				&& !getUsername().equalsIgnoreCase("anonymousUser")) {
+
+			Assert.isTrue(carPoolService.update(userVO),
+					"Is expected to be true");
+		} else {
+
+			setUsername(userVO.getUsername(), userVO.getPassword());
+			Assert.isTrue(carPoolService.store(userVO),
+					"Is expected to be true");
+		}
+
 		return homePageName;
 	}
 
@@ -107,12 +119,13 @@ public class UserRegistrationController {
 		model.addAttribute("countries", locationVOs);
 	}
 
-	private void setSecurityContext(String username, String password) {
-
-		Authentication authentication = new UsernamePasswordAuthenticationToken(
-				username, password);
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-	}
+	/*
+	 * private void setSecurityContext(String username, String password) {
+	 * 
+	 * Authentication authentication = new UsernamePasswordAuthenticationToken(
+	 * username, password);
+	 * SecurityContextHolder.getContext().setAuthentication(authentication); }
+	 */
 
 	private Set<LocationVO> getListOfCountries() {
 

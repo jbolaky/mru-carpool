@@ -2,6 +2,8 @@ package com.javaid.bolaky.carpool.web.controller.util;
 
 import java.lang.reflect.Field;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.ReflectionUtils.FieldCallback;
@@ -36,5 +38,16 @@ public class ControllerUtility {
 				.getContext().getAuthentication().getName()
 				: null
 				: null;
+	}
+
+	public static void setUsername(String username, String password) {
+
+		if (SecurityContextHolder.getContext() != null) {
+
+			Authentication authentication = new UsernamePasswordAuthenticationToken(
+					username, password);
+			SecurityContextHolder.getContext()
+					.setAuthentication(authentication);
+		}
 	}
 }

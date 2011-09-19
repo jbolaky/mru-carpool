@@ -8,6 +8,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.math.RandomUtils;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
@@ -46,6 +48,9 @@ public class PoolsRepositoryIntegrationTests {
 	@Autowired
 	private PoolsRepository poolsRepository;
 
+	@Resource(name="x")
+	private com.javaid.bolaky.domain.pools.entity.Test test;
+	
 	@Before
 	public void populateUsername() {
 		Authentication authentication = new UsernamePasswordAuthenticationToken(
