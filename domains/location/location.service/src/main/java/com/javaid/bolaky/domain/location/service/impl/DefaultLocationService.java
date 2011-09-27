@@ -5,6 +5,7 @@ import java.util.Set;
 import org.apache.commons.collections15.set.ListOrderedSet;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.javaid.bolaky.domain.location.entity.Area;
 import com.javaid.bolaky.domain.location.entity.Country;
 import com.javaid.bolaky.domain.location.repository.api.LocationRepository;
 import com.javaid.bolaky.domain.location.service.api.LocationService;
@@ -16,6 +17,16 @@ public class DefaultLocationService implements LocationService {
 
 	public Set<Country> findCountries() {
 		return ListOrderedSet.decorate(locationRepository.findAll());
+	}
+
+	public Country findCountry(Long countryId) {
+
+		return locationRepository.findOne(countryId);
+	}
+
+	public Area findArea(Long areaId) {
+		
+		return locationRepository.findArea(areaId);
 	}
 
 }

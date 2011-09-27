@@ -3,6 +3,7 @@ package com.javaid.bolaky.domain.location.entity;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
 
@@ -51,7 +52,7 @@ public class LocationRepositoryIntegrationTest {
 	@Test
 	public void testSaveAndFind() {
 
-		Country country = createCountry("England");
+		Country country = createCountry("England2");
 
 		Area londonArea = createArea("London");
 		District londonDistrict = createDistrict("City of London", true);
@@ -74,7 +75,7 @@ public class LocationRepositoryIntegrationTest {
 		assertThat(country.getCountryId(), is(notNullValue()));
 
 		Country country2 = locationRepository.findOne(country.getCountryId());
-		assertThat(country2.getCountryName(), is("England"));
+		assertThat(country2.getCountryName(), is("England2"));
 		assertThat(country2.getAreas().size(), is(2));
 
 		Iterator<Area> iteratorArea = country2.getAreas().iterator();
@@ -90,6 +91,40 @@ public class LocationRepositoryIntegrationTest {
 
 		assertThat(iteratorArea.next().getAreaName(), is("Liverpool"));
 
+	}
+
+	@Test
+	public void testGetCountry() {
+
+		Long areaId = 1L;
+		Country country = locationRepository.findCountry(areaId);
+		assertThat(country, is(notNullValue()));
+
+		assertThat(country.getAreas(), is(notNullValue()));
+
+		assertTrue(country.getAreas().size() > 0);
+
+		boolean valid = false;
+		for (Area area : country.getAreas()) {
+			if (area.getAreaId().equals(areaId)) {
+				valid = true;
+			}
+		}
+
+		assertTrue(valid);
+
+	}
+
+	@Test
+	public void testGetArea() {
+
+		Long areaId = 1L;
+		Area area = locationRepository.findArea(areaId);
+
+		assertThat(area, is(notNullValue()));
+		assertThat(area.getAreaId(), is(areaId));
+		assertThat(area.getDistricts(), is(notNullValue()));
+		assertTrue(area.getDistricts().size() > 0);
 	}
 
 	private Country createCountry(String countryName) {

@@ -5,7 +5,7 @@
 
 	<import resource="classpath:/default-location-entity-context.xml" />
 
-	<bean id="location_Service"
+	<bean id="location_domain_DefaultLocationService"
 		class="com.javaid.bolaky.domain.location.service.impl.DefaultLocationService" />
 
 </beans>
