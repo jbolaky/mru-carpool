@@ -4,7 +4,6 @@ import static com.javaid.bolaky.carpool.web.controller.util.ControllerUtility.ge
 import static com.javaid.bolaky.carpool.web.controller.util.ControllerUtility.setUsername;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -129,27 +128,27 @@ public class UserRegistrationController {
 
 	private Set<LocationVO> getListOfCountries() {
 
-		Set<LocationVO> locationVOs = new HashSet<LocationVO>();
+		/*Set<LocationVO> locationVOs = new HashSet<LocationVO>();
 		locationVOs
-				.add(new LocationVO(1L, "Mauritius", null, null, null, null));
-		return locationVOs;
+				.add(new LocationVO(1L, "Mauritius", null, null, null, null));*/
+		return carPoolService.getAllCountries();
 	}
 
 	private Set<LocationVO> getListOfAreas(Long countryId) {
 
-		Set<LocationVO> locationVOs = new HashSet<LocationVO>();
+		/*Set<LocationVO> locationVOs = new HashSet<LocationVO>();
 		locationVOs.add(new LocationVO(null, null, 1L, "Black River", null,
 				null));
 		locationVOs.add(new LocationVO(null, null, 2L, "Flacq", null, null));
 		locationVOs
-				.add(new LocationVO(null, null, 3L, "Port Louis", null, null));
-		return locationVOs;
+				.add(new LocationVO(null, null, 3L, "Port Louis", null, null));*/
+		return carPoolService.getAreas(countryId);
 
 	}
 
 	private Set<LocationVO> getListOfDistrcts(Long areaId) {
 
-		Set<LocationVO> locationVOs = new HashSet<LocationVO>();
+		/*Set<LocationVO> locationVOs = new HashSet<LocationVO>();
 
 		if (areaId.equals(1L)) {
 			locationVOs.add(new LocationVO(null, null, null, null, 1L,
@@ -166,8 +165,8 @@ public class UserRegistrationController {
 					"Plaine-Verte"));
 			locationVOs.add(new LocationVO(null, null, null, null, 2L,
 					"Ward Quatre"));
-		}
-		return locationVOs;
+		}*/
+		return carPoolService.getDistricts(areaId);
 
 	}
 }

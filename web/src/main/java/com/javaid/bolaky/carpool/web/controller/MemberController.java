@@ -49,9 +49,9 @@ public class MemberController {
 
 	private Set<LocationVO> getListOfCountries() {
 
-		Set<LocationVO> locationVOs = new HashSet<LocationVO>();
+		/*Set<LocationVO> locationVOs = new HashSet<LocationVO>();
 		locationVOs
-				.add(new LocationVO(1L, "Mauritius", null, null, null, null));
-		return locationVOs;
+				.add(new LocationVO(1L, "Mauritius", null, null, null, null));*/
+		return poolService.getAllCountries();
 	}
 }
