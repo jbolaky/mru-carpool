@@ -35,6 +35,7 @@ public class DefaultCarPoolService implements CarPoolService {
 	@Resource(name = "pools_service_DefaultPoolsAcl")
 	private PoolsAcl poolsAcl;
 
+	@Resource(name = "pools_service_DefaultLocationAcl")
 	private LocationAcl locationAcl;
 
 	public Set<CarPoolError> validate(UserVO userVO) {
@@ -53,7 +54,7 @@ public class DefaultCarPoolService implements CarPoolService {
 
 		return userRegistrationAcl.store(userVO);
 	}
-	
+
 	@Transactional
 	public Boolean update(UserVO userVO) {
 
@@ -79,6 +80,18 @@ public class DefaultCarPoolService implements CarPoolService {
 	public Set<LocationVO> getAllCountries() {
 
 		return locationAcl.getAllCountries();
+	}
+
+	@Transactional
+	public Set<LocationVO> getAreas(Long countryId) {
+
+		return locationAcl.getAreas(countryId);
+	}
+
+	@Transactional
+	public Set<LocationVO> getDistricts(Long areaId) {
+
+		return locationAcl.getDistricts(areaId);
 	}
 
 	public Boolean emailPassword(String firstname, String lastname,

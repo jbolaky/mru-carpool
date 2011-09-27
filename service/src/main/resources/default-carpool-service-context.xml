@@ -7,6 +7,7 @@
 	<import resource="classpath:/default-user-registration-service-context.xml" />
 	<import resource="classpath:/email-default-context.xml" />
 	<import resource="classpath:/default-pools-service-context.xml" />
+	<import resource="classpath:/default-location-service-context.xml" />
 	<import resource="classpath:/default-carpool-service-spring-jpa-config.xml" />
 	<context:component-scan base-package="com.javaid.bolaky.carpool.service.impl" />
 
@@ -18,5 +19,8 @@
 
 	<bean id="pools_service_DefaultPoolsAcl"
 		class="com.javaid.bolaky.carpool.service.acl.pools.impl.DefaultPoolsAcl" />
+
+	<bean id="pools_service_DefaultLocationAcl"
+		class="com.javaid.bolaky.carpool.service.acl.location.impl.DefaultLocationAcl" />
 
 </beans>

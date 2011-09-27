@@ -19,12 +19,16 @@ public interface CarPoolService {
 	Set<CarPoolError> validate(PoolRegistrationVO carPoolRegistrationVO);
 
 	Boolean store(UserVO userVO);
-	
+
 	Boolean update(UserVO userVO);
 
 	Boolean saveOrUpdate(PoolRegistrationVO poolRegistrationVO);
 
 	Set<LocationVO> getAllCountries();
+
+	Set<LocationVO> getAreas(Long countryId);
+
+	Set<LocationVO> getDistricts(Long areaId);
 
 	Boolean emailPassword(String firstname, String lastname, String password,
 			String recipientEmailAddress) throws EmailAclException;
@@ -34,15 +38,15 @@ public interface CarPoolService {
 	PoolRegistrationVO createCarpoolRegistrationVO(String username);
 
 	PoolRegistrationVO findPoolRegistrationVO(Long poolId);
-	
+
 	void populateGenderAndUsername(PoolRegistrationVO poolRegistrationVO,
 			String username);
 
 	Set<PoolSearchResultVO> findPools(PoolSearchVO poolSearchVO);
 
 	Set<PoolVO> findPools(String username);
-	
+
 	PoolVO findPool(Long poolId);
-	
+
 	Boolean sendRequestForPooling(ContactDriverVO contactDriverVO);
 }

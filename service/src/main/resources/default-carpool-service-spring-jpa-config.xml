@@ -11,6 +11,7 @@
 			<list>
 				<value>classpath*:META-INF/user-registration-persistence.xml</value>
 				<value>classpath*:META-INF/pools-persistence.xml</value>
+				<value>classpath*:META-INF/location-persistence.xml</value>
 			</list>
 		</property>
 		<property name="defaultDataSource" ref="pools_DataSource" />
