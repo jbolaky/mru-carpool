@@ -20,6 +20,7 @@
 		<module>user-registration</module>
 		<module>location</module>
 		<module>pools</module>
+		<module>vehicle</module>
 	</modules>
 
 	<dependencies>
